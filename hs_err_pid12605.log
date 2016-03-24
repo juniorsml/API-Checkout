@@ -1,0 +1,1379 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007f54049c6a32, pid=12605, tid=139997381437184
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_74-b02) (build 1.8.0_74-b02)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.74-b02 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libzip.so+0x11a32]  newEntry+0x62
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f540267e800):  JavaThread "Mule.app.deployer.monitor.1.thread.1" [_thread_in_native, id=12714, stack(0x00007f53ae20a000,0x00007f53ae30b000)]
+
+siginfo: si_signo: 7 (SIGBUS), si_code: 2 (BUS_ADRERR), si_addr: 0x00007f53ac621be2
+
+Registers:
+RAX=0x00007f53701b0e20, RBX=0x00007f53700bab10, RCX=0x00007f5370000020, RDX=0x00007f53701b0e20
+RSP=0x00007f53ae306040, RBP=0x00007f53ae306090, RSI=0x00007f5370000038, RDI=0x0000000000000000
+R8 =0x0000000000000003, R9 =0x00007f53ae306110, R10=0x00007f53f1131bd8, R11=0x00007f5406ebca30
+R12=0x00007f53ac621bc5, R13=0x00007f53701b0e20, R14=0x0000000009b7c3a0, R15=0x00007f53700b5eb0
+RIP=0x00007f54049c6a32, EFLAGS=0x0000000000010206, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f53ae306040)
+0x00007f53ae306040:   00007f53ae3061d0 00007f5300000000
+0x00007f53ae306050:   00000007c00007a8 00007f540662c75e
+0x00007f53ae306060:   00007f53701b0e20 00007f53700bab10
+0x00007f53ae306070:   00007f53701b0150 00007f53700b5eb0
+0x00007f53ae306080:   0000000009b7c3a0 0000000000000034
+0x00007f53ae306090:   00007f53ae3060f0 00007f54049c718f
+0x00007f53ae3060a0:   00007f540267e800 0100000000000000
+0x00007f53ae3060b0:   00007f53ae306110 00007f53ae306145
+0x00007f53ae3060c0:   00007f53ae306143 00007f53ae306110
+0x00007f53ae3060d0:   0000000000000034 00007f540267e9f8
+0x00007f53ae3060e0:   00007f53ae306568 0000000000000001
+0x00007f53ae3060f0:   00007f53ae306550 00007f54049b8ec0
+0x00007f53ae306100:   00007f5406ca5990 00007f53700b5eb0
+0x00007f53ae306110:   6c6d61722f67726f 2f7265737261702f
+0x00007f53ae306120:   6c6f736572676174 6b63614a2f726576
+0x00007f53ae306130:   65526761546e6f73 632e7265766c6f73
+0x00007f53ae306140:   000000007373616c 00007f540267e800
+0x00007f53ae306150:   00007f540267e800 00007f53e30383d8
+0x00007f53ae306160:   00007f53e30383d8 00007f53e30383d8
+0x00007f53ae306170:   00007f5402183f48 0000000000000000
+0x00007f53ae306180:   00007f540267e800 00007f54000af700
+0x00007f53ae306190:   00007f539c000cf8 00007f539c000cf8
+0x00007f53ae3061a0:   00007f53ae306360 00007f5406429cdc
+0x00007f53ae3061b0:   00007f540267e800 00007f5400000000
+0x00007f53ae3061c0:   0000000000000034 00007f539c000cf0
+0x00007f53ae3061d0:   00007f5406ca65f0 00007f54077634a0
+0x00007f53ae3061e0:   000000000000006a 00007f530000000d
+0x00007f53ae3061f0:   00007f53ae306080 0000003000000020
+0x00007f53ae306200:   00007f53ae306370 00007f53ae306280
+0x00007f53ae306210:   00007f540267e800 0000000000000000
+0x00007f53ae306220:   0000000000000034 00007f53f14b8ae4
+0x00007f53ae306230:   0000003000000018 00007f53ae306370 
+
+Instructions: (pc=0x00007f54049c6a32)
+0x00007f54049c6a12:   00 48 c7 40 28 00 00 00 00 41 80 7f 30 00 0f 84
+0x00007f54049c6a22:   8a 02 00 00 4c 8b 63 08 4d 2b 67 28 4d 03 67 18
+0x00007f54049c6a32:   41 0f b6 5c 24 1d 41 0f b6 44 24 1c c1 e3 08 09
+0x00007f54049c6a42:   c3 41 0f b6 44 24 1e 88 45 bd 41 0f b6 54 24 20 
+
+Register to memory mapping:
+
+RAX=0x00007f53701b0e20 is an unknown value
+RBX=0x00007f53700bab10 is an unknown value
+RCX=0x00007f5370000020 is an unknown value
+RDX=0x00007f53701b0e20 is an unknown value
+RSP=0x00007f53ae306040 is pointing into the stack for thread: 0x00007f540267e800
+RBP=0x00007f53ae306090 is pointing into the stack for thread: 0x00007f540267e800
+RSI=0x00007f5370000038 is an unknown value
+RDI=0x0000000000000000 is an unknown value
+R8 =0x0000000000000003 is an unknown value
+R9 =0x00007f53ae306110 is pointing into the stack for thread: 0x00007f540267e800
+R10=0x00007f53f1131bd8 is at entry_point+88 in (nmethod*)0x00007f53f1131a10
+R11=0x00007f5406ebca30: <offset 0x187a30> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007f5406d35000
+R12=0x00007f53ac621bc5 is an unknown value
+R13=0x00007f53701b0e20 is an unknown value
+R14=0x0000000009b7c3a0 is an unknown value
+R15=0x00007f53700b5eb0 is an unknown value
+
+
+Stack: [0x00007f53ae20a000,0x00007f53ae30b000],  sp=0x00007f53ae306040,  free space=1008k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libzip.so+0x11a32]  newEntry+0x62
+C  [libzip.so+0x1218f]  ZIP_GetEntry2+0xff
+C  [libzip.so+0x3ec0]  Java_java_util_zip_ZipFile_getEntry+0xf0
+J 107  java.util.zip.ZipFile.getEntry(J[BZ)J (0 bytes) @ 0x00007f53f1131c4e [0x00007f53f1131b80+0xce]
+J 2888 C2 java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry; (86 bytes) @ 0x00007f53f1aaca0c [0x00007f53f1aac6c0+0x34c]
+J 2977 C2 sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (85 bytes) @ 0x00007f53f1b70ce4 [0x00007f53f1b70c60+0x84]
+J 3123 C2 sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (83 bytes) @ 0x00007f53f1c173e0 [0x00007f53f1c17300+0xe0]
+J 4465 C2 java.net.URLClassLoader$1.run()Ljava/lang/Object; (5 bytes) @ 0x00007f53f18b00b4 [0x00007f53f18afbc0+0x4f4]
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x68c616]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x7252dc]  JVM_DoPrivileged+0x27c
+J 386  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; (0 bytes) @ 0x00007f53f1202355 [0x00007f53f1202280+0xd5]
+J 2024 C2 java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; (47 bytes) @ 0x00007f53f173913c [0x00007f53f17390a0+0x9c]
+J 2023 C1 org.mule.module.launcher.FineGrainedControlClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; (6 bytes) @ 0x00007f53f17387fc [0x00007f53f1738780+0x7c]
+J 5208 C2 org.mule.module.launcher.FineGrainedControlClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; (93 bytes) @ 0x00007f53f20b02e4 [0x00007f53f20af560+0xd84]
+J 2661 C2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; (7 bytes) @ 0x00007f53f19a7160 [0x00007f53f19a7120+0x40]
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x68c616]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x68cb21]  JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x321
+V  [libjvm.so+0x68cf76]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Handle, Thread*)+0x56
+V  [libjvm.so+0xa31a30]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x3f0
+V  [libjvm.so+0xa3091c]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x7cc
+V  [libjvm.so+0xa31e53]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, Thread*)+0x33
+V  [libjvm.so+0x4f0ce8]  ConstantPool::klass_at_impl(constantPoolHandle, int, Thread*)+0x158
+V  [libjvm.so+0x4f63c0]  ConstantPool::klass_ref_at(int, Thread*)+0xa0
+V  [libjvm.so+0x7ee39a]  LinkResolver::resolve_field_access(fieldDescriptor&, constantPoolHandle, int, Bytecodes::Code, Thread*)+0x9a
+V  [libjvm.so+0x683f55]  InterpreterRuntime::resolve_get_put(JavaThread*, Bytecodes::Code)+0x125
+j  org.raml.parser.tagresolver.PojoValidatorTagResolver.handles(Lorg/yaml/snakeyaml/nodes/Tag;)Z+0
+j  org.raml.parser.visitor.NodeVisitor.getTagResolver(Lorg/yaml/snakeyaml/nodes/Tag;)Lorg/raml/parser/tagresolver/TagResolver;+26
+j  org.raml.parser.visitor.NodeVisitor.doVisitMappingNode(Lorg/yaml/snakeyaml/nodes/MappingNode;)V+86
+j  org.raml.parser.visitor.NodeVisitor.visitDocument(Lorg/yaml/snakeyaml/nodes/MappingNode;)V+40
+j  org.raml.parser.visitor.YamlValidationService.validate(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/lang/String;)Ljava/util/List;+50
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/io/Reader;Ljava/lang/String;)Ljava/util/List;+44
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/io/InputStream;Ljava/lang/String;)Ljava/util/List;+6
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/lang/String;)Ljava/util/List;+14
+j  org.mule.module.apikit.AbstractConfiguration.validateRaml(Lorg/raml/parser/loader/ResourceLoader;)V+35
+j  org.mule.module.apikit.AbstractConfiguration.initialise()V+15
+j  sun.reflect.GeneratedMethodAccessor12.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+36
+J 4224 C2 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x00007f53f16146e8 [0x00007f53f1614640+0xa8]
+J 4536 C1 org.mule.lifecycle.phases.DefaultLifecyclePhase.applyLifecycle(Ljava/lang/Object;)V (139 bytes) @ 0x00007f53f12361bc [0x00007f53f1235100+0x10bc]
+j  org.mule.lifecycle.phases.MuleContextInitialisePhase.applyLifecycle(Ljava/lang/Object;)V+2
+j  org.mule.lifecycle.RegistryLifecycleCallback.doApplyLifecycle(Lorg/mule/api/lifecycle/LifecyclePhase;Ljava/util/Set;Lorg/mule/lifecycle/LifecycleObject;Ljava/util/Collection;)V+107
+j  org.mule.lifecycle.RegistryLifecycleCallback.onTransition(Ljava/lang/String;Ljava/lang/Object;)V+146
+j  org.mule.lifecycle.RegistryLifecycleManager.invokePhase(Ljava/lang/String;Ljava/lang/Object;Lorg/mule/api/lifecycle/LifecycleCallback;)V+8
+j  org.mule.lifecycle.RegistryLifecycleManager.fireLifecycle(Ljava/lang/String;)V+30
+j  org.mule.registry.AbstractRegistry.fireLifecycle(Ljava/lang/String;)V+38
+j  org.mule.registry.AbstractRegistry.initialise()V+49
+j  org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(Lorg/mule/api/MuleContext;Lorg/springframework/context/ApplicationContext;)V+91
+j  org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(Lorg/mule/api/MuleContext;)V+238
+j  org.mule.config.builders.AbstractConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+2
+j  org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+22
+j  org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(Lorg/mule/api/MuleContext;[Lorg/mule/config/ConfigResource;)V+345
+j  org.mule.config.builders.AutoConfigurationBuilder.doConfigure(Lorg/mule/api/MuleContext;)V+6
+j  org.mule.config.builders.AbstractConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+2
+j  org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+22
+j  org.mule.context.DefaultMuleContextFactory$1.configure(Lorg/mule/api/MuleContext;)V+31
+j  org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(Lorg/mule/api/context/MuleContextBuilder;Lorg/mule/context/DefaultMuleContextFactory$ContextConfigurator;)Lorg/mule/api/MuleContext;+24
+j  org.mule.context.DefaultMuleContextFactory.createMuleContext(Ljava/util/List;Lorg/mule/api/context/MuleContextBuilder;)Lorg/mule/api/MuleContext;+11
+j  org.mule.module.launcher.application.DefaultMuleApplication.init()V+161
+j  org.mule.module.launcher.artifact.ArtifactWrapper$2.execute()V+7
+j  org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(Lorg/mule/module/launcher/artifact/ArtifactWrapper$ArtifactAction;)V+36
+j  org.mule.module.launcher.artifact.ArtifactWrapper.init()V+9
+j  org.mule.module.launcher.DefaultArtifactDeployer.deploy(Lorg/mule/module/launcher/artifact/Artifact;)V+7
+j  org.mule.module.launcher.DefaultArchiveDeployer.redeploy(Lorg/mule/module/launcher/artifact/Artifact;)V+120
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.redeployModifiedArtifacts(Ljava/util/Collection;Lorg/mule/module/launcher/DeploymentDirectoryWatcher$ArtifactTimestampListener;Lorg/mule/module/launcher/ArchiveDeployer;)V+42
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.redeployModifiedApplications()V+26
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.run()V+177
+j  java.util.concurrent.Executors$RunnableAdapter.call()Ljava/lang/Object;+4
+j  java.util.concurrent.FutureTask.runAndReset()Z+47
+j  java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Ljava/util/concurrent/ScheduledThreadPoolExecutor$ScheduledFutureTask;)Z+1
+j  java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run()V+37
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x68c616]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x68cb21]  JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x321
+V  [libjvm.so+0x68cfc7]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Thread*)+0x47
+V  [libjvm.so+0x723d80]  thread_entry(JavaThread*, Thread*)+0xa0
+V  [libjvm.so+0xa69dcf]  JavaThread::thread_main_inner()+0xdf
+V  [libjvm.so+0xa69efc]  JavaThread::run()+0x11c
+V  [libjvm.so+0x91d9d8]  java_start(Thread*)+0x108
+C  [libpthread.so.0+0x8182]  start_thread+0xc2
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 107  java.util.zip.ZipFile.getEntry(J[BZ)J (0 bytes) @ 0x00007f53f1131bd8 [0x00007f53f1131b80+0x58]
+J 2888 C2 java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry; (86 bytes) @ 0x00007f53f1aaca0c [0x00007f53f1aac6c0+0x34c]
+J 2977 C2 sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (85 bytes) @ 0x00007f53f1b70ce4 [0x00007f53f1b70c60+0x84]
+J 3123 C2 sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (83 bytes) @ 0x00007f53f1c173e0 [0x00007f53f1c17300+0xe0]
+J 4465 C2 java.net.URLClassLoader$1.run()Ljava/lang/Object; (5 bytes) @ 0x00007f53f18b00b4 [0x00007f53f18afbc0+0x4f4]
+v  ~StubRoutines::call_stub
+J 386  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; (0 bytes) @ 0x00007f53f12022e3 [0x00007f53f1202280+0x63]
+J 2024 C2 java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; (47 bytes) @ 0x00007f53f173913c [0x00007f53f17390a0+0x9c]
+J 2023 C1 org.mule.module.launcher.FineGrainedControlClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; (6 bytes) @ 0x00007f53f17387fc [0x00007f53f1738780+0x7c]
+J 5208 C2 org.mule.module.launcher.FineGrainedControlClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; (93 bytes) @ 0x00007f53f20b02e4 [0x00007f53f20af560+0xd84]
+J 2661 C2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; (7 bytes) @ 0x00007f53f19a7160 [0x00007f53f19a7120+0x40]
+v  ~StubRoutines::call_stub
+j  org.raml.parser.tagresolver.PojoValidatorTagResolver.handles(Lorg/yaml/snakeyaml/nodes/Tag;)Z+0
+j  org.raml.parser.visitor.NodeVisitor.getTagResolver(Lorg/yaml/snakeyaml/nodes/Tag;)Lorg/raml/parser/tagresolver/TagResolver;+26
+j  org.raml.parser.visitor.NodeVisitor.doVisitMappingNode(Lorg/yaml/snakeyaml/nodes/MappingNode;)V+86
+j  org.raml.parser.visitor.NodeVisitor.visitDocument(Lorg/yaml/snakeyaml/nodes/MappingNode;)V+40
+j  org.raml.parser.visitor.YamlValidationService.validate(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/lang/String;)Ljava/util/List;+50
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/io/Reader;Ljava/lang/String;)Ljava/util/List;+44
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/io/InputStream;Ljava/lang/String;)Ljava/util/List;+6
+j  org.raml.parser.visitor.YamlValidationService.validate(Ljava/lang/String;)Ljava/util/List;+14
+j  org.mule.module.apikit.AbstractConfiguration.validateRaml(Lorg/raml/parser/loader/ResourceLoader;)V+35
+j  org.mule.module.apikit.AbstractConfiguration.initialise()V+15
+j  sun.reflect.GeneratedMethodAccessor12.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+36
+J 4224 C2 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x00007f53f16146e8 [0x00007f53f1614640+0xa8]
+J 4536 C1 org.mule.lifecycle.phases.DefaultLifecyclePhase.applyLifecycle(Ljava/lang/Object;)V (139 bytes) @ 0x00007f53f12361bc [0x00007f53f1235100+0x10bc]
+j  org.mule.lifecycle.phases.MuleContextInitialisePhase.applyLifecycle(Ljava/lang/Object;)V+2
+j  org.mule.lifecycle.RegistryLifecycleCallback.doApplyLifecycle(Lorg/mule/api/lifecycle/LifecyclePhase;Ljava/util/Set;Lorg/mule/lifecycle/LifecycleObject;Ljava/util/Collection;)V+107
+j  org.mule.lifecycle.RegistryLifecycleCallback.onTransition(Ljava/lang/String;Ljava/lang/Object;)V+146
+j  org.mule.lifecycle.RegistryLifecycleManager.invokePhase(Ljava/lang/String;Ljava/lang/Object;Lorg/mule/api/lifecycle/LifecycleCallback;)V+8
+j  org.mule.lifecycle.RegistryLifecycleManager.fireLifecycle(Ljava/lang/String;)V+30
+j  org.mule.registry.AbstractRegistry.fireLifecycle(Ljava/lang/String;)V+38
+j  org.mule.registry.AbstractRegistry.initialise()V+49
+j  org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(Lorg/mule/api/MuleContext;Lorg/springframework/context/ApplicationContext;)V+91
+j  org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(Lorg/mule/api/MuleContext;)V+238
+j  org.mule.config.builders.AbstractConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+2
+j  org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+22
+j  org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(Lorg/mule/api/MuleContext;[Lorg/mule/config/ConfigResource;)V+345
+j  org.mule.config.builders.AutoConfigurationBuilder.doConfigure(Lorg/mule/api/MuleContext;)V+6
+j  org.mule.config.builders.AbstractConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+2
+j  org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(Lorg/mule/api/MuleContext;)V+22
+j  org.mule.context.DefaultMuleContextFactory$1.configure(Lorg/mule/api/MuleContext;)V+31
+j  org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(Lorg/mule/api/context/MuleContextBuilder;Lorg/mule/context/DefaultMuleContextFactory$ContextConfigurator;)Lorg/mule/api/MuleContext;+24
+j  org.mule.context.DefaultMuleContextFactory.createMuleContext(Ljava/util/List;Lorg/mule/api/context/MuleContextBuilder;)Lorg/mule/api/MuleContext;+11
+j  org.mule.module.launcher.application.DefaultMuleApplication.init()V+161
+j  org.mule.module.launcher.artifact.ArtifactWrapper$2.execute()V+7
+j  org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(Lorg/mule/module/launcher/artifact/ArtifactWrapper$ArtifactAction;)V+36
+j  org.mule.module.launcher.artifact.ArtifactWrapper.init()V+9
+j  org.mule.module.launcher.DefaultArtifactDeployer.deploy(Lorg/mule/module/launcher/artifact/Artifact;)V+7
+j  org.mule.module.launcher.DefaultArchiveDeployer.redeploy(Lorg/mule/module/launcher/artifact/Artifact;)V+120
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.redeployModifiedArtifacts(Ljava/util/Collection;Lorg/mule/module/launcher/DeploymentDirectoryWatcher$ArtifactTimestampListener;Lorg/mule/module/launcher/ArchiveDeployer;)V+42
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.redeployModifiedApplications()V+26
+j  org.mule.module.launcher.DeploymentDirectoryWatcher.run()V+177
+j  java.util.concurrent.Executors$RunnableAdapter.call()Ljava/lang/Object;+4
+j  java.util.concurrent.FutureTask.runAndReset()Z+47
+j  java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Ljava/util/concurrent/ScheduledThreadPoolExecutor$ScheduledFutureTask;)Z+1
+j  java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run()V+37
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f53700be800 JavaThread "Keep-Alive-Timer" daemon [_thread_blocked, id=12946, stack(0x00007f53ac3b6000,0x00007f53ac4b7000)]
+  0x00007f53701a4000 JavaThread "[checkout-api].http.listener.HttpIdleConnectionCloser.01" [_thread_blocked, id=12886, stack(0x00007f53ac4b7000,0x00007f53ac5b8000)]
+  0x00007f5370161800 JavaThread "[checkout-api].http.listener.worker(8)" daemon [_thread_blocked, id=12885, stack(0x00007f53ae60e000,0x00007f53ae70f000)]
+  0x00007f5370160800 JavaThread "[checkout-api].http.listener.worker(7)" daemon [_thread_blocked, id=12883, stack(0x00007f53aea12000,0x00007f53aeb13000)]
+  0x00007f537015f000 JavaThread "[checkout-api].http.listener.worker(6)" daemon [_thread_blocked, id=12882, stack(0x00007f53ae911000,0x00007f53aea12000)]
+  0x00007f537015d800 JavaThread "[checkout-api].http.listener.worker(5)" daemon [_thread_blocked, id=12881, stack(0x00007f53ae30b000,0x00007f53ae40c000)]
+  0x00007f537015c800 JavaThread "[checkout-api].http.listener.worker(4)" daemon [_thread_blocked, id=12878, stack(0x00007f53ae50d000,0x00007f53ae60e000)]
+  0x00007f537015b000 JavaThread "[checkout-api].http.listener.worker(3)" daemon [_thread_blocked, id=12875, stack(0x00007f53af046000,0x00007f53af147000)]
+  0x00007f537015a000 JavaThread "[checkout-api].http.listener.worker(2)" daemon [_thread_blocked, id=12873, stack(0x00007f53ae40c000,0x00007f53ae50d000)]
+  0x00007f5370159000 JavaThread "[checkout-api].http.listener.worker(1)" daemon [_thread_blocked, id=12872, stack(0x00007f53ae70f000,0x00007f53ae810000)]
+  0x00007f5370158000 JavaThread "[checkout-api].http.listener(5) SelectorRunner" daemon [_thread_in_native, id=12869, stack(0x00007f53ae810000,0x00007f53ae911000)]
+  0x00007f5370156800 JavaThread "[checkout-api].http.listener(4) SelectorRunner" daemon [_thread_in_native, id=12868, stack(0x00007f53aeb13000,0x00007f53aec14000)]
+  0x00007f5370155000 JavaThread "[checkout-api].http.listener(3) SelectorRunner" daemon [_thread_in_native, id=12866, stack(0x00007f53aec14000,0x00007f53aed15000)]
+  0x00007f5370154000 JavaThread "[checkout-api].http.listener(2) SelectorRunner" daemon [_thread_in_native, id=12864, stack(0x00007f53aef45000,0x00007f53af046000)]
+  0x00007f5370153000 JavaThread "[checkout-api].http.listener(1) SelectorRunner" daemon [_thread_in_native, id=12863, stack(0x00007f53af147000,0x00007f53af248000)]
+  0x00007f5370143000 JavaThread "[checkout-api].Mule.01" [_thread_blocked, id=12841, stack(0x00007f53adf09000,0x00007f53ae00a000)]
+  0x00007f5400022800 JavaThread "DestroyJavaVM" [_thread_blocked, id=12612, stack(0x00007f540782e000,0x00007f540792f000)]
+=>0x00007f540267e800 JavaThread "Mule.app.deployer.monitor.1.thread.1" [_thread_in_native, id=12714, stack(0x00007f53ae20a000,0x00007f53ae30b000)]
+  0x00007f54021b6000 JavaThread "logger.context.reaper" [_thread_blocked, id=12713, stack(0x00007f53afe48000,0x00007f53aff49000)]
+  0x00007f5402518800 JavaThread "pool-8-thread-3" daemon [_thread_blocked, id=12711, stack(0x00007f53acc89000,0x00007f53acd8a000)]
+  0x00007f5402517000 JavaThread "pool-8-thread-2" daemon [_thread_blocked, id=12710, stack(0x00007f53acd8a000,0x00007f53ace8b000)]
+  0x00007f5402516000 JavaThread "pool-8-thread-1" daemon [_thread_blocked, id=12709, stack(0x00007f53ace8b000,0x00007f53acf8c000)]
+  0x00007f5401c0c000 JavaThread "GC Daemon" daemon [_thread_blocked, id=12708, stack(0x00007f53ada08000,0x00007f53adb09000)]
+  0x00007f5401541800 JavaThread "AsyncLoggerConfig-1" daemon [_thread_blocked, id=12627, stack(0x00007f53e05b1000,0x00007f53e06b2000)]
+  0x00007f54000e8800 JavaThread "Service Thread" daemon [_thread_blocked, id=12625, stack(0x00007f53e17b0000,0x00007f53e18b1000)]
+  0x00007f54000e5800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=12624, stack(0x00007f53e18b1000,0x00007f53e19b2000)]
+  0x00007f54000e3800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=12623, stack(0x00007f53e19b2000,0x00007f53e1ab3000)]
+  0x00007f54000e0800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=12622, stack(0x00007f53e1ab3000,0x00007f53e1bb4000)]
+  0x00007f54000df000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=12621, stack(0x00007f53e1bb4000,0x00007f53e1cb5000)]
+  0x00007f54000ab000 JavaThread "Finalizer" daemon [_thread_blocked, id=12620, stack(0x00007f53e1f7f000,0x00007f53e2080000)]
+  0x00007f54000a6800 JavaThread "Reference Handler" daemon [_thread_blocked, id=12619, stack(0x00007f53e2080000,0x00007f53e2181000)]
+
+Other Threads:
+  0x00007f540009f000 VMThread [stack: 0x00007f53e2181000,0x00007f53e2282000] [id=12618]
+  0x00007f54000ec000 WatcherThread [stack: 0x00007f53e16af000,0x00007f53e17b0000] [id=12626]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 473600K, used 57212K [0x000000076cd80000, 0x000000078b880000, 0x00000007c0000000)
+  eden space 459776K, 9% used [0x000000076cd80000,0x000000076f833f20,0x0000000788e80000)
+  from space 13824K, 97% used [0x000000078ab00000,0x000000078b82b4a8,0x000000078b880000)
+  to   space 19456K, 0% used [0x0000000789280000,0x0000000789280000,0x000000078a580000)
+ ParOldGen       total 194560K, used 26075K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8176f68,0x00000006d2600000)
+ Metaspace       used 50670K, capacity 51285K, committed 51712K, reserved 1093632K
+  class space    used 6792K, capacity 6870K, committed 6912K, reserved 1048576K
+
+Card table byte_map: [0x00007f53f0833000,0x00007f53f1000000] byte_map_base: 0x00007f53ed1ff000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f5406d0a260
+ Begin Bits: [0x00007f53d4340000, 0x00007f53d81a0000)
+ End Bits:   [0x00007f53d81a0000, 0x00007f53dc000000)
+
+Polling page: 0x00007f5407951000
+
+CodeCache: size=245760Kb used=19169Kb max_used=19190Kb free=226590Kb
+ bounds [0x00007f53f1000000, 0x00007f53f22e0000, 0x00007f5400000000]
+ total_blobs=5302 nmethods=4820 adapters=394
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 134,052 Thread 0x00007f54000e5800 5843       1       org.yaml.snakeyaml.events.ScalarEvent::getStyle (5 bytes)
+Event: 134,052 Thread 0x00007f54000e5800 nmethod 5843 0x00007f53f22cf6d0 code [0x00007f53f22cf820, 0x00007f53f22cf930]
+Event: 134,052 Thread 0x00007f54000e5800 5844       1       org.yaml.snakeyaml.events.ScalarEvent::getImplicit (5 bytes)
+Event: 134,052 Thread 0x00007f54000e5800 nmethod 5844 0x00007f53f22cf990 code [0x00007f53f22cfae0, 0x00007f53f22cfbf0]
+Event: 134,052 Thread 0x00007f54000e5800 5845       1       org.yaml.snakeyaml.events.ImplicitTuple::canOmitTagInPlainScalar (5 bytes)
+Event: 134,052 Thread 0x00007f54000e5800 nmethod 5845 0x00007f53f22cfc50 code [0x00007f53f22cfda0, 0x00007f53f22cfeb0]
+Event: 134,073 Thread 0x00007f54000e0800 nmethod 5813 0x00007f53f22d88d0 code [0x00007f53f22d8ba0, 0x00007f53f22da810]
+Event: 134,073 Thread 0x00007f54000e0800 5831       4       java.util.ArrayList::isEmpty (13 bytes)
+Event: 134,073 Thread 0x00007f54000e3800 nmethod 5826% 0x00007f53f22d1550 code [0x00007f53f22d1860, 0x00007f53f22d2cd0]
+Event: 134,073 Thread 0x00007f54000e0800 nmethod 5831 0x00007f53f1d76390 code [0x00007f53f1d764e0, 0x00007f53f1d76558]
+
+GC Heap History (10 events):
+Event: 6,311 GC heap before
+{Heap before GC invocations=6 (full 1):
+ PSYoungGen      total 268288K, used 258048K [0x000000076cd80000, 0x000000077dd80000, 0x00000007c0000000)
+  eden space 258048K, 100% used [0x000000076cd80000,0x000000077c980000,0x000000077c980000)
+  from space 10240K, 0% used [0x000000077d380000,0x000000077d380000,0x000000077dd80000)
+  to   space 10240K, 0% used [0x000000077c980000,0x000000077c980000,0x000000077d380000)
+ ParOldGen       total 128512K, used 17296K [0x00000006c6800000, 0x00000006ce580000, 0x000000076cd80000)
+  object space 128512K, 13% used [0x00000006c6800000,0x00000006c78e4390,0x00000006ce580000)
+ Metaspace       used 28330K, capacity 28643K, committed 29184K, reserved 1075200K
+  class space    used 3924K, capacity 4009K, committed 4096K, reserved 1048576K
+Event: 6,341 GC heap after
+Heap after GC invocations=6 (full 1):
+ PSYoungGen      total 268288K, used 10218K [0x000000076cd80000, 0x0000000785180000, 0x00000007c0000000)
+  eden space 258048K, 0% used [0x000000076cd80000,0x000000076cd80000,0x000000077c980000)
+  from space 10240K, 99% used [0x000000077c980000,0x000000077d37a828,0x000000077d380000)
+  to   space 20480K, 0% used [0x0000000783d80000,0x0000000783d80000,0x0000000785180000)
+ ParOldGen       total 128512K, used 17326K [0x00000006c6800000, 0x00000006ce580000, 0x000000076cd80000)
+  object space 128512K, 13% used [0x00000006c6800000,0x00000006c78ebbe0,0x00000006ce580000)
+ Metaspace       used 28330K, capacity 28643K, committed 29184K, reserved 1075200K
+  class space    used 3924K, capacity 4009K, committed 4096K, reserved 1048576K
+}
+Event: 12,437 GC heap before
+{Heap before GC invocations=7 (full 1):
+ PSYoungGen      total 268288K, used 184670K [0x000000076cd80000, 0x0000000785180000, 0x00000007c0000000)
+  eden space 258048K, 67% used [0x000000076cd80000,0x00000007777dd018,0x000000077c980000)
+  from space 10240K, 99% used [0x000000077c980000,0x000000077d37a828,0x000000077d380000)
+  to   space 20480K, 0% used [0x0000000783d80000,0x0000000783d80000,0x0000000785180000)
+ ParOldGen       total 128512K, used 17326K [0x00000006c6800000, 0x00000006ce580000, 0x000000076cd80000)
+  object space 128512K, 13% used [0x00000006c6800000,0x00000006c78ebbe0,0x00000006ce580000)
+ Metaspace       used 34743K, capacity 35029K, committed 35456K, reserved 1079296K
+  class space    used 4783K, capacity 4876K, committed 4992K, reserved 1048576K
+Event: 12,448 GC heap after
+Heap after GC invocations=7 (full 1):
+ PSYoungGen      total 353792K, used 13261K [0x000000076cd80000, 0x0000000784a80000, 0x00000007c0000000)
+  eden space 340480K, 0% used [0x000000076cd80000,0x000000076cd80000,0x0000000781a00000)
+  from space 13312K, 99% used [0x0000000783d80000,0x0000000784a73438,0x0000000784a80000)
+  to   space 19968K, 0% used [0x0000000782380000,0x0000000782380000,0x0000000783700000)
+ ParOldGen       total 128512K, used 17334K [0x00000006c6800000, 0x00000006ce580000, 0x000000076cd80000)
+  object space 128512K, 13% used [0x00000006c6800000,0x00000006c78edbe0,0x00000006ce580000)
+ Metaspace       used 34743K, capacity 35029K, committed 35456K, reserved 1079296K
+  class space    used 4783K, capacity 4876K, committed 4992K, reserved 1048576K
+}
+Event: 12,448 GC heap before
+{Heap before GC invocations=8 (full 2):
+ PSYoungGen      total 353792K, used 13261K [0x000000076cd80000, 0x0000000784a80000, 0x00000007c0000000)
+  eden space 340480K, 0% used [0x000000076cd80000,0x000000076cd80000,0x0000000781a00000)
+  from space 13312K, 99% used [0x0000000783d80000,0x0000000784a73438,0x0000000784a80000)
+  to   space 19968K, 0% used [0x0000000782380000,0x0000000782380000,0x0000000783700000)
+ ParOldGen       total 128512K, used 17334K [0x00000006c6800000, 0x00000006ce580000, 0x000000076cd80000)
+  object space 128512K, 13% used [0x00000006c6800000,0x00000006c78edbe0,0x00000006ce580000)
+ Metaspace       used 34743K, capacity 35029K, committed 35456K, reserved 1079296K
+  class space    used 4783K, capacity 4876K, committed 4992K, reserved 1048576K
+Event: 12,543 GC heap after
+Heap after GC invocations=8 (full 2):
+ PSYoungGen      total 353792K, used 0K [0x000000076cd80000, 0x0000000784a80000, 0x00000007c0000000)
+  eden space 340480K, 0% used [0x000000076cd80000,0x000000076cd80000,0x0000000781a00000)
+  from space 13312K, 0% used [0x0000000783d80000,0x0000000783d80000,0x0000000784a80000)
+  to   space 19968K, 0% used [0x0000000782380000,0x0000000782380000,0x0000000783700000)
+ ParOldGen       total 194560K, used 26059K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8172f68,0x00000006d2600000)
+ Metaspace       used 34743K, capacity 35029K, committed 35456K, reserved 1079296K
+  class space    used 4783K, capacity 4876K, committed 4992K, reserved 1048576K
+}
+Event: 24,155 GC heap before
+{Heap before GC invocations=9 (full 2):
+ PSYoungGen      total 353792K, used 340480K [0x000000076cd80000, 0x0000000784a80000, 0x00000007c0000000)
+  eden space 340480K, 100% used [0x000000076cd80000,0x0000000781a00000,0x0000000781a00000)
+  from space 13312K, 0% used [0x0000000783d80000,0x0000000783d80000,0x0000000784a80000)
+  to   space 19968K, 0% used [0x0000000782380000,0x0000000782380000,0x0000000783700000)
+ ParOldGen       total 194560K, used 26059K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8172f68,0x00000006d2600000)
+ Metaspace       used 47123K, capacity 47525K, committed 48000K, reserved 1091584K
+  class space    used 6415K, capacity 6477K, committed 6528K, reserved 1048576K
+Event: 24,168 GC heap after
+Heap after GC invocations=9 (full 2):
+ PSYoungGen      total 370176K, used 15408K [0x000000076cd80000, 0x000000078be80000, 0x00000007c0000000)
+  eden space 350208K, 0% used [0x000000076cd80000,0x000000076cd80000,0x0000000782380000)
+  from space 19968K, 77% used [0x0000000782380000,0x000000078328c100,0x0000000783700000)
+  to   space 19968K, 0% used [0x000000078ab00000,0x000000078ab00000,0x000000078be80000)
+ ParOldGen       total 194560K, used 26067K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8174f68,0x00000006d2600000)
+ Metaspace       used 47123K, capacity 47525K, committed 48000K, reserved 1091584K
+  class space    used 6415K, capacity 6477K, committed 6528K, reserved 1048576K
+}
+Event: 127,851 GC heap before
+{Heap before GC invocations=10 (full 2):
+ PSYoungGen      total 370176K, used 365616K [0x000000076cd80000, 0x000000078be80000, 0x00000007c0000000)
+  eden space 350208K, 100% used [0x000000076cd80000,0x0000000782380000,0x0000000782380000)
+  from space 19968K, 77% used [0x0000000782380000,0x000000078328c100,0x0000000783700000)
+  to   space 19968K, 0% used [0x000000078ab00000,0x000000078ab00000,0x000000078be80000)
+ ParOldGen       total 194560K, used 26067K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8174f68,0x00000006d2600000)
+ Metaspace       used 50209K, capacity 50779K, committed 51200K, reserved 1093632K
+  class space    used 6745K, capacity 6833K, committed 6912K, reserved 1048576K
+Event: 127,865 GC heap after
+Heap after GC invocations=10 (full 2):
+ PSYoungGen      total 473600K, used 13485K [0x000000076cd80000, 0x000000078b880000, 0x00000007c0000000)
+  eden space 459776K, 0% used [0x000000076cd80000,0x000000076cd80000,0x0000000788e80000)
+  from space 13824K, 97% used [0x000000078ab00000,0x000000078b82b4a8,0x000000078b880000)
+  to   space 19456K, 0% used [0x0000000789280000,0x0000000789280000,0x000000078a580000)
+ ParOldGen       total 194560K, used 26075K [0x00000006c6800000, 0x00000006d2600000, 0x000000076cd80000)
+  object space 194560K, 13% used [0x00000006c6800000,0x00000006c8176f68,0x00000006d2600000)
+ Metaspace       used 50209K, capacity 50779K, committed 51200K, reserved 1093632K
+  class space    used 6745K, capacity 6833K, committed 6912K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 24,768 Thread 0x00007f5400022800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f142973c method=java.lang.ClassLoader.checkName(Ljava/lang/String;)Z @ 1
+Event: 44,927 Thread 0x00007f540267e800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f1b114a8 method=com.google.common.cache.LocalCache$Segment.getEntry(Ljava/lang/Object;I)Lcom/google/common/cache/LocalCache$ReferenceEntry; @ 17
+Event: 65,813 Thread 0x00007f540267e800 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007f53f1d94fa8 method=org.apache.logging.log4j.core.config.FileConfigurationMonitor.checkConfiguration()V @ 101
+Event: 116,709 Thread 0x00007f540267e800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f17124dc method=org.apache.xerces.impl.xs.traversers.XSAttributeChecker.checkAttributes(Lorg/w3c/dom/Element;ZLorg/apache/xerces/impl/xs/traversers/XSDocumentInfo;Z)[Ljava/lang/Object; @ 57
+Event: 118,321 Thread 0x00007f540267e800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f1d6c6a0 method=org.apache.xerces.impl.XMLEntityScanner.scanData(Ljava/lang/String;Lorg/apache/xerces/util/XMLStringBuffer;)Z @ 673
+Event: 122,912 Thread 0x00007f540267e800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f13dd91c method=java.lang.String.lastIndexOf([CII[CIII)I @ 118
+Event: 128,435 Thread 0x00007f540267e800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f53f1d984b4 method=org.apache.xmlbeans.impl.store.Locale$ScrubBuffer.scrub(Ljava/lang/Object;II)V @ 25
+Event: 129,603 Thread 0x00007f540267e800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f53f1d984b4 method=org.apache.xmlbeans.impl.store.Locale$ScrubBuffer.scrub(Ljava/lang/Object;II)V @ 25
+Event: 130,866 Thread 0x00007f540267e800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f53f21e6164 method=org.apache.xmlbeans.impl.piccolo.xml.PiccoloLexer.parseTagNS()I @ 9
+Event: 134,009 Thread 0x00007f540267e800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f53f1451eac method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 253
+
+Internal exceptions (10 events):
+Event: 117,640 Thread 0x00007f540267e800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000077f64de40) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/runtime/reflection.cpp, line 1092]
+Event: 117,640 Thread 0x00007f540267e800 Exception <a 'java/lang/NoClassDefFoundError': com/ibm/jms/JMSMessage> (0x000000077f6510d0) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/oops/constantPool.cpp, line 235]
+Event: 117,640 Thread 0x00007f540267e800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000077f6514c0) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/runtime/reflection.cpp, line 1092]
+Event: 117,640 Thread 0x00007f540267e800 Exception <a 'java/lang/NoClassDefFoundError': com/ibm/jms/JMSMessage> (0x000000077f6544f0) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/oops/constantPool.cpp, line 235]
+Event: 117,640 Thread 0x00007f540267e800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000077f6548e0) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/runtime/reflection.cpp, line 1092]
+Event: 117,641 Thread 0x00007f540267e800 Exception <a 'java/lang/NoClassDefFoundError': com/ibm/jms/JMSMessage> (0x000000077f657500) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/oops/constantPool.cpp, line 235]
+Event: 117,641 Thread 0x00007f540267e800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000077f6578f0) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/runtime/reflection.cpp, line 1092]
+Event: 117,958 Thread 0x00007f540267e800 Exception <a 'java/io/FileNotFoundException'> (0x000000078064ab38) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 118,517 Thread 0x00007f540267e800 Exception <a 'java/io/FileNotFoundException'> (0x0000000780789120) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 134,001 Thread 0x00007f540267e800 Exception <a 'java/io/FileNotFoundException'> (0x000000076e6d61e8) thrown at [/HUDSON3/workspace/8-2-build-linux-amd64/jdk8u74/6087/hotspot/src/share/vm/prims/jni.cpp, line 709]
+
+Events (10 events):
+Event: 134,081 loading class org/raml/model/SecurityReference
+Event: 134,081 loading class org/raml/model/SecurityReference done
+Event: 134,086 loading class org/raml/parser/resolver/ResourceHandler
+Event: 134,086 loading class org/raml/parser/resolver/ResourceHandler done
+Event: 134,087 loading class org/raml/parser/rule/ImplicitMapEntryRule
+Event: 134,087 loading class org/raml/parser/rule/ImplicitMapEntryRule done
+Event: 134,088 loading class org/raml/model/DocumentationItem
+Event: 134,088 loading class org/raml/model/DocumentationItem done
+Event: 134,089 loading class org/raml/parser/tagresolver/JacksonTagResolver
+Event: 134,089 loading class org/raml/parser/tagresolver/JacksonTagResolver done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:02 4203064                            /usr/lib/jvm/java-8-oracle/jre/bin/java
+00600000-00601000 rw-p 00000000 08:02 4203064                            /usr/lib/jvm/java-8-oracle/jre/bin/java
+02111000-0213f000 rw-p 00000000 00:00 0                                  [heap]
+6c6800000-6d2600000 rw-p 00000000 00:00 0 
+6d2600000-76cd80000 ---p 00000000 00:00 0 
+76cd80000-78b880000 rw-p 00000000 00:00 0 
+78b880000-7c0000000 ---p 00000000 00:00 0 
+7c0000000-7c06c0000 rw-p 00000000 00:00 0 
+7c06c0000-800000000 ---p 00000000 00:00 0 
+7f5364000000-7f5364025000 rw-p 00000000 00:00 0 
+7f5364025000-7f5368000000 ---p 00000000 00:00 0 
+7f536c000000-7f536c021000 rw-p 00000000 00:00 0 
+7f536c021000-7f5370000000 ---p 00000000 00:00 0 
+7f5370000000-7f537043a000 rw-p 00000000 00:00 0 
+7f537043a000-7f5374000000 ---p 00000000 00:00 0 
+7f5374000000-7f5374021000 rw-p 00000000 00:00 0 
+7f5374021000-7f5378000000 ---p 00000000 00:00 0 
+7f5378000000-7f5378021000 rw-p 00000000 00:00 0 
+7f5378021000-7f537c000000 ---p 00000000 00:00 0 
+7f537c000000-7f537c021000 rw-p 00000000 00:00 0 
+7f537c021000-7f5380000000 ---p 00000000 00:00 0 
+7f5380000000-7f5380021000 rw-p 00000000 00:00 0 
+7f5380021000-7f5384000000 ---p 00000000 00:00 0 
+7f5384000000-7f5384021000 rw-p 00000000 00:00 0 
+7f5384021000-7f5388000000 ---p 00000000 00:00 0 
+7f5388000000-7f5388021000 rw-p 00000000 00:00 0 
+7f5388021000-7f538c000000 ---p 00000000 00:00 0 
+7f538c000000-7f538c021000 rw-p 00000000 00:00 0 
+7f538c021000-7f5390000000 ---p 00000000 00:00 0 
+7f5390000000-7f5390021000 rw-p 00000000 00:00 0 
+7f5390021000-7f5394000000 ---p 00000000 00:00 0 
+7f5394000000-7f5394021000 rw-p 00000000 00:00 0 
+7f5394021000-7f5398000000 ---p 00000000 00:00 0 
+7f5398000000-7f5398021000 rw-p 00000000 00:00 0 
+7f5398021000-7f539c000000 ---p 00000000 00:00 0 
+7f539c000000-7f539c021000 rw-p 00000000 00:00 0 
+7f539c021000-7f53a0000000 ---p 00000000 00:00 0 
+7f53a0000000-7f53a0021000 rw-p 00000000 00:00 0 
+7f53a0021000-7f53a4000000 ---p 00000000 00:00 0 
+7f53a4000000-7f53a4021000 rw-p 00000000 00:00 0 
+7f53a4021000-7f53a8000000 ---p 00000000 00:00 0 
+7f53a8000000-7f53a8021000 rw-p 00000000 00:00 0 
+7f53a8021000-7f53ac000000 ---p 00000000 00:00 0 
+7f53ac3b5000-7f53ac3b6000 rw-p 00000000 00:00 0 
+7f53ac3b6000-7f53ac3b9000 ---p 00000000 00:00 0 
+7f53ac3b9000-7f53ac4b7000 rw-p 00000000 00:00 0                          [stack:12946]
+7f53ac4b7000-7f53ac4ba000 ---p 00000000 00:00 0 
+7f53ac4ba000-7f53ac5b8000 rw-p 00000000 00:00 0                          [stack:12886]
+7f53ac5b8000-7f53ac5bb000 r--s 0001f000 08:03 33295009                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-validator-1.3.1.jar
+7f53ac5bb000-7f53ac5bf000 r--s 00034000 08:03 33295014                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-core-2.4.3.jar
+7f53ac5bf000-7f53ac5c5000 r--s 001c8000 08:03 33295006                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-apikit-1.7.3-SNAPSHOT.jar
+7f53ac5c5000-7f53ac5c9000 r--s 00026000 08:03 33295010                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-digester-1.6.jar
+7f53ac5c9000-7f53ac5cc000 r--s 00033000 08:03 33295016                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/juniversalchardet-1.0.3.jar
+7f53ac5cc000-7f53ac5dd000 r--s 000f6000 08:03 33295012                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-databind-2.4.3.jar
+7f53ac5dd000-7f53ac5e0000 r--s 00007000 08:03 33295013                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-annotations-2.4.0.jar
+7f53ac5e0000-7f53ac5e6000 r--s 0003c000 08:03 33295008                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/snakeyaml-1.15.jar
+7f53ac5e6000-7f53ac5f3000 r--s 00109000 08:03 33295015                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/rhino-1.7R4.jar
+7f53ac5f3000-7f53ac61e000 r--s 001fc000 08:03 33295011                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/guava-18.0.jar
+7f53ac61e000-7f53ac623000 r--s 0002d000 08:03 33295007                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/raml-parser-0.9-SNAPSHOT.jar
+7f53ac623000-7f53ac626000 r--s 0001f000 08:03 33295009                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-validator-1.3.1.jar
+7f53ac626000-7f53ac62a000 r--s 00034000 08:03 33295014                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-core-2.4.3.jar
+7f53ac62a000-7f53ac630000 r--s 001c8000 08:03 33295006                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-apikit-1.7.3-SNAPSHOT.jar
+7f53ac630000-7f53ac634000 r--s 00026000 08:03 33295010                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-digester-1.6.jar
+7f53ac634000-7f53ac637000 r--s 00033000 08:03 33295016                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/juniversalchardet-1.0.3.jar
+7f53ac637000-7f53ac648000 r--s 000f6000 08:03 33295012                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-databind-2.4.3.jar
+7f53ac648000-7f53ac64b000 r--s 00007000 08:03 33295013                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-annotations-2.4.0.jar
+7f53ac64b000-7f53ac651000 r--s 0003c000 08:03 33295008                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/snakeyaml-1.15.jar
+7f53ac651000-7f53ac65e000 r--s 00109000 08:03 33295015                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/rhino-1.7R4.jar
+7f53ac65e000-7f53ac689000 r--s 001fc000 08:03 33295011                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/guava-18.0.jar
+7f53ac689000-7f53ac849000 rw-p 00000000 00:00 0 
+7f53ac849000-7f53ac889000 ---p 00000000 00:00 0 
+7f53ac889000-7f53aca89000 rw-p 00000000 00:00 0 
+7f53aca89000-7f53acc89000 rw-p 00000000 00:00 0 
+7f53acc89000-7f53acc8c000 ---p 00000000 00:00 0 
+7f53acc8c000-7f53acd8a000 rw-p 00000000 00:00 0                          [stack:12711]
+7f53acd8a000-7f53acd8d000 ---p 00000000 00:00 0 
+7f53acd8d000-7f53ace8b000 rw-p 00000000 00:00 0                          [stack:12710]
+7f53ace8b000-7f53ace8e000 ---p 00000000 00:00 0 
+7f53ace8e000-7f53ad18c000 rw-p 00000000 00:00 0                          [stack:12709]
+7f53ad18c000-7f53ad38c000 rw-p 00000000 00:00 0 
+7f53ad38c000-7f53ad3a2000 r-xp 00000000 08:02 4198633                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f53ad3a2000-7f53ad5a1000 ---p 00016000 08:02 4198633                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f53ad5a1000-7f53ad5a2000 rw-p 00015000 08:02 4198633                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f53ad5a2000-7f53ad5a4000 rw-p 00000000 00:00 0 
+7f53ad5a4000-7f53ad5a9000 r--s 0002d000 08:03 33295007                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/raml-parser-0.9-SNAPSHOT.jar
+7f53ad5a9000-7f53ad5bb000 r--s 00345000 08:02 4203111                    /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7f53ad5bb000-7f53ad5c1000 r--s 0003f000 08:02 4327437                    /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar
+7f53ad5c1000-7f53ad5f3000 r-xp 00000000 08:02 4327463                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f53ad5f3000-7f53ad7f2000 ---p 00032000 08:02 4327463                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f53ad7f2000-7f53ad7f8000 rw-p 00031000 08:02 4327463                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f53ad7f8000-7f53ada08000 rw-p 00000000 00:00 0 
+7f53ada08000-7f53ada0b000 ---p 00000000 00:00 0 
+7f53ada0b000-7f53add09000 rw-p 00000000 00:00 0                          [stack:12708]
+7f53add09000-7f53adf09000 rw-p 00000000 00:00 0 
+7f53adf09000-7f53adf0c000 ---p 00000000 00:00 0 
+7f53adf0c000-7f53ae20a000 rw-p 00000000 00:00 0                          [stack:12841]
+7f53ae20a000-7f53ae20d000 ---p 00000000 00:00 0 
+7f53ae20d000-7f53ae30b000 rw-p 00000000 00:00 0                          [stack:12714]
+7f53ae30b000-7f53ae30e000 ---p 00000000 00:00 0 
+7f53ae30e000-7f53ae40c000 rw-p 00000000 00:00 0                          [stack:12881]
+7f53ae40c000-7f53ae40f000 ---p 00000000 00:00 0 
+7f53ae40f000-7f53ae50d000 rw-p 00000000 00:00 0                          [stack:12873]
+7f53ae50d000-7f53ae510000 ---p 00000000 00:00 0 
+7f53ae510000-7f53ae60e000 rw-p 00000000 00:00 0                          [stack:12878]
+7f53ae60e000-7f53ae611000 ---p 00000000 00:00 0 
+7f53ae611000-7f53ae70f000 rw-p 00000000 00:00 0                          [stack:12885]
+7f53ae70f000-7f53ae712000 ---p 00000000 00:00 0 
+7f53ae712000-7f53ae810000 rw-p 00000000 00:00 0                          [stack:12872]
+7f53ae810000-7f53ae813000 ---p 00000000 00:00 0 
+7f53ae813000-7f53ae911000 rw-p 00000000 00:00 0                          [stack:12869]
+7f53ae911000-7f53ae914000 ---p 00000000 00:00 0 
+7f53ae914000-7f53aea12000 rw-p 00000000 00:00 0                          [stack:12882]
+7f53aea12000-7f53aea15000 ---p 00000000 00:00 0 
+7f53aea15000-7f53aeb13000 rw-p 00000000 00:00 0                          [stack:12883]
+7f53aeb13000-7f53aeb16000 ---p 00000000 00:00 0 
+7f53aeb16000-7f53aec14000 rw-p 00000000 00:00 0                          [stack:12868]
+7f53aec14000-7f53aec17000 ---p 00000000 00:00 0 
+7f53aec17000-7f53aef15000 rw-p 00000000 00:00 0                          [stack:12866]
+7f53aef15000-7f53aef17000 r--s 0000a000 08:03 33162965                   /home/valter/dev/workspace-mule/.mule/lib/mule/per-app/mule-transport-wmq-ee-3.7.3.jar
+7f53aef17000-7f53aef1b000 r--s 0003a000 08:02 4327445                    /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar
+7f53aef1b000-7f53aef1c000 r--s 00009000 08:02 4327441                    /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+7f53aef1c000-7f53aef1f000 r--s 0001a000 08:02 4203112                    /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f53aef1f000-7f53aef3b000 r--s 00393000 08:02 4327440                    /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7f53aef3b000-7f53aef45000 r--s 00116000 08:02 4327439                    /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7f53aef45000-7f53aef48000 ---p 00000000 00:00 0 
+7f53aef48000-7f53af046000 rw-p 00000000 00:00 0                          [stack:12864]
+7f53af046000-7f53af049000 ---p 00000000 00:00 0 
+7f53af049000-7f53af147000 rw-p 00000000 00:00 0                          [stack:12875]
+7f53af147000-7f53af14a000 ---p 00000000 00:00 0 
+7f53af14a000-7f53af448000 rw-p 00000000 00:00 0                          [stack:12863]
+7f53af448000-7f53af648000 rw-p 00000000 00:00 0 
+7f53af648000-7f53af848000 rw-p 00000000 00:00 0 
+7f53af848000-7f53afa48000 rw-p 00000000 00:00 0 
+7f53afa48000-7f53afc48000 rw-p 00000000 00:00 0 
+7f53afc48000-7f53afe48000 rw-p 00000000 00:00 0 
+7f53afe48000-7f53afe4b000 ---p 00000000 00:00 0 
+7f53afe4b000-7f53aff49000 rw-p 00000000 00:00 0                          [stack:12713]
+7f53aff49000-7f53aff55000 r--s 000aa000 08:03 31588882                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/jxl-2.6.10.jar
+7f53aff55000-7f53aff5a000 r--s 00048000 08:03 31588889                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/dom4j-1.6.1.jar
+7f53aff5a000-7f53aff6a000 r--s 00232000 08:03 31588880                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/icu4j-normalizer_transliterator-4.8.1.1.jar
+7f53aff6a000-7f53aff75000 r--s 00066000 08:03 31588877                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/truezip-6.6.jar
+7f53aff75000-7f53b0000000 r--s 003b0000 08:03 31588885                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/poi-ooxml-schemas-3.8-beta4.jar
+7f53b0000000-7f53b0021000 rw-p 00000000 00:00 0 
+7f53b0021000-7f53b4000000 ---p 00000000 00:00 0 
+7f53b4000000-7f53b4021000 rw-p 00000000 00:00 0 
+7f53b4021000-7f53b8000000 ---p 00000000 00:00 0 
+7f53b8000000-7f53b96b1000 rw-p 00000000 00:00 0 
+7f53b96b1000-7f53bc000000 ---p 00000000 00:00 0 
+7f53bc000000-7f53bd26d000 rw-p 00000000 00:00 0 
+7f53bd26d000-7f53c0000000 ---p 00000000 00:00 0 
+7f53c0000000-7f53c0021000 rw-p 00000000 00:00 0 
+7f53c0021000-7f53c4000000 ---p 00000000 00:00 0 
+7f53c4000000-7f53c59f4000 rw-p 00000000 00:00 0 
+7f53c59f4000-7f53c8000000 ---p 00000000 00:00 0 
+7f53c8000000-7f53c8021000 rw-p 00000000 00:00 0 
+7f53c8021000-7f53cc000000 ---p 00000000 00:00 0 
+7f53cc000000-7f53cc021000 rw-p 00000000 00:00 0 
+7f53cc021000-7f53d0000000 ---p 00000000 00:00 0 
+7f53d0000000-7f53d0021000 rw-p 00000000 00:00 0 
+7f53d0021000-7f53d4000000 ---p 00000000 00:00 0 
+7f53d4000000-7f53d4004000 r--s 00097000 08:02 4203109                    /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7f53d4004000-7f53d4006000 r--s 00005000 08:03 31588868                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/stax-api-1.0.1.jar
+7f53d4006000-7f53d4008000 r--s 00002000 08:03 31588866                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/annotations-1.3.9.jar
+7f53d4008000-7f53d4014000 r--s 00085000 08:03 31588881                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/httpclient-4.3.5.jar
+7f53d4014000-7f53d401b000 r--s 00053000 08:03 31588870                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/log4j-1.2.14.jar
+7f53d401b000-7f53d401d000 r--s 0000f000 08:03 31588875                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/sardine-248.jar
+7f53d401d000-7f53d401f000 r--s 00010000 08:03 31588888                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/commons-codec-1.5.jar
+7f53d401f000-7f53d4021000 r--s 0000e000 08:03 31588883                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/commons-logging-1.1.3.jar
+7f53d4021000-7f53d4023000 r--s 00005000 08:03 31588879                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/javatar-2.5.jar
+7f53d4023000-7f53d4042000 r--s 00224000 08:03 31588869                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/cloveretl-engine-3.7.3.jar
+7f53d4042000-7f53d4047000 r--s 00016000 08:03 31588872                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/xml-apis-1.0.b2.jar
+7f53d4047000-7f53d404d000 r--s 00027000 08:03 31588867                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/mule-module-data-mapper-3.7.3.jar
+7f53d404d000-7f53d4053000 r--s 0003f000 08:03 31588887                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/httpcore-4.3.2.jar
+7f53d4053000-7f53d4062000 r--s 00081000 08:03 31588884                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/joda-time-2.5.jar
+7f53d4062000-7f53d406a000 r--s 00042000 08:03 31588871                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/javolution-5.2.6.jar
+7f53d406a000-7f53d40a7000 r--s 0024f000 08:03 31588874                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/xmlbeans-2.3.0.jar
+7f53d40a7000-7f53d40ab000 r--s 0003d000 08:03 31588873                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/jsch-0.1.51.jar
+7f53d40ab000-7f53d40ca000 r--s 0018f000 08:03 31588876                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/poi-3.8-beta4.jar
+7f53d40ca000-7f53d40d3000 r--s 0009d000 08:03 31588878                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/poi-ooxml-3.8-beta4.jar
+7f53d40d3000-7f53d40d4000 r--s 00006000 08:03 33295017                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-cors-2.1.jar
+7f53d40d4000-7f53d40d5000 r--s 00006000 08:03 33295017                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-cors-2.1.jar
+7f53d40d5000-7f53d40d8000 r--s 0001f000 08:03 33295009                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-validator-1.3.1.jar
+7f53d40d8000-7f53d40dc000 r--s 00034000 08:03 33295014                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-core-2.4.3.jar
+7f53d40dc000-7f53d40e2000 r--s 001c8000 08:03 33295006                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-apikit-1.7.3-SNAPSHOT.jar
+7f53d40e2000-7f53d40e6000 r--s 00026000 08:03 33295010                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/commons-digester-1.6.jar
+7f53d40e6000-7f53d40e9000 r--s 00033000 08:03 33295016                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/juniversalchardet-1.0.3.jar
+7f53d40e9000-7f53d40fa000 r--s 000f6000 08:03 33295012                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-databind-2.4.3.jar
+7f53d40fa000-7f53d40fd000 r--s 00007000 08:03 33295013                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/jackson-annotations-2.4.0.jar
+7f53d40fd000-7f53d4103000 r--s 0003c000 08:03 33295008                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/snakeyaml-1.15.jar
+7f53d4103000-7f53d4110000 r--s 00109000 08:03 33295015                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/rhino-1.7R4.jar
+7f53d4110000-7f53d413b000 r--s 001fc000 08:03 33295011                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/guava-18.0.jar
+7f53d413b000-7f53d4140000 r--s 0002d000 08:03 33295007                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/raml-parser-0.9-SNAPSHOT.jar
+7f53d4140000-7f53dc000000 rw-p 00000000 00:00 0 
+7f53dc000000-7f53dc021000 rw-p 00000000 00:00 0 
+7f53dc021000-7f53e0000000 ---p 00000000 00:00 0 
+7f53e0000000-7f53e0001000 r--s 00008000 08:03 31588886                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/data-mapper-plugin/lib/commons-cli-1.1.jar
+7f53e0001000-7f53e0002000 r--s 00006000 08:03 33295017                   /home/valter/dev/workspace-mule/.mule/tmp/checkout-api/plugins/mule-module-apikit-plugin-1.7.3-SNAPSHOT/lib/mule-module-cors-2.1.jar
+7f53e0002000-7f53e0006000 r--s 00027000 08:03 31588989                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/mule-plugin-weave_2.11-3.7.3.jar
+7f53e0006000-7f53e0008000 r--s 00014000 08:03 31588990                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/spire-macros_2.11-0.9.0.jar
+7f53e0008000-7f53e0038000 r--s 002bf000 08:03 31588983                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/core_2.11-1.0.3.jar
+7f53e0038000-7f53e009d000 r--s 0083b000 08:03 31588984                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/spire_2.11-0.9.0-0.9.0.jar
+7f53e009d000-7f53e00f6000 r--s 004f9000 08:03 31588995                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/scala-library-2.11.5.jar
+7f53e00f6000-7f53e00fa000 r--s 00024000 08:03 31588988                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/stax2-api-3.1.4.jar
+7f53e00fa000-7f53e00ff000 r--s 00040000 08:03 31588994                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/spray-json_2.11-1.3.1-1.3.1.jar
+7f53e00ff000-7f53e0105000 r--s 00077000 08:03 31588986                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/threetenbp-1.2-1.2.jar
+7f53e0105000-7f53e0151000 r--s 003e4000 08:03 31588985                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/scala-reflect-2.11.4.jar
+7f53e0151000-7f53e015d000 r--s 000d9000 08:03 31588987                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/parboiled_2.11-2.1.0-2.1.0.jar
+7f53e015d000-7f53e0162000 r--s 00078000 08:03 31588992                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/woodstox-core-5.0.1-5.0.1.jar
+7f53e0162000-7f53e019a000 r--s 0023d000 08:03 31588991                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/shapeless_2.11-2.1.0.jar
+7f53e019a000-7f53e019b000 r--s 00007000 08:03 31588993                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-weave_2.11-3.7.3-dist/lib/machinist_2.11-0.3.0.jar
+7f53e019b000-7f53e01a0000 r--s 0001f000 08:03 31588862                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins/mule-plugin-debugger-3.7.3/lib/mule-plugin-debugger-3.7.3.jar
+7f53e01a0000-7f53e01b1000 r-xp 00000000 08:02 4327457                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f53e01b1000-7f53e03b0000 ---p 00011000 08:02 4327457                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f53e03b0000-7f53e03b1000 rw-p 00010000 08:02 4327457                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f53e03b1000-7f53e05b1000 rw-p 00000000 00:00 0 
+7f53e05b1000-7f53e05b4000 ---p 00000000 00:00 0 
+7f53e05b4000-7f53e06b2000 rw-p 00000000 00:00 0                          [stack:12627]
+7f53e06b2000-7f53e06c8000 r-xp 00000000 08:02 4327494                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f53e06c8000-7f53e08c8000 ---p 00016000 08:02 4327494                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f53e08c8000-7f53e08c9000 rw-p 00016000 08:02 4327494                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f53e08c9000-7f53e08d2000 r-xp 00000000 08:02 4327508                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f53e08d2000-7f53e0ad1000 ---p 00009000 08:02 4327508                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f53e0ad1000-7f53e0ad2000 rw-p 00008000 08:02 4327508                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f53e0ad2000-7f53e0ad4000 r--s 00004000 08:03 31589300                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-unixsocket-0.3.jar
+7f53e0ad4000-7f53e0ae2000 r--s 000a7000 08:03 31589100                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/async-http-client-1.9.31.jar
+7f53e0ae2000-7f53e0ae6000 r--s 00035000 08:03 31589219                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-core-asl-1.9.11.jar
+7f53e0ae6000-7f53e0ae8000 r--s 00000000 08:03 31589279                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/aopalliance-1.0.jar
+7f53e0ae8000-7f53e0ae9000 r--s 00009000 08:03 31589175                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-jndi-9.0.7.v20131107.jar
+7f53e0ae9000-7f53e0af1000 r--s 00066000 08:03 31589104                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/velocity-1.7.jar
+7f53e0af1000-7f53e0af4000 r--s 0000f000 08:03 31589118                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/yjp-controller-api-redist-9.0.8.jar
+7f53e0af4000-7f53e0afb000 r--s 0006b000 08:03 31589113                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/wss4j-1.6.18.jar
+7f53e0afb000-7f53e0b0a000 r--s 001b0000 08:03 31589278                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/ecj-4.3.1.jar
+7f53e0b0a000-7f53e0b0c000 r--s 0000e000 08:03 31589249                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jopt-simple-4.6.jar
+7f53e0b0c000-7f53e0b11000 r--s 00035000 08:03 31589313                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-beanutils-1.9.2.jar
+7f53e0b11000-7f53e0b1b000 r--s 00052000 08:03 31589193                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-ldap-core-2.0.2.RELEASE.jar
+7f53e0b1b000-7f53e0b1d000 r--s 0000a000 08:03 31589314                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-media-json-jettison-2.11.jar
+7f53e0b1d000-7f53e0b8c000 r--s 0060f000 08:03 31589187                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/groovy-all-2.4.4-indy.jar
+7f53e0b8c000-7f53e0b92000 r--s 0004e000 08:03 31589143                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-ws-rm-2.7.15.jar
+7f53e0b92000-7f53e0bbb000 r--s 00131000 08:03 31589322                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/opensaml-2.6.4.jar
+7f53e0bbb000-7f53e0bbf000 r--s 00034000 08:03 31589308                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-core-2.4.3.jar
+7f53e0bbf000-7f53e0bc6000 r--s 0003f000 08:03 31589348                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-messaging-4.1.6.RELEASE.jar
+7f53e0bc6000-7f53e0bcc000 r--s 00032000 08:03 31589338                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jaxen-1.1.1.jar
+7f53e0bcc000-7f53e0bcd000 r--s 00006000 08:03 31589169                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-transports-local-2.7.15.jar
+7f53e0bcd000-7f53e0bce000 r--s 00002000 08:03 31589203                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/ant-launcher-1.7.0.jar
+7f53e0bce000-7f53e0bd2000 r--s 0002f000 08:03 31589294                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-bindings-soap-2.7.15.jar
+7f53e0bd2000-7f53e0bd4000 r--s 00002000 08:03 31589266                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/sxc-xpath-0.7.3.jar
+7f53e0bd4000-7f53e0bd5000 r--s 00003000 08:03 31589172                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jta-1.1.jar
+7f53e0bd5000-7f53e0bd7000 r--s 0000b000 08:03 31589233                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jibx-extras-1.2.5.jar
+7f53e0bd7000-7f53e0bdb000 r--s 0002a000 08:03 31589215                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/wsdl4j-1.6.3.jar
+7f53e0bdb000-7f53e0bdf000 r--s 00091000 08:03 31589127                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-i18n-0.4.0-incubating.jar
+7f53e0bdf000-7f53e0be4000 r--s 0003f000 08:03 31589259                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jibx-schema-1.2.5.jar
+7f53e0be4000-7f53e0be9000 r--s 0004e000 08:03 31589286                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/grizzly-http-2.3.21.jar
+7f53e0be9000-7f53e0bed000 r--s 0002f000 08:03 31589223                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/rome-0.9.jar
+7f53e0bed000-7f53e0bf1000 r--s 00023000 08:03 31589318                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hk2-api-2.3.0-b05.jar
+7f53e0bf1000-7f53e0c30000 r--s 0026d000 08:03 31589155                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bcprov-ext-jdk15on-1.50.jar
+7f53e0c30000-7f53e0c36000 r--s 0003c000 08:03 31589342                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-jms-4.1.6.RELEASE.jar
+7f53e0c36000-7f53e0c4a000 r--s 000fc000 08:03 31589198                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-api-2.7.15.jar
+7f53e0c4a000-7f53e0c4d000 r--s 00014000 08:03 31589120                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bcmail-jdk15on-1.50.jar
+7f53e0c4d000-7f53e0c52000 r--s 00048000 08:03 31589341                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/dom4j-1.6.1.jar
+7f53e0c52000-7f53e0c67000 r--s 000cc000 08:03 31589206                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-server-2.11.jar
+7f53e0c67000-7f53e0c68000 r--s 00006000 08:03 31589241                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-xc-1.9.11.jar
+7f53e0c68000-7f53e0c6a000 r--s 00007000 08:03 31589174                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/el-api-6.0.44.jar
+7f53e0c6a000-7f53e0c6d000 r--s 00026000 08:03 31589238                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mx4j-remote-2.1.1.jar
+7f53e0c6d000-7f53e0c82000 r--s 000e2000 08:03 31589281                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-core-4.1.6.RELEASE.jar
+7f53e0c82000-7f53e0c86000 r--s 0003c000 08:03 31589156                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-lang-2.4.jar
+7f53e0c86000-7f53e0cb2000 r--s 0039a000 08:03 31589090                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/Saxon-HE-9.6.0-1.jar
+7f53e0cb2000-7f53e0cb4000 r--s 00001000 08:03 31589306                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mmc-discovery-api-3.3.2.jar
+7f53e0cb4000-7f53e0cba000 r--s 00048000 08:03 31589173                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-lang3-3.1.jar
+7f53e0cba000-7f53e0cbd000 r--s 0000f000 08:03 31589182                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hibernate-commons-annotations-3.2.0.Final.jar
+7f53e0cbd000-7f53e0ccc000 r--s 000a3000 08:03 31589132                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-common-2.11.jar
+7f53e0ccc000-7f53e0cd2000 r--s 0004e000 08:03 31589311                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-util-9.0.7.v20131107.jar
+7f53e0cd2000-7f53e0cd5000 r--s 00020000 08:03 31589240                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-parser-0.4.0-incubating.jar
+7f53e0cd5000-7f53e0cd8000 r--s 00012000 08:03 31589121                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hk2-utils-2.3.0-b05.jar
+7f53e0cd8000-7f53e0cdb000 r--s 00007000 08:03 31589329                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-j2ee-connector_1.5_spec-2.0.0.jar
+7f53e0cdb000-7f53e0d90000 r--s 00804000 08:03 31589324                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jruby-core-1.7.4.jar
+7f53e0d90000-7f53e0da8000 r--s 001a7000 08:03 31589088                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/aspectjweaver-1.7.3.jar
+7f53e0da8000-7f53e0da9000 r--s 00003000 08:03 31589216                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-jta_1.1_spec-1.1.1.jar
+7f53e0da9000-7f53e0db5000 r--s 0009a000 08:03 31589242                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-ws-security-2.7.15.jar
+7f53e0db5000-7f53e0db8000 r--s 0000d000 08:03 31589340                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-netdb-1.1.2.jar
+7f53e0db8000-7f53e0dbc000 r--s 00022000 08:03 31589265                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-core-0.4.0-incubating.jar
+7f53e0dbc000-7f53e0dc3000 r--s 00048000 08:03 31589160                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/httpcore-4.4.1.jar
+7f53e0dc3000-7f53e0dd6000 r--s 00108000 08:03 31589150                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/drools-compiler-5.0.1.jar
+7f53e0dd6000-7f53e0de5000 r--s 0012d000 08:03 31589291                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jfreechart-1.0.9.jar
+7f53e0de5000-7f53e0de9000 r--s 00034000 08:03 31589347                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xsdlib-2010.1.jar
+7f53e0de9000-7f53e0df8000 r--s 000b0000 08:03 31589210                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-webmvc-4.1.6.RELEASE.jar
+7f53e0df8000-7f53e0dfa000 r--s 00009000 08:03 31589323                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/sxc-runtime-0.7.3.jar
+7f53e0dfa000-7f53e0dfe000 r--s 00025000 08:03 31589183                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-tools-common-2.7.15.jar
+7f53e0dfe000-7f53e0e01000 r--s 0001b000 08:03 31589141                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xpp3-1.1.3.4.O.jar
+7f53e0e01000-7f53e0e06000 r--s 00025000 08:03 31589138                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/json-schema-core-1.2.4.jar
+7f53e0e06000-7f53e0e08000 r--s 0000a000 08:03 31589194                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-databinding-jibx-2.7.15.jar
+7f53e0e08000-7f53e0e13000 r--s 0006c000 08:03 31589133                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mx4j-tools-2.1.1.jar
+7f53e0e13000-7f53e0e17000 r--s 00028000 08:03 31589188                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-util-6.1.26.jar
+7f53e0e17000-7f53e0e1b000 r--s 00018000 08:03 31589163                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/javax.ws.rs-api-2.0.jar
+7f53e0e1b000-7f53e0e2c000 r--s 000f6000 08:03 31589130                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-databind-2.4.3.jar
+7f53e0e2c000-7f53e0e3c000 r--s 00083000 08:03 31589109                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bcpkix-jdk15on-1.50.jar
+7f53e0e3c000-7f53e0e3d000 r--s 00001000 08:03 31589298                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmlpull-1.1.3.1.jar
+7f53e0e3d000-7f53e0e3f000 r--s 00009000 08:03 31589326                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hamcrest-core-1.3.jar
+7f53e0e3f000-7f53e0e41000 r--s 00008000 08:03 31589180                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-dbutils-1.2.jar
+7f53e0e41000-7f53e0e47000 r--s 00046000 08:03 31589224                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jcommon-1.0.12.jar
+7f53e0e47000-7f53e0e48000 r--s 00003000 08:03 31589181                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/livetribe-jsr223-2.0.5.jar
+7f53e0e48000-7f53e0e49000 r--s 00004000 08:03 31589255                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-ejb_2.1_spec-1.1.jar
+7f53e0e49000-7f53e0e4b000 r--s 0000f000 08:03 31589310                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-frontend-simple-2.7.15.jar
+7f53e0e4b000-7f53e0e4c000 r--s 00005000 08:03 31589316                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-wstx-msv-validation-2.7.15.jar
+7f53e0e4c000-7f53e0e4e000 r--s 0001a000 08:03 31589272                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-webapp-9.0.7.v20131107.jar
+7f53e0e4e000-7f53e0e53000 r--s 00014000 08:03 31589159                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hibernate-jpa-2.0-api-1.0.0.Final.jar
+7f53e0e53000-7f53e0e55000 r--s 00001000 08:03 31589087                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cometd-api-1.1.1.jar
+7f53e0e55000-7f53e0e56000 r--s 00004000 08:03 31589325                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/relaxngDatatype-20020414.jar
+7f53e0e56000-7f53e0e57000 r--s 00003000 08:03 31589245                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xqj-api-1.0.jar
+7f53e0e57000-7f53e0e59000 r--s 00005000 08:03 31589334                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xpp3_min-1.1.3.4.O.jar
+7f53e0e59000-7f53e0e5e000 r--s 00027000 08:03 31589094                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-context-support-4.1.6.RELEASE.jar
+7f53e0e5e000-7f53e0e61000 r--s 0001a000 08:03 31589135                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/axiom-impl-1.2.5.jar
+7f53e0e61000-7f53e0e67000 r--s 0005a000 08:03 31589258                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jcifs-1.3.3.jar
+7f53e0e67000-7f53e0e7b000 r--s 00079000 08:03 31589097                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/openws-1.5.4.jar
+7f53e0e7b000-7f53e0e7e000 r--s 0001e000 08:03 31589170                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-databinding-jaxb-2.7.15.jar
+7f53e0e7e000-7f53e0e85000 r--s 00028000 08:03 31589297                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jgrapht-jdk1.5-0.7.3.jar
+7f53e0e85000-7f53e0e88000 r--s 00017000 08:03 31589112                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-security-ldap-4.0.1.RELEASE.jar
+7f53e0e88000-7f53e0e89000 r--s 0000c000 08:03 31589148                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hamcrest-library-1.3.jar
+7f53e0e89000-7f53e0e8a000 r--s 00003000 08:03 31589096                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-continuation-9.0.7.v20131107.jar
+7f53e0e8a000-7f53e0e8b000 r--s 0000f000 08:03 31589134                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/json-20140107.jar
+7f53e0e8b000-7f53e0eaf000 r--s 00192000 08:03 31589168                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/drools-core-5.0.1.jar
+7f53e0eaf000-7f53e0eb1000 r--s 0006e000 08:03 31589315                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jffi-1.2.9-native.jar
+7f53e0eb1000-7f53e0eb3000 r--s 0000d000 08:03 31589280                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/connection-pool-2.3.21.jar
+7f53e0eb3000-7f53e0eb4000 r--s 00007000 08:03 31589161                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/asm-commons-3.1.jar
+7f53e0eb4000-7f53e0eb6000 r--s 00012000 08:03 31589253                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-ws-addr-2.7.15.jar
+7f53e0eb6000-7f53e0ebf000 r--s 00133000 08:03 31589246                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jcodings-1.0.10.jar
+7f53e0ebf000-7f53e0ec2000 r--s 0000c000 08:03 31589252                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-client-0.4.0-incubating.jar
+7f53e0ec2000-7f53e0ec5000 r--s 00013000 08:03 31589128                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-io-9.0.7.v20131107.jar
+7f53e0ec5000-7f53e0ecd000 r--s 00070000 08:03 31589277                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/c3p0-0.9.5.jar
+7f53e0ecd000-7f53e0ed0000 r--s 00007000 08:03 31589317                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-annotations-2.4.0.jar
+7f53e0ed0000-7f53e0ed4000 r--s 00019000 08:03 31589122                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/aspectjrt-1.7.3.jar
+7f53e0ed4000-7f53e0f05000 r--s 002c0000 08:03 31589221                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hibernate-core-3.6.0.Final.jar
+7f53e0f05000-7f53e0f15000 r--s 00162000 08:03 31589095                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/antlr-3.1.1.jar
+7f53e0f15000-7f53e0f19000 r--s 0002f000 08:03 31589235                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jmdns-3.4.1.jar
+7f53e0f19000-7f53e0f1b000 r--s 00005000 08:03 31589190                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/javax.annotation-api-1.2.jar
+7f53e0f1b000-7f53e10d9000 r--s 02191000 08:03 31589271                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jython-standalone-2.7.0.jar
+7f53e10d9000-7f53e10db000 r--s 0000b000 08:03 31589185                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-plus-9.0.7.v20131107.jar
+7f53e10db000-7f53e10ed000 r--s 000c0000 08:03 31589283                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jaxb-impl-2.1.9.jar
+7f53e10ed000-7f53e10f0000 r--s 00025000 08:03 31589307                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hk2-locator-2.3.0-b05.jar
+7f53e10f0000-7f53e10f5000 r--s 0003b000 08:03 31589321                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mx4j-jmx-2.1.1.jar
+7f53e10f5000-7f53e10f6000 r--s 00007000 08:03 31589136                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-remoting-stream-support-1.0.7.jar
+7f53e10f6000-7f53e10fa000 r--s 00022000 08:03 31589207                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-client-2.11.jar
+7f53e10fa000-7f53e1104000 r--s 0005f000 08:03 31589152                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-jdbc-4.1.6.RELEASE.jar
+7f53e1104000-7f53e1106000 r--s 00011000 08:03 31589285                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jsp-api-6.0.44.jar
+7f53e1106000-7f53e1107000 r--s 00008000 08:03 31589147                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/invokebinder-1.2.jar
+7f53e1107000-7f53e1109000 r--s 00018000 08:03 31589284                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-servlet-9.0.7.v20131107.jar
+7f53e1109000-7f53e110a000 r--s 00007000 08:03 31589126                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/juli-6.0.44.jar
+7f53e110a000-7f53e110f000 r--s 00044000 08:03 31589344                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/btm-2.1.4.jar
+7f53e110f000-7f53e1111000 r--s 00018000 08:03 31589123                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-http-9.0.7.v20131107.jar
+7f53e1111000-7f53e1120000 r--s 000b0000 08:03 31589110                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-mapper-asl-1.9.11.jar
+7f53e1120000-7f53e1124000 r--s 00021000 08:03 31589254                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jffi-1.2.9.jar
+7f53e1124000-7f53e1125000 r--s 00005000 08:03 31589116                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-spring-0.4.0-incubating.jar
+7f53e1125000-7f53e1126000 r--s 00004000 08:03 31589227                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-jaxrs-1.9.11.jar
+7f53e1126000-7f53e1128000 r--s 00008000 08:03 31589166                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/msg-simple-1.1.jar
+7f53e1128000-7f53e112d000 r--s 00039000 08:03 31589229                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-databinding-aegis-2.7.15.jar
+7f53e112d000-7f53e1131000 r--s 00022000 08:03 31589247                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-posix-2.5.2.jar
+7f53e1131000-7f53e1134000 r--s 00019000 08:03 31589288                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jasper-el-6.0.44.jar
+7f53e1134000-7f53e113a000 r--s 00054000 08:03 31589267                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-server-9.0.7.v20131107.jar
+7f53e113a000-7f53e114b000 r--s 000c9000 08:03 31589243                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/grizzly-framework-2.3.21.jar
+7f53e114b000-7f53e1158000 r--s 00075000 08:03 31589201                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xstream-1.4.7.jar
+7f53e1158000-7f53e115b000 r--s 0002d000 08:03 31589264                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/isorelax-20030108.jar
+7f53e115b000-7f53e1162000 r--s 0006a000 08:03 31589119                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mail-1.4.3.jar
+7f53e1162000-7f53e1163000 r--s 00007000 08:03 31589091                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jackson-coreutils-1.8.jar
+7f53e1163000-7f53e1165000 r--s 00006000 08:03 31589117                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-jms_1.1_spec-1.1.1.jar
+7f53e1165000-7f53e116e000 r--s 0004f000 08:03 31589248                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-aop-4.1.6.RELEASE.jar
+7f53e116e000-7f53e1170000 r--s 00009000 08:03 31589165                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-xml-9.0.7.v20131107.jar
+7f53e1170000-7f53e1188000 r--s 000d4000 08:03 31589084                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-guava-2.11.jar
+7f53e1188000-7f53e1193000 r--s 0004c000 08:03 31589217                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-security-core-4.0.1.RELEASE.jar
+7f53e1193000-7f53e1198000 r--s 00030000 08:03 31589339                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-ws-policy-2.7.15.jar
+7f53e1198000-7f53e1199000 r--s 00003000 08:03 31589268                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/annotations-api-6.0.44.jar
+7f53e1199000-7f53e119d000 r--s 00030000 08:03 31589289                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-net-2.2.jar
+7f53e119d000-7f53e11a4000 r--s 00037000 08:03 31589125                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-tx-4.1.6.RELEASE.jar
+7f53e11a4000-7f53e11a7000 r--s 0000f000 08:03 31589167                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-management-2.7.15.jar
+7f53e11a7000-7f53e11a8000 r--s 00001000 08:03 31589129                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/minlog-1.3.0.jar
+7f53e11a8000-7f53e11aa000 r--s 00011000 08:03 31589320                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-annotations-9.0.7.v20131107.jar
+7f53e11aa000-7f53e11dc000 r--s 00254000 08:03 31589269                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/hazelcast-3.1.6.jar
+7f53e11dc000-7f53e11de000 r--s 0000e000 08:03 31589145                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/oro-2.0.8.jar
+7f53e11de000-7f53e11e0000 r--s 00006000 08:03 31589239                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-stax-api_1.0_spec-1.0.1.jar
+7f53e11e0000-7f53e11f0000 r--s 00084000 08:03 31589287                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mchange-commons-java-0.2.9.jar
+7f53e11f0000-7f53e11f5000 r--s 0003b000 08:03 31589149                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-expression-4.1.6.RELEASE.jar
+7f53e11f5000-7f53e11fc000 r--s 0003c000 08:03 31589244                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/snakeyaml-1.11.jar
+7f53e11fc000-7f53e11fe000 r--s 00008000 08:03 31589328                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/js-engine-1.1-jdk14.jar
+7f53e11fe000-7f53e1205000 r--s 00039000 08:03 31589171                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bcpg-jdk15on-1.50.jar
+7f53e1205000-7f53e1215000 r--s 000a0000 08:03 31589089                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-web-4.1.6.RELEASE.jar
+7f53e1215000-7f53e1218000 r--s 0000c000 08:03 31589257                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/uri-template-0.9.jar
+7f53e1218000-7f53e121e000 r--s 00045000 08:03 31589154                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-httpclient-3.1.jar
+7f53e121e000-7f53e122f000 r--s 00094000 08:03 31589107                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmltooling-1.4.4.jar
+7f53e122f000-7f53e1233000 r--s 00024000 08:03 31589158                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/stax2-api-3.1.4.jar
+7f53e1233000-7f53e1237000 r--s 0001c000 08:03 31589303                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mule-tests-functional-3.7.3.jar
+7f53e1237000-7f53e1239000 r--s 00002000 08:03 31589093                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/uuid-3.4.0.jar
+7f53e1239000-7f53e123b000 r--s 00007000 08:03 31589276                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-enxio-0.4.jar
+7f53e123b000-7f53e1241000 r--s 00040000 08:03 31589230                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/grizzly-http-server-2.3.21.jar
+7f53e1241000-7f53e1242000 r--s 00002000 08:03 31589197                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/juel-engine-2.1.0.jar
+7f53e1242000-7f53e1247000 r--s 0003b000 08:03 31589105                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/not-yet-commons-ssl-0.3.9.jar
+7f53e1247000-7f53e1249000 r--s 0000e000 08:03 31589200                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mimepull-1.9.3.jar
+7f53e1249000-7f53e124c000 r--s 00019000 08:03 31589189                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-pool-1.6.jar
+7f53e124c000-7f53e1250000 r--s 0001f000 08:03 31589179                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/axiom-api-1.2.5.jar
+7f53e1250000-7f53e1256000 r--s 00036000 08:03 31589212                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/junit-4.11.jar
+7f53e1256000-7f53e1265000 r--s 00081000 08:03 31589290                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/joda-time-2.5.jar
+7f53e1265000-7f53e1268000 r--s 00015000 08:03 31589270                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/geronimo-servlet_3.0_spec-1.0.jar
+7f53e1268000-7f53e12a2000 r--s 002c2000 08:03 31589336                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jaxb-xjc-2.1.9.jar
+7f53e12a2000-7f53e12a3000 r--s 00000000 08:03 31589250                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/javax.inject-1.jar
+7f53e12a3000-7f53e12a9000 r--s 00054000 08:03 31589345                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/esapi-2.1.0.jar
+7f53e12a9000-7f53e12ac000 r--s 00018000 08:03 31589162                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/juel-impl-2.2.1.jar
+7f53e12ac000-7f53e12b9000 r--s 00109000 08:03 31589102                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/rhino-1.7R4.jar
+7f53e12b9000-7f53e12ba000 r--s 00002000 08:03 31589176                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jruby-engine-1.1-jdk14.jar
+7f53e12ba000-7f53e12c1000 r--s 0007e000 08:03 31589103                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/javassist-3.7.ga.jar
+7f53e12c1000-7f53e12c3000 r--s 0000e000 08:03 31589085                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-media-multipart-2.11.jar
+7f53e12c3000-7f53e12c8000 r--s 00048000 08:03 31589236                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-constants-0.8.4.jar
+7f53e12c8000-7f53e12cc000 r--s 0000c000 08:03 31589335                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/validation-api-1.1.0.Final.jar
+7f53e12cc000-7f53e12cf000 r--s 00038000 08:03 31589296                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/ognl-2.7.3.jar
+7f53e12cf000-7f53e12d1000 r--s 0000b000 08:03 31589205                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-deploy-9.0.7.v20131107.jar
+7f53e12d1000-7f53e12da000 r--s 00046000 08:03 31589196                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-security-web-4.0.1.RELEASE.jar
+7f53e12da000-7f53e1318000 r--s 0025e000 08:03 31589343                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bcprov-jdk15on-1.50.jar
+7f53e1318000-7f53e131c000 r--s 0002a000 08:03 31589153                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-io-2.4.jar
+7f53e131c000-7f53e131d000 r--s 00004000 08:03 31589251                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/osgi-resource-locator-1.0.1.jar
+7f53e131d000-7f53e1321000 r--s 00021000 08:03 31589275                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mx4j-impl-2.1.1.jar
+7f53e1321000-7f53e1324000 r--s 0000f000 08:03 31589178                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/kryo-serializers-0.29.jar
+7f53e1324000-7f53e132b000 r--s 0007a000 08:03 31589292                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jasper-6.0.44.jar
+7f53e132b000-7f53e132d000 r--s 00011000 08:03 31589124                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/grabbag-1.8.1.jar
+7f53e132d000-7f53e132f000 r--s 00009000 08:03 31589282                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/objenesis-2.1.jar
+7f53e132f000-7f53e1333000 r--s 00020000 08:03 31589222                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-digester-1.8.jar
+7f53e1333000-7f53e1334000 r--s 00002000 08:03 31589115                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jbpm-log-4.4.jar
+7f53e1334000-7f53e135f000 r--s 001fc000 08:03 31589237                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/guava-18.0.jar
+7f53e135f000-7f53e1363000 r--s 00028000 08:03 31589349                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-validator-1.4.0.jar
+7f53e1363000-7f53e1365000 r--s 0000a000 08:03 31589351                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jboss-logging-3.0.0.Beta5.jar
+7f53e1365000-7f53e1370000 r--s 000b9000 08:03 31589274                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/coyote-6.0.44.jar
+7f53e1370000-7f53e1380000 r--s 00039000 08:03 31589099                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/libphonenumber-6.0.jar
+7f53e1380000-7f53e138d000 r--s 0009d000 08:03 31589086                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jbossjta-4.15.0.Final.jar
+7f53e138d000-7f53e13a5000 r--s 000e3000 08:03 31589350                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-context-4.1.6.RELEASE.jar
+7f53e13a5000-7f53e13a9000 r--s 00018000 08:03 31589144                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/grizzly-websockets-2.3.21.jar
+7f53e13a9000-7f53e13ab000 r--s 00016000 08:03 31589295                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmlunit-1.5.jar
+7f53e13ab000-7f53e13b5000 r--s 0008b000 08:03 31589312                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mvel2-2.0.10.jar
+7f53e13b5000-7f53e13b6000 r--s 00002000 08:03 31589261                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/btf-1.2.jar
+7f53e13b6000-7f53e13bc000 r--s 0005f000 08:03 31589231                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-core-2.7.15.jar
+7f53e13bc000-7f53e13c3000 r--s 00019000 08:03 31589232                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/drools-api-5.0.1.jar
+7f53e13c3000-7f53e13cd000 r--s 00098000 08:03 31589293                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/quartz-2.2.1.jar
+7f53e13cd000-7f53e13d0000 r--s 00011000 08:03 31589301                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/sxc-core-0.7.3.jar
+7f53e13d0000-7f53e13d3000 r--s 0002b000 08:03 31589225                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/joni-2.0.0.jar
+7f53e13d3000-7f53e13d5000 r--s 00020000 08:03 31589304                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jibx-run-1.2.5.jar
+7f53e13d5000-7f53e13d6000 r--s 0000a000 08:03 31589137                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/asm-3.3.1.jar
+7f53e13d6000-7f53e13d8000 r--s 00002000 08:03 31589140                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mmc-discovery-impl-jmdns-3.3.2.jar
+7f53e13d8000-7f53e13db000 r--s 0001d000 08:03 31589327                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/stax-utils-20080702.jar
+7f53e13db000-7f53e13e0000 r--s 00048000 08:03 31589213                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-transports-http-2.7.15.jar
+7f53e13e0000-7f53e13e2000 r--s 00004000 08:03 31589108                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/asm-tree-3.1.jar
+7f53e13e2000-7f53e13e7000 r--s 00039000 08:03 31589192                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/mailapi-1.4.3.jar
+7f53e13e7000-7f53e1400000 r--s 00112000 08:03 31589234                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/ehcache-core-2.5.1.jar
+7f53e1400000-7f53e1405000 r--s 00024000 08:03 31589209                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmlschema-core-2.1.0.jar
+7f53e1405000-7f53e140b000 r--s 00044000 08:03 31589226                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-jxpath-1.3.jar
+7f53e140b000-7f53e1448000 r--s 0024f000 08:03 31589151                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmlbeans-2.3.0.jar
+7f53e1448000-7f53e1449000 r--s 00001000 08:03 31589101                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jersey-media-json-jackson1-2.11.jar
+7f53e1449000-7f53e144a000 r--s 00005000 08:03 31589305                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-util5-6.1.26.jar
+7f53e144a000-7f53e145c000 r--s 000b6000 08:03 31589157                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jbpm-pvm-4.4.jar
+7f53e145c000-7f53e1469000 r--s 00083000 08:03 31589106                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/commons-collections-3.2.2.jar
+7f53e1469000-7f53e14a1000 r--s 0074f000 08:03 31589302                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jruby-stdlib-1.7.4.jar
+7f53e14a1000-7f53e14a4000 r--s 00020000 08:03 31589131                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/reflections-0.9.9.jar
+7f53e14a4000-7f53e14a6000 r--s 00008000 08:03 31589273                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-bindings-xml-2.7.15.jar
+7f53e14a6000-7f53e14a8000 r--s 00012000 08:03 31589202                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jettison-1.3.3.jar
+7f53e14a8000-7f53e14aa000 r--s 0000d000 08:03 31589319                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jbpm-api-4.4.jar
+7f53e14aa000-7f53e14ae000 r--s 0003d000 08:03 31589146                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jsch-0.1.51.jar
+7f53e14ae000-7f53e14b4000 r--s 00040000 08:03 31589164                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/smack-3.1.0.jar
+7f53e14b4000-7f53e14b8000 r--s 0001e000 08:03 31589111                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/abdera-server-0.4.0-incubating.jar
+7f53e14b8000-7f53e14be000 r--s 00049000 08:03 31589114                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cglib-nodep-2.2.jar
+7f53e14be000-7f53e14c2000 r--s 00021000 08:03 31589218                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/staxon-1.2.jar
+7f53e14c2000-7f53e14c4000 r--s 00013000 08:03 31589332                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xml-resolver-1.2.jar
+7f53e14c4000-7f53e14c6000 r--s 00023000 08:03 31589186                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jdom-1.1.3.jar
+7f53e14c6000-7f53e14d3000 r--s 0008f000 08:03 31589331                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xmlsec-1.5.3.jar
+7f53e14d3000-7f53e14d5000 r--s 00010000 08:03 31589208                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jzlib-1.1.2.jar
+7f53e14d5000-7f53e14dc000 r--s 00051000 08:03 31589346                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/kryo-shaded-3.0.1.jar
+7f53e14dc000-7f53e14df000 r--s 00033000 08:03 31589199                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-x86asm-1.0.2.jar
+7f53e14df000-7f53e14e5000 r--s 00071000 08:03 31589191                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/woodstox-core-asl-4.4.1.jar
+7f53e14e5000-7f53e14f0000 r--s 00073000 08:03 31589204                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/smackx-3.1.0.jar
+7f53e14f0000-7f53e14f3000 r--s 00016000 08:03 31589262                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jbpm-jpdl-4.4.jar
+7f53e14f3000-7f53e14f6000 r--s 00026000 08:03 31589142                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/antlr-runtime-3.5.jar
+7f53e14f6000-7f53e1503000 r--s 000a0000 08:03 31589195                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-beans-4.1.6.RELEASE.jar
+7f53e1503000-7f53e1506000 r--s 00022000 08:03 31589256                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/stringtemplate-3.2.1.jar
+7f53e1506000-7f53e1508000 r--s 00015000 08:03 31589220                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cometd-server-6.1.26.jar
+7f53e1508000-7f53e150f000 r--s 00032000 08:03 31589184                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/json-schema-validator-2.2.5.jar
+7f53e150f000-7f53e1512000 r--s 0002f000 08:03 31589228                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jline-2.7.jar
+7f53e1512000-7f53e1518000 r--s 0005a000 08:03 31589092                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/cxf-rt-frontend-jaxws-2.7.15.jar
+7f53e1518000-7f53e152b000 r--s 00128000 08:03 31589330                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/ant-1.7.0.jar
+7f53e152b000-7f53e153a000 r--s 00098000 08:03 31589177                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/msv-core-2011.1.jar
+7f53e153a000-7f53e153c000 r--s 00015000 08:03 31589214                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/xapool-1.5.0.jar
+7f53e153c000-7f53e153e000 r--s 00010000 08:03 31589309                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/neethi-3.0.3.jar
+7f53e153e000-7f53e1540000 r--s 00004000 08:03 31589337                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/stax-api-1.0-2.jar
+7f53e1540000-7f53e1543000 r--s 00014000 08:03 31589139                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jetty-security-9.0.7.v20131107.jar
+7f53e1543000-7f53e1544000 r--s 00002000 08:03 31589260                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/bytelist-1.0.10.jar
+7f53e1544000-7f53e154d000 r--s 0006b000 08:03 31589333                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/spring-security-config-4.0.1.RELEASE.jar
+7f53e154d000-7f53e154f000 r--s 00011000 08:03 31589299                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/Saxon-HE-9.6.0-1-xqj.jar
+7f53e154f000-7f53e1551000 r--s 0000f000 08:03 31589211                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/flatpack-3.1.1.jar
+7f53e1551000-7f53e1554000 r--s 00009000 08:03 31589263                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/signpost-core-1.2.1.2.jar
+7f53e1554000-7f53e1564000 r--s 0008c000 08:03 31589098                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/opt/jnr-ffi-1.0.4.jar
+7f53e1564000-7f53e1569000 r--s 0001e000 08:03 31589031                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-extensions-spring-support-3.7.3.jar
+7f53e1569000-7f53e156b000 r--s 00007000 08:03 31589037                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-atom-3.7.3.jar
+7f53e156b000-7f53e156d000 r--s 00005000 08:03 31589027                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-vm-3.7.3.jar
+7f53e156d000-7f53e156e000 r--s 00002000 08:03 31589021                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-extensions-annotations-1.0.0-alpha-1.jar
+7f53e156e000-7f53e1571000 r--s 0000e000 08:03 31589034                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-jdbc-3.7.3.jar
+7f53e1571000-7f53e1572000 r--s 00002000 08:03 31589058                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-ejb-3.7.3.jar
+7f53e1572000-7f53e157a000 r--s 00055000 08:03 31589041                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mmc-agent-impl-3.7.3.jar
+7f53e157a000-7f53e157c000 r--s 0000f000 08:03 31589030                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-ws-3.7.3.jar
+7f53e157c000-7f53e1582000 r--s 00030000 08:03 31589007                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-batch-ee-3.7.3.jar
+7f53e1582000-7f53e1584000 r--s 0000b000 08:03 31589078                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-file-3.7.3.jar
+7f53e1584000-7f53e1587000 r--s 00011000 08:03 31589068                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-cluster-ee-3.7.3.jar
+7f53e1587000-7f53e1589000 r--s 00009000 08:03 31589075                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-servlet-3.7.3.jar
+7f53e1589000-7f53e158b000 r--s 0000d000 08:03 31589013                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-json-3.7.3.jar
+7f53e158b000-7f53e158d000 r--s 00004000 08:03 31589071                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-tracking-ee-3.7.3.jar
+7f53e158d000-7f53e158e000 r--s 00003000 08:03 31589083                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-ftp-ee-3.7.3.jar
+7f53e158e000-7f53e1590000 r--s 00000000 08:03 31589039                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-xa-tx-ee-3.7.3.jar
+7f53e1590000-7f53e159c000 r--s 0006d000 08:03 31589066                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-spring-config-3.7.3.jar
+7f53e159c000-7f53e15a0000 r--s 00019000 08:03 31589061                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-extensions-support-3.7.3.jar
+7f53e15a0000-7f53e15a2000 r--s 00010000 08:03 31589057                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-tcp-3.7.3.jar
+7f53e15a2000-7f53e15a3000 r--s 00005000 08:03 31589081                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-udp-3.7.3.jar
+7f53e15a3000-7f53e15a5000 r--s 00008000 08:03 31589077                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-kryo-serializer-ee-3.7.3.jar
+7f53e15a5000-7f53e15a6000 r--s 00002000 08:03 31589063                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-multicast-3.7.3.jar
+7f53e15a6000-7f53e15aa000 r--s 00027000 08:03 31589033                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-jms-3.7.3.jar
+7f53e15aa000-7f53e15ad000 r--s 0000e000 08:03 31589010                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-annotations-3.7.3.jar
+7f53e15ad000-7f53e15ae000 r--s 00002000 08:03 31589045                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-ognl-3.7.3.jar
+7f53e15ae000-7f53e15b0000 r--s 0000e000 08:03 31589028                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-sftp-3.7.3.jar
+7f53e15b0000-7f53e15b2000 r--s 0000c000 08:03 31589005                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-plugin-ee-3.7.3.jar
+7f53e15b2000-7f53e15b4000 r--s 00001000 08:03 31589062                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-pattern-core-3.7.3.jar
+7f53e15b4000-7f53e15b7000 r--s 00009000 08:03 31589011                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-extensions-api-1.0.0-alpha-1.jar
+7f53e15b7000-7f53e15d9000 r--s 00157000 08:03 31589023                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-core-3.7.3-tests.jar
+7f53e15d9000-7f53e15de000 r--s 00034000 08:03 31589060                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-http-3.7.3.jar
+7f53e15de000-7f53e15e0000 r--s 00004000 08:03 31589070                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-rmi-3.7.3.jar
+7f53e15e0000-7f53e15e5000 r--s 0001a000 08:03 31589009                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mmc-agent-api-3.7.3.jar
+7f53e15e5000-7f53e15e6000 r--s 00000000 08:03 31589059                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-tomcat-3.7.3.jar
+7f53e15e6000-7f53e15e8000 r--s 00006000 08:03 31589064                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-scripting-3.7.3.jar
+7f53e15e8000-7f53e15ea000 r--s 00005000 08:03 31589003                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-jms-ee-3.7.3.jar
+7f53e15ea000-7f53e15f3000 r--s 00035000 08:03 31589067                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-db-3.7.3.jar
+7f53e15f3000-7f53e15f6000 r--s 00010000 08:03 31589051                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-email-3.7.3.jar
+7f53e15f6000-7f53e15f8000 r--s 0000a000 08:03 31589015                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-quartz-3.7.3.jar
+7f53e15f8000-7f53e15fb000 r--s 0000d000 08:03 31589043                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-throttling-ee-3.7.3.jar
+7f53e15fb000-7f53e15ff000 r--s 00017000 08:03 31589017                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-jdbc-ee-3.7.3.jar
+7f53e15ff000-7f53e1605000 r--s 00036000 08:03 31589044                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-http-3.7.3.jar
+7f53e1605000-7f53e1632000 r--s 001f9000 08:03 31589019                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-core-3.7.3.jar
+7f53e1632000-7f53e1633000 r--s 00006000 08:03 31589004                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-cache-ee-3.7.3.jar
+7f53e1633000-7f53e1635000 r--s 00008000 08:03 31589018                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-saml-ee-3.7.3.jar
+7f53e1635000-7f53e1636000 r--s 00004000 08:03 31589056                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-bpm-3.7.3.jar
+7f53e1636000-7f53e163a000 r--s 0001a000 08:03 31589079                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-devkit-support-3.7.3.jar
+7f53e163a000-7f53e163b000 r--s 00004000 08:03 31589022                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-core-ee-3.7.3.jar
+7f53e163b000-7f53e163d000 r--s 00009000 08:03 31589025                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-xmpp-3.7.3.jar
+7f53e163d000-7f53e163f000 r--s 00005000 08:03 31589026                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-ssl-3.7.3.jar
+7f53e163f000-7f53e1641000 r--s 00002000 08:03 31589036                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-rss-3.7.3.jar
+7f53e1641000-7f53e1643000 r--s 00002000 08:03 31589082                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-sxc-3.7.3.jar
+7f53e1643000-7f53e1644000 r--s 00001000 08:03 31589080                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-drools-3.7.3.jar
+7f53e1644000-7f53e1646000 r--s 00003000 08:03 31589069                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-jaas-3.7.3.jar
+7f53e1646000-7f53e164f000 r--s 0003b000 08:03 31589050                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-common-3.7.3.jar
+7f53e164f000-7f53e165c000 r--s 000ad000 08:03 31589035                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-mvel2-2.1.9-MULE-008.jar
+7f53e165c000-7f53e1661000 r--s 0002b000 08:03 31589047                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-launcher-3.7.3.jar
+7f53e1661000-7f53e1663000 r--s 00003000 08:03 31589073                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-stdio-3.7.3.jar
+7f53e1663000-7f53e1664000 r--s 00001000 08:03 31589029                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-tools-anttasks-3.7.3.jar
+7f53e1664000-7f53e1666000 r--s 00027000 08:03 31589024                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-ajax-3.7.3.jar
+7f53e1666000-7f53e1668000 r--s 00005000 08:03 31589038                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-spring-config-ee-3.7.3.jar
+7f53e1668000-7f53e166b000 r--s 0000c000 08:03 31589055                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-validation-3.7.3.jar
+7f53e166b000-7f53e166d000 r--s 00008000 08:03 31589048                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-pgp-3.7.3.jar
+7f53e166d000-7f53e166f000 r--s 00005000 08:03 31589054                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-spring-extras-3.7.3.jar
+7f53e166f000-7f53e1670000 r--s 00002000 08:03 31589053                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-multi-tx-ee-3.7.3.jar
+7f53e1670000-7f53e1671000 r--s 00004000 08:03 31589012                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-spring-security-3.7.3.jar
+7f53e1671000-7f53e1673000 r--s 00009000 08:03 31589046                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-bti-ee-3.7.3.jar
+7f53e1673000-7f53e1677000 r--s 00025000 08:03 31589014                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-xml-3.7.3.jar
+7f53e1677000-7f53e1679000 r--s 00007000 08:03 31589016                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-ftp-3.7.3.jar
+7f53e1679000-7f53e167a000 r--s 00004000 08:03 31589074                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-jbpm-3.7.3.jar
+7f53e167a000-7f53e167f000 r--s 00026000 08:03 31589040                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-security-oauth2-provider-1.5.2.jar
+7f53e167f000-7f53e1680000 r--s 00001000 08:03 31589049                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-jbossts-3.7.3.jar
+7f53e1680000-7f53e1681000 r--s 00004000 08:03 31589006                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-jersey-3.7.3.jar
+7f53e1681000-7f53e1682000 r--s 00002000 08:03 31589065                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-schedulers-3.7.3.jar
+7f53e1682000-7f53e1686000 r--s 00029000 08:03 31589042                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-cxf-3.7.3.jar
+7f53e1686000-7f53e168a000 r--s 00021000 08:03 31589032                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-management-3.7.3.jar
+7f53e168a000-7f53e168b000 r--s 00005000 08:03 31589076                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-ee-parent-poms-3.7.3.jar
+7f53e168b000-7f53e168d000 r--s 00008000 08:03 31589008                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-client-3.7.3.jar
+7f53e168d000-7f53e168f000 r--s 0000a000 08:03 31589052                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-transport-jetty-3.7.3.jar
+7f53e168f000-7f53e1691000 r--s 00002000 08:03 31589020                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-builders-3.7.3.jar
+7f53e1691000-7f53e1694000 r--s 0000c000 08:03 31589072                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/mule/mule-module-oauth-3.7.3.jar
+7f53e1694000-7f53e1698000 r--s 0001c000 08:03 31589000                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/user/mule-tests-functional-3.7.3.jar
+7f53e1698000-7f53e169b000 r--s 00014000 08:03 31589359                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/oscore-2.2.4.jar
+7f53e169b000-7f53e169d000 r--s 00009000 08:03 31589363                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/commons-cli-1.2.jar
+7f53e169d000-7f53e16af000 r--s 000b8000 08:03 31589352                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-core-2.1.jar
+7f53e16af000-7f53e16b0000 ---p 00000000 00:00 0 
+7f53e16b0000-7f53e17b0000 rw-p 00000000 00:00 0                          [stack:12626]
+7f53e17b0000-7f53e17b3000 ---p 00000000 00:00 0 
+7f53e17b3000-7f53e18b1000 rw-p 00000000 00:00 0                          [stack:12625]
+7f53e18b1000-7f53e18b4000 ---p 00000000 00:00 0 
+7f53e18b4000-7f53e19b2000 rw-p 00000000 00:00 0                          [stack:12624]
+7f53e19b2000-7f53e19b5000 ---p 00000000 00:00 0 
+7f53e19b5000-7f53e1ab3000 rw-p 00000000 00:00 0                          [stack:12623]
+7f53e1ab3000-7f53e1ab6000 ---p 00000000 00:00 0 
+7f53e1ab6000-7f53e1bb4000 rw-p 00000000 00:00 0                          [stack:12622]
+7f53e1bb4000-7f53e1bb7000 ---p 00000000 00:00 0 
+7f53e1bb7000-7f53e1cb5000 rw-p 00000000 00:00 0                          [stack:12621]
+7f53e1cb5000-7f53e1f7f000 r--p 00000000 08:02 2759440                    /usr/lib/locale/locale-archive
+7f53e1f7f000-7f53e1f82000 ---p 00000000 00:00 0 
+7f53e1f82000-7f53e2080000 rw-p 00000000 00:00 0                          [stack:12620]
+7f53e2080000-7f53e2083000 ---p 00000000 00:00 0 
+7f53e2083000-7f53e2181000 rw-p 00000000 00:00 0                          [stack:12619]
+7f53e2181000-7f53e2182000 ---p 00000000 00:00 0 
+7f53e2182000-7f53e4000000 rw-p 00000000 00:00 0                          [stack:12618]
+7f53e4000000-7f53e4021000 rw-p 00000000 00:00 0 
+7f53e4021000-7f53e8000000 ---p 00000000 00:00 0 
+7f53e8000000-7f53e8021000 rw-p 00000000 00:00 0 
+7f53e8021000-7f53ec000000 ---p 00000000 00:00 0 
+7f53ec000000-7f53ec021000 rw-p 00000000 00:00 0 
+7f53ec021000-7f53f0000000 ---p 00000000 00:00 0 
+7f53f0000000-7f53f0003000 r--s 0001b000 08:03 31589365                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/wrapper-3.5.26.jar
+7f53f0003000-7f53f0006000 r--s 00011000 08:03 31589358                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/disruptor-3.3.0.jar
+7f53f0006000-7f53f0257000 rw-p 00000000 00:00 0 
+7f53f0257000-7f53f042f000 r--s 03d1d000 08:02 4203261                    /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7f53f042f000-7f53f0430000 ---p 00000000 00:00 0 
+7f53f0430000-7f53f0530000 rw-p 00000000 00:00 0                          [stack:12617]
+7f53f0530000-7f53f0531000 ---p 00000000 00:00 0 
+7f53f0531000-7f53f0631000 rw-p 00000000 00:00 0                          [stack:12616]
+7f53f0631000-7f53f0632000 ---p 00000000 00:00 0 
+7f53f0632000-7f53f0732000 rw-p 00000000 00:00 0                          [stack:12615]
+7f53f0732000-7f53f0733000 ---p 00000000 00:00 0 
+7f53f0733000-7f53f0892000 rw-p 00000000 00:00 0                          [stack:12614]
+7f53f0892000-7f53f0d65000 ---p 00000000 00:00 0 
+7f53f0d65000-7f53f0e5c000 rw-p 00000000 00:00 0 
+7f53f0e5c000-7f53f0fff000 ---p 00000000 00:00 0 
+7f53f0fff000-7f53f1000000 rw-p 00000000 00:00 0 
+7f53f1000000-7f53f22e0000 rwxp 00000000 00:00 0 
+7f53f22e0000-7f5400000000 ---p 00000000 00:00 0 
+7f5400000000-7f5402f4d000 rw-p 00000000 00:00 0 
+7f5402f4d000-7f5404000000 ---p 00000000 00:00 0 
+7f5404000000-7f5404002000 r--s 00004000 08:03 31589353                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-slf4j-impl-2.1.jar
+7f5404002000-7f5404004000 r--s 00006000 08:03 31589357                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/slf4j-api-1.7.7.jar
+7f5404004000-7f5404006000 r--s 00004000 08:03 31589355                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-jul-2.1.jar
+7f5404006000-7f5404008000 r--s 00008000 08:03 31589362                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/licm-studio-1.1.4.jar
+7f5404008000-7f540400f000 r--s 0003a000 08:03 31589369                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/commons-codec-1.9.jar
+7f540400f000-7f5404027000 r--s 00115000 08:03 31588998                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/endorsed/xercesImpl-2.9.1.jar
+7f5404027000-7f540404c000 r--s 002de000 08:03 31588997                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/endorsed/xalan-2.7.2.jar
+7f540404c000-7f5404121000 rw-p 00000000 00:00 0 
+7f5404121000-7f54045f5000 ---p 00000000 00:00 0 
+7f54045f5000-7f5404641000 rw-p 00000000 00:00 0 
+7f5404641000-7f54049b5000 ---p 00000000 00:00 0 
+7f54049b5000-7f54049cf000 r-xp 00000000 08:02 4327507                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f54049cf000-7f5404bcf000 ---p 0001a000 08:02 4327507                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f5404bcf000-7f5404bd0000 rw-p 0001a000 08:02 4327507                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f5404bd0000-7f5404bdb000 r-xp 00000000 08:02 4195456                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f5404bdb000-7f5404dda000 ---p 0000b000 08:02 4195456                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f5404dda000-7f5404ddb000 r--p 0000a000 08:02 4195456                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f5404ddb000-7f5404ddc000 rw-p 0000b000 08:02 4195456                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f5404ddc000-7f5404de7000 r-xp 00000000 08:02 4195419                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f5404de7000-7f5404fe6000 ---p 0000b000 08:02 4195419                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f5404fe6000-7f5404fe7000 r--p 0000a000 08:02 4195419                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f5404fe7000-7f5404fe8000 rw-p 0000b000 08:02 4195419                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f5404fe8000-7f5404fff000 r-xp 00000000 08:02 4195409                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f5404fff000-7f54051fe000 ---p 00017000 08:02 4195409                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f54051fe000-7f54051ff000 r--p 00016000 08:02 4195409                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f54051ff000-7f5405200000 rw-p 00017000 08:02 4195409                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f5405200000-7f5405202000 rw-p 00000000 00:00 0 
+7f5405202000-7f540520b000 r-xp 00000000 08:02 4195403                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f540520b000-7f540540a000 ---p 00009000 08:02 4195403                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f540540a000-7f540540b000 r--p 00008000 08:02 4195403                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f540540b000-7f540540c000 rw-p 00009000 08:02 4195403                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f540540c000-7f5405436000 r-xp 00000000 08:02 4327511                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f5405436000-7f5405636000 ---p 0002a000 08:02 4327511                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f5405636000-7f5405638000 rw-p 0002a000 08:02 4327511                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f5405638000-7f5405645000 r-xp 00000000 08:02 4327461                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f5405645000-7f5405845000 ---p 0000d000 08:02 4327461                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f5405845000-7f5405847000 rw-p 0000d000 08:02 4327461                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f5405847000-7f540584e000 r-xp 00000000 08:02 4195444                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f540584e000-7f5405a4d000 ---p 00007000 08:02 4195444                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f5405a4d000-7f5405a4e000 r--p 00006000 08:02 4195444                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f5405a4e000-7f5405a4f000 rw-p 00007000 08:02 4195444                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f5405a4f000-7f5405b54000 r-xp 00000000 08:02 4195394                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f5405b54000-7f5405d53000 ---p 00105000 08:02 4195394                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f5405d53000-7f5405d54000 r--p 00104000 08:02 4195394                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f5405d54000-7f5405d55000 rw-p 00105000 08:02 4195394                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f5405d55000-7f5406a14000 r-xp 00000000 08:02 4327518                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f5406a14000-7f5406c13000 ---p 00cbf000 08:02 4327518                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f5406c13000-7f5406cec000 rw-p 00cbe000 08:02 4327518                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f5406cec000-7f5406d35000 rw-p 00000000 00:00 0 
+7f5406d35000-7f5406ef0000 r-xp 00000000 08:02 4195445                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f5406ef0000-7f54070ef000 ---p 001bb000 08:02 4195445                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f54070ef000-7f54070f3000 r--p 001ba000 08:02 4195445                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f54070f3000-7f54070f5000 rw-p 001be000 08:02 4195445                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f54070f5000-7f54070fa000 rw-p 00000000 00:00 0 
+7f54070fa000-7f54070fd000 r-xp 00000000 08:02 4195396                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f54070fd000-7f54072fc000 ---p 00003000 08:02 4195396                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f54072fc000-7f54072fd000 r--p 00002000 08:02 4195396                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f54072fd000-7f54072fe000 rw-p 00003000 08:02 4195396                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f54072fe000-7f5407313000 r-xp 00000000 08:02 4327460                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+7f5407313000-7f5407513000 ---p 00015000 08:02 4327460                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+7f5407513000-7f5407514000 rw-p 00015000 08:02 4327460                    /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+7f5407514000-7f540752d000 r-xp 00000000 08:02 4195410                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f540752d000-7f540772c000 ---p 00019000 08:02 4195410                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f540772c000-7f540772d000 r--p 00018000 08:02 4195410                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f540772d000-7f540772e000 rw-p 00019000 08:02 4195410                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f540772e000-7f5407732000 rw-p 00000000 00:00 0 
+7f5407732000-7f5407755000 r-xp 00000000 08:02 4195415                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f5407755000-7f5407757000 r--s 0000d000 08:03 31589356                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/mule-module-boot-ee-3.7.3.jar
+7f5407757000-7f5407759000 r--s 00002000 08:03 31589364                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-jcl-2.1.jar
+7f5407759000-7f540775d000 r--s 0001b000 08:03 31589354                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/propertyset-1.3.jar
+7f540775d000-7f540782e000 rw-p 00000000 00:00 0 
+7f540782e000-7f5407831000 ---p 00000000 00:00 0 
+7f5407831000-7f5407933000 rw-p 00000000 00:00 0                          [stack:12612]
+7f5407933000-7f5407934000 r--s 00008000 08:03 31589360                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-1.2-api-2.1.jar
+7f5407934000-7f5407936000 r--s 0000b000 08:03 31589368                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/truelicense-1.29.jar
+7f5407936000-7f5407937000 r--s 00001000 08:03 31589361                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/truexml-1.29.jar
+7f5407937000-7f540793a000 r--s 0001e000 08:03 31589366                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-api-2.1.jar
+7f540793a000-7f540793c000 r--s 00003000 08:03 31589367                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/jcl-over-slf4j-1.7.7.jar
+7f540793c000-7f540793d000 r--s 00000000 08:03 31589370                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/tooling/tooling-support-3.7.3.jar
+7f540793d000-7f5407945000 r--s 00028000 08:03 31588996                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/endorsed/xml-apis-1.3.04.jar
+7f5407945000-7f5407948000 r--s 00041000 08:03 31588999                   /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/endorsed/xml-serializer-2.7.1.jar
+7f5407948000-7f5407950000 rw-s 00000000 08:02 3287608                    /tmp/hsperfdata_valter/12605
+7f5407950000-7f5407951000 rw-p 00000000 00:00 0 
+7f5407951000-7f5407952000 r--p 00000000 00:00 0 
+7f5407952000-7f5407954000 rw-p 00000000 00:00 0 
+7f5407954000-7f5407955000 r--p 00022000 08:02 4195415                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f5407955000-7f5407956000 rw-p 00023000 08:02 4195415                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f5407956000-7f5407957000 rw-p 00000000 00:00 0 
+7ffc6ee18000-7ffc6ee3a000 rw-p 00000000 00:00 0                          [stack]
+7ffc6ef5d000-7ffc6ef5f000 r-xp 00000000 00:00 0                          [vdso]
+7ffc6ef5f000-7ffc6ef61000 r--p 00000000 00:00 0                          [vvar]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -XX:PermSize=128M -XX:MaxPermSize=256M -Dmule.home=/home/valter/dev/workspace-mule/.mule -Djava.endorsed.dirs=/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/endorsed/ -Djava.net.preferIPv4Stack=TRUE -Dmvel2.disable.jit=TRUE -Dosgi.dev=true -Dmule.verbose.exceptions=true -Dmule.plugins.dir=/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/plugins -Dmule.agent.enabled=false -Dmule.forceConsoleLog -Dlog4j.debug=true -Dosgi.instance.area=file:/home/valter/dev/workspace-mule -Dfile.encoding=UTF-8 
+java_command: org.mule.tooling.server.application.ApplicationDeployer
+java_class_path (initial): /home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/tooling/tooling-support-3.7.3.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/jcl-over-slf4j-1.7.7.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-api-2.1.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/truexml-1.29.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/truelicense-1.29.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/propertyset-1.3.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-jcl-2.1.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/commons-codec-1.9.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/mule-module-boot-ee-3.7.3.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/licm-studio-1.1.4.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-jul-2.1.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/slf4j-api-1.7.7.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/disruptor-3.3.0.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-core-2.1.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.server.3.7.3.ee_5.4.0.201511251736/mule/lib/boot/log4j-slf4j-impl-2.1.jar:/home/valter/dev/AnypointStudio/plugins/org.mule.tooling.serv
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/valter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/wellington/bin:/bin:/bin:/home/wellington/bin:/opt/node/bin:/opt/node:/home/valter/dev/android-sdk-linux/platform-tools:/home/wellington/bin:/bin:/bin:/home/wellington/bin:/opt/node/bin:/opt/node
+USERNAME=valter
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xabb070], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xabb070], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x918480], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x918480], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x918480], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x918480], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x919ab0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x91aeb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x91aeb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x91aeb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x91aeb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=LinuxMint
+DISTRIB_RELEASE=17.2
+DISTRIB_CODENAME=rafaela
+DISTRIB_DESCRIPTION="Linux Mint 17.2 Rafaela"
+
+uname:Linux 3.16.0-38-generic #52~14.04.1-Ubuntu SMP Fri May 8 09:43:57 UTC 2015 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 63536, NOFILE 4096, AS infinity
+load average:1,16 0,64 0,40
+
+/proc/meminfo:
+MemTotal:       16346480 kB
+MemFree:         2373432 kB
+MemAvailable:    4508936 kB
+Buffers:          323924 kB
+Cached:          3306120 kB
+SwapCached:            0 kB
+Active:         11207160 kB
+Inactive:        2268920 kB
+Active(anon):    9855484 kB
+Inactive(anon):  1431620 kB
+Active(file):    1351676 kB
+Inactive(file):   837300 kB
+Unevictable:         132 kB
+Mlocked:             132 kB
+SwapTotal:      31998972 kB
+SwapFree:       31998972 kB
+Dirty:             23804 kB
+Writeback:             0 kB
+AnonPages:       9846152 kB
+Mapped:          1478840 kB
+Shmem:           1441116 kB
+Slab:             248116 kB
+SReclaimable:     199944 kB
+SUnreclaim:        48172 kB
+KernelStack:       17408 kB
+PageTables:        73028 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    40172212 kB
+Committed_AS:   19334492 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      584316 kB
+VmallocChunk:   34359146176 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   6152192 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       99264 kB
+DirectMap2M:     2959360 kB
+DirectMap1G:    13631488 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 61 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 61
+model name	: Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+stepping	: 4
+microcode	: 0x1f
+cpu MHz		: 2899.968
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 20
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap
+bogomips	: 4788.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 61
+model name	: Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+stepping	: 4
+microcode	: 0x1f
+cpu MHz		: 2899.968
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 20
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap
+bogomips	: 4788.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 61
+model name	: Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+stepping	: 4
+microcode	: 0x1f
+cpu MHz		: 2899.968
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 20
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap
+bogomips	: 4788.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 61
+model name	: Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+stepping	: 4
+microcode	: 0x1f
+cpu MHz		: 2899.968
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 20
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap
+bogomips	: 4788.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 16346480k(2373432k free), swap 31998972k(31998972k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.74-b02) for linux-amd64 JRE (1.8.0_74-b02), built on Jan 29 2016 19:20:56 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Mar 24 17:01:08 2016
+elapsed time: 134 seconds (0d 0h 2m 14s)
+

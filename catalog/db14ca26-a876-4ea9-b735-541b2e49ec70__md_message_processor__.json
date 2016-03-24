@@ -14,13 +14,17 @@
             "canal": {
                 "connectorName": "Web_Service_Teste",
                 "typeId": "cabecalho"
+            },
+            "soap.canal": {
+                "connectorName": "Web_Service_Teste",
+                "typeId": "cabecalho"
             }
         }
     },
     "outputMessageMetadata": {
         "messagePayload": {
-            "connectorName": "Web_Service_Consumer",
-            "typeId": "checkout"
+            "connectorName": "Web_Service_Teste",
+            "typeId": "cabecalho"
         }
     },
     "id": "db14ca26-a876-4ea9-b735-541b2e49ec70",

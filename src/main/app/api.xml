@@ -6,6 +6,9 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+<mulexml:namespace-manager includeConfigNamespaces="true">
+    <mulexml:namespace prefix="ns11" uri="http://domain.stelo.com.br/comum"/>
+  </mulexml:namespace-manager>
     <http:listener-config name="api-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <apikit:config name="api-config" raml="api.raml" consoleEnabled="true" consolePath="console" doc:name="Router"/>
     <ws:consumer-config name="Web_Service_Consumer" wsdlLocation="contract/1/2/3/4/CheckoutsContract.wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
@@ -16,10 +19,18 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
         <exception-strategy ref="api-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
     </flow>
     <flow name="post:/checkout/sub:application/json:api-config">
-        <set-property doc:name="soap.usuario" propertyName="soap.usuario" value="&lt;comum:usuario&gt;&lt;xsl:value-of select=&quot;1&quot;/&gt;&lt;/comum:usuario&gt;"/>
-        <set-property doc:name="soap.canal" propertyName="soap.canal" value="&lt;comum:canal&gt;API_STELO&lt;/comum:canal&gt;"/>
+    <!-- 
+    	
+     -->
+        <set-property propertyName="soap.usuario" value="&lt;ns11:usuario xmlns:ns11=&quot;http://domain.stelo.com.br/comum&quot;&gt;1&lt;/ns11:usuario&gt;" doc:name="soap.usuario" mimeType="text/xml"/>
+        <set-property propertyName="soap.canal" value="&lt;comum:canal xmlns:comum=&quot;http://domain.stelo.com.br/comum&quot;&gt;API_STELO&lt;/comum:canal&gt;" doc:name="soap.canal" mimeType="text/xml"/>
+        <logger message="outbound #[message.outboundProperties.'soap.usuario'] &amp;&amp;  #[message.outboundProperties.'soap.canal'] " level="INFO" doc:name="Logger"/>
+        
         <dw:transform-message metadata:id="db14ca26-a876-4ea9-b735-541b2e49ec70" doc:name="Transform Message">
             <dw:input-payload doc:sample="json_1.json"/>
+            <dw:input-outbound-property doc:sample="xml.xml" propertyName="soap.canal">
+                <dw:reader-property name="nullValueOn" value="blank"/>
+            </dw:input-outbound-property>
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
 %namespace ns0 http://services.stelo.com.br/transacoes/checkouts/v2
@@ -30,6 +41,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 %namespace ns4 http://stelo.com.br/domain/pedidos
 %namespace ns10 http://stelo.com.br/domain/comum/tecnicos
 %namespace ns7 http://stelo.com.br/domain/pagamentos
+%namespace ns11 http://domain.stelo.com.br/comum
 ---
 {
 	ns0#checkout: {
@@ -68,14 +80,13 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			ns8#email: {
 				ns6#endereco: payload.customerData.customerEmail
 			},
-			
 			(payload.customerData.phoneData map ((phoneData , indexOfphoneData) -> {
-					ns8#telefone: {
-						ns4#tipoTelefone: phoneData.type,
-						ns4#ddd: phoneData.areaCode,
-						ns4#numero: phoneData.number 
-					}
-				}))
+				ns8#telefone: {
+					ns4#tipoTelefone: phoneData.type,
+					ns4#ddd: phoneData.areaCode,
+					ns4#numero: phoneData.number
+				}
+			}))
 		},
 		ns0#pagamento: {
 			ns7#codigoTipoPagamento: payload.paymentData.paymentType,
