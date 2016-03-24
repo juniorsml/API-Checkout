@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://events.stelo.com.br/notificacao/cadastroAlterado"
+    xmlns:tns="http://events.stelo.com.br/notificacao/cadastroAlterado" elementFormDefault="qualified">
+    <complexType name="cadastroAlterado">
+        <sequence>
+            <element name="idStelo" type="long" />
+            <element name="tipo">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="DOC" />
+                        <enumeration value="PHONE" />
+                        <enumeration value="EMAIL" />
+                        <enumeration value="PERSONAL" />
+                        <enumeration value="ADDRESS" />
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.stelo.com.br/transacoes/checkouts/v2"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Checkouts"
+    targetNamespace="http://services.stelo.com.br/transacoes/checkouts/v2" xmlns:comum="http://domain.stelo.com.br/comum">
+    <wsdl:documentation>
+        <servico>
+            <nome>Checkouts</nome>
+            <objetivo>Servico que realiza os checkouts da Stelo (wallet ou subAdquirencia)</objetivo>
+            <versao>1.0</versao>
+        </servico>
+        <ultimaAlteracao>
+            <data>10/07/2015</data>
+            <motivo>Criacao do contrato</motivo>
+        </ultimaAlteracao>
+    </wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://services.stelo.com.br/transacoes/checkouts/v2" elementFormDefault="qualified"
+            xmlns:excecoes="http://stelo.com.br/domain/comum/excecoes" xmlns:pedidos="http://stelo.com.br/domain/pedidos"
+            xmlns:pessoas="http://stelo.com.br/domain/pessoas" xmlns:cartoes="http://stelo.com.br/domain/cartoes" xmlns:com="http://stelo.com.br/domain/comum"
+            xmlns:pagamentos="http://stelo.com.br/domain/pagamentos" xmlns:tecnicos="http://stelo.com.br/domain/comum/tecnicos"
+            xmlns:ec="http://stelo.com.br/domain/ec" xmlns:comprador="http://stelo.com.br/domain/comprador">
+            <xsd:import namespace="http://stelo.com.br/domain/comum/excecoes" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/excecao_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/pedidos" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/pedidos_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/pessoas_v1_0.xsd" />
+            <xsd:import namespace="http://domain.stelo.com.br/comum" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/comum/cabecalho.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/cartoes" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/cartoes_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/comum" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/comum_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/pagamentos" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/pagamentos_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/comum/tecnicos" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/tecnicos_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/ec" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/EC_v1_0.xsd" />
+            <xsd:import namespace="http://stelo.com.br/domain/comprador" schemaLocation="../../../../stelo-datamodel/Interfaces/Schemas/DomainModels/comprador_v1_0.xsd" />
+            <xsd:element name="checkout">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+                    Payload minimo:                       
+                      <tns:checkout xmlns:com="http://stelo.com.br/domain/comum" 
+                                  xmlns:ec="http://stelo.com.br/domain/ec" 
+                                  xmlns:pedidos="http://stelo.com.br/domain/pedidos" 
+                                  xmlns:tns="http://services.stelo.com.br/transacoes/checkouts/v2">
+                         <tns:ec>
+                            <ec:id>76214</ec:id>
+                         </tns:ec>
+                         <tns:pedido>
+                            <pedidos:origem>W</pedidos:origem>
+                            <pedidos:venda>
+                               <pedidos:codigoPedidoEstabelecimentoComercial>100000153</pedidos:codigoPedidoEstabelecimentoComercial>
+                               <pedidos:valorTotal>139.99</pedidos:valorTotal>
+                               <pedidos:itens>
+                                  <pedidos:nome>ASICS® Men's GEL-Kayano® XII</pedidos:nome>
+                                  <pedidos:quantidade>1</pedidos:quantidade>
+                                  <pedidos:valorTotal>134.99</pedidos:valorTotal>
+                                  <pedidos:valorUnitario>134.99</pedidos:valorUnitario>
+                               </pedidos:itens>
+                               <pedidos:entrega>
+                                  <pedidos:retirarLoja>true</pedidos:retirarLoja>
+                               </pedidos:entrega>
+                            </pedidos:venda>
+                         </tns:pedido>
+                      </tns:checkout>
+                    ]]></xsd:documentation>
+                </xsd:annotation>               
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ec" type="ec:EC" />
+                        <xsd:element name="pedido" type="pedidos:Pedido" />
+                        <xsd:element name="comprador" type="comprador:Comprador" minOccurs="0" />
+                        <xsd:element name="pagamento" type="pagamentos:Pagamento" minOccurs="0" />
+                        <xsd:element name="cartao" type="cartoes:Cartao" minOccurs="0" />
+                        <xsd:element name="dadosMaquina" type="tecnicos:DadosMaquina" minOccurs="0" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="checkoutResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="pedidoResponse" type="pedidos:Pedido" />
+                        <xsd:element name="urlWallet" type="xsd:string" minOccurs="0">
+                            <xsd:annotation>
+                                <xsd:documentation>url para pagamento do pedido via wallet</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="urlBoleto" type="xsd:string" minOccurs="0">
+                            <xsd:annotation>
+                                <xsd:documentation>url para renderizacao do boleto</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="checkoutFault" type="excecoes:Excecao" />
+            <xsd:element name="vincularComprador">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+                    Payload minimo:                       
+                      <v2:vincularComprador xmlns:v2="http://services.stelo.com.br/transacoes/checkouts/v2" 
+                                            xmlns:ped="http://stelo.com.br/domain/pedidos" 
+                                            xmlns:pes="http://stelo.com.br/domain/pessoas">
+                         <v2:pedido>
+                            <!--codigoPedido gerado no checkoutResponse -->
+                            <ped:codigoPedido>2457687809</ped:codigoPedido>
+                         </v2:pedido>
+                         <v2:comprador>
+                            <pes:idStelo>76214</pes:idStelo>
+                         </v2:comprador>
+                      </v2:vincularComprador>
+                    ]]></xsd:documentation>
+                </xsd:annotation>            
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="pedido" type="pedidos:Pedido" />
+                        <xsd:element name="comprador" type="pessoas:Pessoa" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="vincularCompradorResponse">
+                <xsd:complexType />
+            </xsd:element>
+            <xsd:element name="vincularCompradorFault" type="excecoes:Excecao" />
+            <xsd:element name="transacionar">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+                    Payload minimo (W):                       
+                      <v2:transacionar xmlns:v2="http://services.stelo.com.br/transacoes/checkouts/v2" 
+                      			   xmlns:ped="http://stelo.com.br/domain/pedidos" 
+                      			   xmlns:pes="http://stelo.com.br/domain/pessoas" 
+                      			   xmlns:com1="http://stelo.com.br/domain/comum" 
+                      			   xmlns:pag="http://stelo.com.br/domain/pagamentos" 
+                      			   xmlns:car="http://stelo.com.br/domain/cartoes" 
+                      			   xmlns:tec="http://stelo.com.br/domain/comum/tecnicos" >
+                         <v2:pedido>
+                            <!--codigoPedido gerado no checkoutResponse -->
+                            <ped:codigoPedido>2457687809</ped:codigoPedido>
+                            <ped:venda>
+                               <ped:vendedor>
+                                  <pes:idStelo>76214</pes:idStelo>
+                               </ped:vendedor>
+                               <ped:valorTotal>139.99</ped:valorTotal>
+                               <ped:itens>
+                                  <ped:nome>ASICS® Men's GEL-Kayano® XII</ped:nome>
+                                  <ped:quantidade>1</ped:quantidade>
+                                  <ped:valorTotal>134.99</ped:valorTotal>
+                                  <ped:valorUnitario>134.99</ped:valorUnitario>
+                               </ped:itens>
+                               <ped:comprador>
+                                  <pes:idStelo>76789</pes:idStelo>
+                               </ped:comprador>               
+                            </ped:venda>
+                         </v2:pedido>
+                         <v2:cartao>
+                            <car:id>888888</car:id>
+                            <car:usuario>
+                               <com1:id>988</com1:id>
+                            </car:usuario>
+                            <car:status>1</car:status>
+                            <car:tipoCartao>3</car:tipoCartao>
+                            <car:apelidoCartao>SciensaCard</car:apelidoCartao>
+                            <car:tipoBandeira>2</car:tipoBandeira>
+                            <car:enderecoCobranca>
+                               <com1:logradouro>Rua das Hortensias</com1:logradouro>
+                               <com1:bairro>Moema</com1:bairro>
+                               <com1:numero>333</com1:numero>
+                               <com1:cidade>São Paulo</com1:cidade>
+                               <com1:estado>SP</com1:estado>
+                               <com1:pais>Brasil</com1:pais>
+                               <com1:cep>11730000</com1:cep>
+                            </car:enderecoCobranca>
+                         </v2:cartao>
+                         <v2:pagamento>
+                            <pag:codigoProprietario>5</pag:codigoProprietario>
+                            <pag:codigoTipoPagamento>1</pag:codigoTipoPagamento>
+                            <pag:quantidadeParcelas>3</pag:quantidadeParcelas>
+                            <pag:valorPagamento>1.051732E7</pag:valorPagamento>
+                            <pag:dataPagamento>2010-10-29T15:09:18-02:00</pag:dataPagamento>
+                         </v2:pagamento>
+                         <v2:dadosMaquina>
+                            <tec:deviceFingerPrint>device fingerprint</tec:deviceFingerPrint>
+                            <tec:deviceFingerPrintRaw>false</tec:deviceFingerPrintRaw>
+                            <tec:hostName>sciensa.com</tec:hostName>
+                            <tec:enderecoIp>127.0.0.1</tec:enderecoIp>
+                         </v2:dadosMaquina>
+                      </v2:transacionar>
+                    ]]></xsd:documentation>
+                </xsd:annotation>                  
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="pedido" type="pedidos:Pedido" />
+                        <xsd:element name="cartao" type="cartoes:Cartao" />
+                        <xsd:element name="pagamento" type="pagamentos:Pagamento" />
+                        <xsd:element name="dadosMaquina" type="tecnicos:DadosMaquina" />
+                        <xsd:element name="comprador" type="comprador:Comprador" minOccurs="0" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="transacionarResponse">
+                <xsd:complexType />
+            </xsd:element>
+            <xsd:element name="transacionarFault" type="excecoes:Excecao" />
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="checkoutRequest">
+        <wsdl:part element="tns:checkout" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="checkoutResponse">
+        <wsdl:part element="tns:checkoutResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="checkoutFault">
+        <wsdl:part name="parameters" element="tns:checkoutFault" />
+    </wsdl:message>
+    <wsdl:message name="vincularCompradorRequest">
+        <wsdl:part name="parameters" element="tns:vincularComprador" />
+    </wsdl:message>
+    <wsdl:message name="vincularCompradorResponse">
+        <wsdl:part name="parameters" element="tns:vincularCompradorResponse" />
+    </wsdl:message>
+    <wsdl:message name="vincularCompradorFault">
+        <wsdl:part name="parameters" element="tns:vincularCompradorFault" />
+    </wsdl:message>
+    <wsdl:message name="transacionarRequest">
+        <wsdl:part name="parameters" element="tns:transacionar" />
+    </wsdl:message>
+    <wsdl:message name="transacionarResponse">
+        <wsdl:part name="parameters" element="tns:transacionarResponse" />
+    </wsdl:message>
+    <wsdl:message name="transacionarFault">
+        <wsdl:part name="parameters" element="tns:transacionarFault" />
+    </wsdl:message>
+    <wsdl:portType name="CheckoutsContract">
+        <wsdl:operation name="checkout">
+            <wsdl:input message="tns:checkoutRequest" />
+            <wsdl:output message="tns:checkoutResponse" />
+            <wsdl:fault name="fault" message="tns:checkoutFault" />
+        </wsdl:operation>
+        <wsdl:operation name="vincularComprador">
+            <wsdl:input message="tns:vincularCompradorRequest" />
+            <wsdl:output message="tns:vincularCompradorResponse" />
+            <wsdl:fault name="fault" message="tns:vincularCompradorFault" />
+        </wsdl:operation>
+        <wsdl:operation name="transacionar">
+            <wsdl:input message="tns:transacionarRequest" />
+            <wsdl:output message="tns:transacionarResponse" />
+            <wsdl:fault name="fault" message="tns:transacionarFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CheckoutsContractSOAP" type="tns:CheckoutsContract">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="checkout">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault use="literal" name="fault" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="vincularComprador">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault use="literal" name="fault" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="transacionar">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault use="literal" name="fault" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CheckoutsContract">
+        <wsdl:port binding="tns:CheckoutsContractSOAP" name="CheckoutsContractSOAP">
+            <soap:address location="http://54.164.161.104:8011/poc/transacoes/checkouts/v2" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

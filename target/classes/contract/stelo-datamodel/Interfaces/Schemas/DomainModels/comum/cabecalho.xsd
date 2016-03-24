@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/comum" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/comum">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Cabecalho
+        </documentation>
+    </annotation>
+    <element name="cabecalho" type="tns:Cabecalho" />
+    <complexType name="Cabecalho">
+        <sequence>
+            <element name="usuario" type="string" minOccurs="0" />
+            <element name="canal" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>PORTAL_ADMIN, PORTAL_COMPRADOR, PORTAL_VENDEDOR, MOBILE, API_STELO, API_EXTERNA, BATCH, BACKEND
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="aplicacao" type="string" minOccurs="0" />
+            <element name="ip" type="string" minOccurs="0" />
+            <element name="hostname" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

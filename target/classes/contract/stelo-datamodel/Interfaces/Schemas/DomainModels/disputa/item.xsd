@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/disputas" xmlns:tns="http://stelo.com.br/domain/disputas"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="Item">
+        <annotation>
+            <documentation>Item da disputa
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="int" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="quantidade" type="int" minOccurs="0" />
+            <element name="valorTotal" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaItem">
+        <sequence>
+            <element name="item" type="tns:Item" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

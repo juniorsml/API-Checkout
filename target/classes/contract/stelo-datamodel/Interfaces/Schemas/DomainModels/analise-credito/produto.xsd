@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/analise-credito" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/analise-credito"
+    xmlns:comum="http://domain.stelo.com.br/comum">
+    <import namespace="http://domain.stelo.com.br/comum" schemaLocation="../comum/parametro.xsd"/>
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Produto
+        </documentation>
+    </annotation>
+    <complexType name="Produto">
+        <sequence>
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="parametros" type="comum:ListaParametros" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaProduto">
+        <sequence>
+            <element name="produto" minOccurs="0" maxOccurs="unbounded" type="tns:Produto" />
+        </sequence>
+    </complexType>
+</schema>

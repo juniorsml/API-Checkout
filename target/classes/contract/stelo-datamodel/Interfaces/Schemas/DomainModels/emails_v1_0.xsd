@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://stelo.com.br/domain/emails" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stelo.com.br/domain/emails"
+    xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified" version="1.0">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <complexType name="Mensagem">
+        <sequence>
+            <element name="texto" type="string" minOccurs="0" />
+            <element name="assunto" type="string" minOccurs="0" />
+            <element name="remetente" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="importante" type="boolean" minOccurs="0" />
+            <element name="enderecoDeCopia" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="enderecoDeResposta" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="destinatarios" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="destinatario" type="tns:Destinatario" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="anexos" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="anexo" type="tns:Anexo" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="imagens" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="imagem" type="tns:Anexo" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="tags" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="tag" type="string" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="Destinatario">
+        <sequence>
+            <element name="nomeExibicao" type="string" minOccurs="0" />
+            <element name="email" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="tipo" type="tns:TipoEnvio" minOccurs="0" />
+            <element name="variaveisBind" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                    <sequence>
+                        <element name="nome" type="string" minOccurs="0"/>
+                        <element name="valor" type="string" minOccurs="0"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="Anexo">
+        <sequence>
+            <element name="mimeType" type="string" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="conteudo" type="base64Binary" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Cabecalho">
+        <sequence>
+            <element name="nome" type="string" />
+            <element name="valor" type="string" />
+        </sequence>
+    </complexType>
+    <complexType name="Template">
+        <sequence>
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="emailPadrao" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="nomeExibicaoPadrao" type="string" minOccurs="0" />
+            <element name="assunto" type="string" minOccurs="0" />
+            <element name="conteudo" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>Conteudo em HTML do template</documentation>
+                </annotation>
+            </element>
+            <element name="texto" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>Conteudo em texto simples, utilizado apos o conteudo</documentation>
+                </annotation>
+            </element>
+            <element name="tags" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="tag" type="string" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="mapa" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                    <sequence>
+                        <element name="chave" type="string" minOccurs="0" />
+                        <element name="valor" type="string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </sequence>
+    </complexType>
+    <simpleType name="TipoEnvio">
+        <annotation>
+            <documentation> to - para cc - copia bcc - copia oculta
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="to" />
+            <enumeration value="cc" />
+            <enumeration value="bcc" />
+        </restriction>
+    </simpleType>
+</schema>

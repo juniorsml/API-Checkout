@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/comum"
+	elementFormDefault="qualified" version="1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/comum">
+
+	<annotation>
+		<documentation> Versao 2.0 do modelo de entidade Auditoria
+		</documentation>
+	</annotation>
+
+	<complexType name="DadosAuditoria">
+		<sequence>
+			<element name="usuarioInclusao" type="string" minOccurs="0" />
+			<element name="dataInclusao" type="dateTime" minOccurs="0" />
+			<element name="usuarioAlteracao" type="string" minOccurs="0" />
+			<element name="dataAlteracao" type="dateTime" minOccurs="0" />
+            <element name="canal" type="string" minOccurs="0" />
+            <element name="aplicacao" type="string" minOccurs="0" />
+            <element name="ip" type="string" minOccurs="0" />
+            <element name="hostname" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+</schema>

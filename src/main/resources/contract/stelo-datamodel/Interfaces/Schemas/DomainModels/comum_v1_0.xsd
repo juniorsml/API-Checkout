@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/comum" xmlns:tns="http://stelo.com.br/domain/comum"
+    elementFormDefault="qualified" version="1.0">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidades comuns</documentation>
+    </annotation>
+    <complexType name="Relacionamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="idTipo" type="long" minOccurs="0" />
+            <element name="idPagamento" type="long" minOccurs="0" />
+            <element name="dataInicio" type="date" minOccurs="0" />
+            <element name="dataVencimento" type="date" minOccurs="0" />
+            <element name="dataFim" type="date" minOccurs="0" />
+            <element name="idEC" type="long" minOccurs="0" />
+            <element name="ativo" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="RelacionamentoEmail">
+        <complexContent>
+            <extension base="tns:Relacionamento">
+                <sequence>
+                    <element name="email" type="tns:enderecoEmail" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Usuario">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Canal">
+        <sequence>
+            <element name="id" minOccurs="0">
+                <annotation>
+                    <documentation> 1 - PORTAL; 2 - BACKOFFICE; 3 - COMERCIAL; 4 - PARCEIROS; 5 - MWALLET; 6 - ONBOARDING BANCO DO
+                        BRASIL; 7 - ONBOARDING BRADESCO; 8 - MIGRACAO;
+                    </documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="int">
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                        <enumeration value="4" />
+                        <enumeration value="5" />
+                        <enumeration value="6" />
+                        <enumeration value="7" />
+                        <enumeration value="8" />
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="StatusCadastro">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="idMotivoBloqueio" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="FonteDados">
+        <sequence>
+            <element name="id" minOccurs="0">
+                <annotation>
+                    <documentation> 1 - BB 2 - BB CARTOES 3 - BRADESCO TOKEN 4 - BRADESCO MOBILE TOKEN 5 - BRADESCO TAN CODE 6 -
+                        BRADESCO CARTOES 7 - PORTAL - MOBILE 8
+                    </documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="int">
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                        <enumeration value="4" />
+                        <enumeration value="5" />
+                        <enumeration value="6" />
+                        <enumeration value="7" />
+                        <enumeration value="8" />
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+    <simpleType name="estado">
+        <annotation>
+            <documentation>Relacao dos Estados do Endereco.</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="SC" />
+            <enumeration value="PR" />
+            <enumeration value="RS" />
+            <enumeration value="SP" />
+            <enumeration value="MS" />
+            <enumeration value="MT" />
+            <enumeration value="MG" />
+            <enumeration value="RJ" />
+            <enumeration value="ES" />
+            <enumeration value="BA" />
+            <enumeration value="PE" />
+            <enumeration value="AC" />
+            <enumeration value="AP" />
+            <enumeration value="AM" />
+            <enumeration value="DF" />
+            <enumeration value="GO" />
+            <enumeration value="PI" />
+            <enumeration value="PA" />
+            <enumeration value="RO" />
+            <enumeration value="RR" />
+            <enumeration value="TO" />
+            <enumeration value="AL" />
+            <enumeration value="CE" />
+            <enumeration value="PB" />
+            <enumeration value="RN" />
+            <enumeration value="SE" />
+            <enumeration value="MA" />
+        </restriction>
+    </simpleType>
+    <complexType name="Endereco">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="fonteDados" type="tns:FonteDados" minOccurs="0" />
+            <element name="tipoEndereco" type="tns:tipoEndereco" minOccurs="0" />
+            <element name="logradouro" type="string" minOccurs="0" />
+            <element name="bairro" type="string" minOccurs="0" />
+            <element name="numero" type="string" minOccurs="0" />
+            <element name="complemento" type="string" minOccurs="0" />
+            <element name="cidade" type="string" minOccurs="0" />
+            <element name="estado" type="tns:estado" minOccurs="0" />
+            <element name="pais" type="string" minOccurs="0" />
+            <element name="cep" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[0-9]{8}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="apelidoEndereco" type="string" minOccurs="0" />
+            <element name="destinatario" type="string" minOccurs="0" />
+            <element name="preferencial" type="boolean" minOccurs="0" />
+            <element name="principal" type="boolean" minOccurs="0" />
+            <element name="relacionamento" type="tns:Relacionamento" minOccurs="0" />
+            <element name="incluirEndereco" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <simpleType name="tipoEndereco">
+        <restriction base="string">
+            <enumeration value="comercial" />
+            <enumeration value="fisico da filial" />
+            <enumeration value="cobranca" />
+            <enumeration value="entrega" />
+            <enumeration value="outro" />
+            <enumeration value="distribuidora" />
+            <enumeration value="residencial" />
+        </restriction>
+    </simpleType>
+    <complexType name="Telefone">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="numero" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[0-9]{8,9}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="ramal" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[0-9]" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="ddd" minOccurs="0">
+                <simpleType>
+                    <restriction base="int">
+                        <minInclusive value="11" />
+                        <maxInclusive value="99" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="ddi" type="int" minOccurs="0" />
+            <element name="tipoTelefone" type="long" minOccurs="0" />
+            <element name="status" type="long" minOccurs="0" />
+            <element name="fonteDados" type="tns:FonteDados" minOccurs="0" />
+            <element name="relacionamento" type="tns:Relacionamento" minOccurs="0" />
+            <element name="principal" type="boolean" minOccurs="0"/>
+            <element name="validado" type="boolean" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="Auditoria">
+        <sequence>
+            <element name="usuarioInclusao" type="string" minOccurs="0" />
+            <element name="dataInclusao" type="date" minOccurs="0" />
+            <element name="usuarioAlteracao" type="string" minOccurs="0" />
+            <element name="dataAlteracao" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="DadosRequerimento">
+        <sequence>
+            <element name="usuarioRequerimento" type="string" minOccurs="0" />
+            <element name="dataRequerimento" type="date" minOccurs="0" />
+            <element name="usuarioAprovacao" type="string" minOccurs="0" />
+            <element name="dataAprovacao" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Email">
+        <sequence>
+            <element name="endereco" type="tns:enderecoEmail" minOccurs="0" />
+            <element name="fonteDados" type="tns:FonteDados" minOccurs="0" />
+            <element name="canalOrigem" type="tns:Canal" minOccurs="0" />
+            <element name="id" type="long" minOccurs="0" />
+            <element name="tipoEmail" type="long" minOccurs="0" />
+            <element name="status" type="long" minOccurs="0" />
+            <element name="relacionamento" type="tns:Relacionamento" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="PreCadastroEmail">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="endereco" type="tns:enderecoEmail" minOccurs="0" />
+            <element name="data" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaPreCadastroEmails">
+        <sequence>
+            <element name="email" type="tns:PreCadastroEmail" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <simpleType name="enderecoEmail">
+        <restriction base="string">
+            <pattern value="[^@]+@[^\.]+\..+" />
+        </restriction>
+    </simpleType>
+    <complexType name="ListaEnderecosEmail">
+        <sequence>
+            <element name="email" type="tns:enderecoEmail" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <complexType name="Documento">
+        <sequence>
+            <element name="idDocumento" type="long" minOccurs="0" />
+            <element name="tipoDocumento" type="long" minOccurs="0" />
+            <element name="numeroDocumento" type="string" minOccurs="0" />
+            <element name="dataEmissao" type="date" minOccurs="0" />
+            <element name="orgaoExpedicao" type="string" minOccurs="0" />
+            <element name="ufExpedicao" type="tns:estado" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Moeda">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="codigoMoeda" type="string" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="simbolo" type="string" minOccurs="0" />
+            <element name="quantidadeDigitosDecimais" type="int" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Banco">
+        <sequence>
+            <element name="idBanco" type="long" minOccurs="0" />
+            <element name="ispb" type="string" minOccurs="0" />
+            <element name="nomeReduzido" type="string" minOccurs="0" />
+            <element name="numeroCodigo" type="string" minOccurs="0" />
+            <element name="nomeExtenso" type="string" minOccurs="0" />
+            <element name="dataInclusao" type="date" minOccurs="0" />
+            <element name="dataBaixouArquivo" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="CNAE">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="secao" type="string" minOccurs="0" />
+            <element name="divisao" type="string" minOccurs="0" />
+            <element name="grupo" type="string" minOccurs="0" />
+            <element name="classe" type="string" minOccurs="0" />
+            <element name="subclasse" type="string" minOccurs="0" />
+            <element name="denominacao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="CadastroExterno">
+        <annotation>
+            <documentation>Situacao cadastral em um sistema externo</documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="string" minOccurs="0" />
+            <element name="ativo" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <simpleType name="senha">
+        <restriction base="string">
+            <!-- <pattern value="[a-zA-Z0-9]{8}" /> -->
+        </restriction>
+    </simpleType>
+    <complexType name="DadosOnboarding">
+        <sequence>
+            <element name="bancoOnboarding" type="long" minOccurs="0" />
+            <element name="dataInicioOnboarding" type="date" minOccurs="0" />
+            <element name="dataFimOnboarding" type="date" minOccurs="0" />
+            <element name="dataAberturaConta" type="date" minOccurs="0" />
+            <element name="tempoComoCorrentista" minOccurs="0">
+                <simpleType>
+                    <annotation>
+                        <documentation> 0 - 0 a 3 meses 1 - 3 a 6 meses 2 - 9 a 12 meses 3 - acima de 12 meses
+                        </documentation>
+                    </annotation>
+                    <restriction base="int">
+                        <enumeration value="0" />
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="cadastroIncompleto" type="boolean" minOccurs="0" />
+            <element name="fonteDados" type="tns:FonteDados" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Parcelamento">
+        <sequence>
+            <element name="codigoParcelamento" type="long" minOccurs="0" />
+            <element name="numeroParcela" type="long" minOccurs="0" />
+            <element name="valor" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Porte">
+        <annotation>
+            <documentation>Porte de Empresa. Influencia no pacote padrão de Produtos, esta informação é obtida no sistema ICOR.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="valorFaturamentoMinimo" type="decimal" minOccurs="0" />
+            <element name="valorFaturamentoMaximo" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+    
+     <complexType name="Periodo">
+      <annotation>
+            <documentation>Representa o tempo decorrido entre duas datas.
+            </documentation>
+        </annotation>
+                <sequence>
+                    <element name="inicio" minOccurs="0" type="dateTime" />
+                    <element name="fim" minOccurs="0" type="dateTime" />
+                </sequence>
+            </complexType>
+</schema>

@@ -1,0 +1,44 @@
+#%RAML 0.8
+---
+title: checkoutAPI
+version: v1
+documentation: 
+  - title: Checkout API Project
+    content: Checkout SUB and Wallet API
+
+/checkout:
+  displayName: Checkout
+  /wallet:
+    displayName: Wallet
+    post:
+      description: Create a wallet transaction
+  /sub:
+    displayName: Transparente
+    post:
+      description: Create a subacquiring transaction
+      body: 
+        application/json: 
+          schema: !include resources/schemas/checkoutRequestSUB-POST.json
+          example: !include resources/samples/checkoutRequestSUB-POST.sample
+      responses:
+        202:
+          body:
+            application/json: 
+              schema:  !include  resources/schemas/checkoutResponseSUB-POST.json
+              example: !include  resources/samples/checkoutResponseSUB-POST.sample
+        401: 
+          body:
+            application/json: 
+              example: |
+                {
+                 "errorCode": "401",
+                 "errorMessage": "Failed to authenticate. Check your credentials"
+                }
+        500: 
+          body: 
+            application/json: 
+              example: |
+                {
+                 "errorCode": "API",
+                 "errorMessage": "An error occured during the request."
+                }

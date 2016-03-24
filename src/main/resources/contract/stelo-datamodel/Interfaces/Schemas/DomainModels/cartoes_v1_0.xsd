@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/cartoes" xmlns:tns="http://stelo.com.br/domain/cartoes"
+    elementFormDefault="qualified" xmlns:comum="http://stelo.com.br/domain/comum" version="1.0">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <complexType name="Cartao">
+        <sequence>
+            <element name="id" type="string" minOccurs="0" />
+            <element name="idTemporario" type="string" minOccurs="0" />
+            <element name="usuario" type="comum:Usuario" minOccurs="0" />
+            <element name="descricaoCartao" type="string" minOccurs="0" />
+            <element name="status" minOccurs="0">
+                <annotation>
+                    <documentation> 1 - ATIVO; 2 - INATIVO; 3 - NAO EXISTE
+                    </documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="int">
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="preferencial" type="boolean" minOccurs="0" />
+            <element name="tipoCartao" minOccurs="0">
+                <annotation>
+                    <documentation> 1 - CREDITO; 2 - DEBITO; 3 - VOUCHER
+                    </documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="int">
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="apelidoCartao" type="string" minOccurs="0" />
+            <element name="numeroCartao" type="string" minOccurs="0" />
+            <element name="numeroCartaoMascarado" type="string" minOccurs="0" />
+            <element name="nomePortador" type="string" minOccurs="0" />
+            <element name="dataExpirar" type="date" minOccurs="0" />
+            <element name="diaVencimento" minOccurs="0">
+                <simpleType>
+                    <restriction base="int">
+                        <minInclusive value="1" />
+                        <maxInclusive value="31" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="cvv" type="string" minOccurs="0" />
+            <element name="inclusaoCartao" type="boolean" minOccurs="0" />
+            <element name="tipoBandeira" minOccurs="0">
+                <annotation>
+                    <documentation> 1 - VISA; 2 - MASTER; 3 - AMEX; 4 - DINERS; 5 - ELO 6 - BANCO BRADESCO
+                    </documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="int">
+                        <enumeration value="1" />
+                        <enumeration value="2" />
+                        <enumeration value="3" />
+                        <enumeration value="4" />
+                        <enumeration value="5" />
+                        <enumeration value="6" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="codigoDoBanco" type="int" minOccurs="0">
+                <annotation>
+                    <documentation> 30 - Banco do Brasil; 25 - Bradesco 0 - Outros
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="enderecoCobranca" type="comum:Endereco" minOccurs="0" />
+            <element name="nomePortadorCriptografado" type="string" minOccurs="0" />
+            <element name="numeroCartaoCriptografado" type="string" minOccurs="0" />
+            <element name="cvvCriptografado" type="string" minOccurs="0" />
+            <element name="dataExpirarCriptografada" type="string" minOccurs="0" />
+            <element name="fonteDados" type="comum:FonteDados" minOccurs="0" />
+            <element name="dataCriacao" type="dateTime" minOccurs="0" />
+            <element name="dataInativacao" type="dateTime" minOccurs="0" />
+            <element name="validado" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="RetornoCartaoProtegido">
+        <sequence>
+            <element name="existencia" type="boolean" minOccurs="0" />
+            <element name="status" type="boolean" minOccurs="0" />
+            <element name="usuario" type="comum:Usuario" minOccurs="0" maxOccurs="unbounded" />
+            <element name="codigosErro" type="int" maxOccurs="unbounded" minOccurs="0" />
+            <element name="listaCartoes" type="tns:Cartao" maxOccurs="unbounded" minOccurs="0" />
+            <element name="statusBlackList" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaCartao">
+        <sequence>
+            <element name="cartao" type="tns:Cartao" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

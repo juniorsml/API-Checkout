@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/transacoes" xmlns:tns="http://stelo.com.br/domain/transacoes"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="Transacao">
+        <sequence>
+            <element name="codigoTransacao" type="long" minOccurs="0">
+                <annotation>
+                    <documentation>No sistema de pagamentos, este campo eh recuperado pelo codigoCupom do PagamentoDTO</documentation>
+                </annotation>
+            </element>
+            <element name="tipoMensagem" type="int" minOccurs="0">
+                <annotation>
+                    <documentation>Indica se a transacao e uma pre-autorizacao ou uma confirmacao</documentation>
+                </annotation>
+            </element>
+            <element name="valorTransacao" type="double" minOccurs="0" />
+            <element name="dataTransacao" type="dateTime" minOccurs="0" />
+            <element name="dataTransmissao" type="dateTime" minOccurs="0" />
+            <element name="codigoProcessamento" type="long" minOccurs="0" />
+            <element name="codigoCredenciadora" type="int" minOccurs="0" />
+            <element name="codigoTrace" type="int" minOccurs="0" />
+            <element name="codigoRRN" type="string" minOccurs="0" />
+            <element name="codigoAutorizador" type="string" minOccurs="0" />
+            <element name="codigoRespostaAutorizacao" type="string" minOccurs="0" />
+            <element name="codigoTerminal" type="string" minOccurs="0" />
+            <element name="codigoResposta" type="string" minOccurs="0" />
+            <element name="codigoRejeicao" type="int" minOccurs="0" />
+            <element name="motivoRejeicao" type="string" minOccurs="0" />
+            <element name="codigoRetorno" type="string" minOccurs="0" />
+            <element name="codigoPedido" type="integer" minOccurs="0" />
+            <element name="codigoMoeda" type="integer" minOccurs="0" />
+            <element name="codigoCupom" type="integer" minOccurs="0" />
+            <element name="descricaoRetorno" type="string" minOccurs="0" />
+            <element name="formaCaptura" type="string" minOccurs="0" />
+            <!-- Complemento HP -->
+            <element name="dataCaptura" type="date" minOccurs="0" />
+            <element name="numeroIdentificacaoRede" type="long" minOccurs="0" />
+            <element name="numeroSequencialCartao" type="long" minOccurs="0" />
+            <element name="posConditionCode" type="long" minOccurs="0" />
+            <element name="idAdquirente" type="long" minOccurs="0" />
+            <element name="trilha2Cartao" type="long" minOccurs="0" />
+            <element name="indicadorPreAutorizacao" type="string" minOccurs="0" />
+            <element name="dadosTransacaoOriginal" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>Nos casos de cancelamento de pre, cancelamento e compensacao de transacao, este campo deve ser
+                        preenchido com os seguintes valores: - mti (com 4 digitos ex: 0220) - codigo trace da transacao original -
+                        MMdd da transacao original (mes e dia) - kkmmss da transacao original (hora em formato 24h, minuto e
+                        segundo)
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="numeroTerminal" type="string" minOccurs="0" />
+            <element name="planoPagamento" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="credito a vista" />
+                        <enumeration value="parcelado lojista" />
+                        <enumeration value="parcelado emissor" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="quantidadeParcelas" type="int" minOccurs="0" />
+            <element name="IATA" type="string" minOccurs="0" />
+            <element name="ICC" type="string" minOccurs="0" />
+            <element name="indicativoCVV" minOccurs="0">
+                <annotation>
+                    <documentation>Deprecated. A logica deste campo e calculada dentro do Oracle Service Bus.</documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="nao informado" />
+                        <enumeration value="informado" />
+                        <enumeration value="ilegivel" />
+                        <enumeration value="inexistente" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="canalOrigem" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Resumo">
+        <sequence>
+            <element name="codigo" type="long" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0" />
+            <element name="valorTaxaOperacional" type="double" minOccurs="0" />
+            <element name="codigoApresentacao" type="integer" minOccurs="0" />
+            <element name="numeroTransacoesApresentadas" type="integer" minOccurs="0" />
+            <element name="valorTransacoesApresentadas" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Agenda">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="numeroParcela" type="int" minOccurs="0" />
+            <element name="transacao" type="tns:Transacao" minOccurs="0" />
+            <element name="valorBruto" type="double" minOccurs="0" />
+            <element name="valorLiquido" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Liquidacao">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="transacao" type="tns:Transacao" minOccurs="0" />
+            <element name="numeroParcela" type="int" minOccurs="0" />
+            <element name="valorBruto" type="double" minOccurs="0" />
+            <element name="valorLiquido" type="double" minOccurs="0" />
+            <element name="valorLiquidoFinal" type="double" minOccurs="0" />
+            <element name="dataLiquidacao" type="date" minOccurs="0" />
+            <element name="dataLiquidacaoFinal" type="date" minOccurs="0" />
+            <element name="porcentagemMDR" type="double" minOccurs="0" />
+            <element name="valorMDR" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

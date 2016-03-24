@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/comum/tecnicos" xmlns:tns="http://stelo.com.br/domain/comum/tecnicos"
+    elementFormDefault="qualified" version="1.0">
+
+    <complexType name="PaginacaoRequest">
+        <sequence>
+            <element name="qtdeItensPag" type="int" />
+            <element name="pagina" type="int" />
+            <element name="ordenacoes" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="ordenacao" maxOccurs="unbounded">
+                            <complexType>
+                                <sequence>
+                                    <element name="campo" type="string" />
+                                    <element name="ordenar">
+                                        <simpleType>
+                                            <restriction base="string">
+                                                <enumeration value="CRESCENTE" />
+                                                <enumeration value="DECRESCENTE" />
+                                            </restriction>
+                                        </simpleType>
+                                    </element>
+                                    <element name="ordem" type="int" />
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="PaginacaoResponse">
+        <sequence>
+            <element name="totalRegistros" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="DadosMaquina">
+	        <sequence>
+	        		<element name="deviceFingerPrint" type="string" minOccurs="0" />
+	        		<element name="deviceFingerPrintRaw" type="boolean" minOccurs="0"/>
+	        		<element name="hostName" type="string" minOccurs="0" />
+	        		<element name="enderecoIp" type ="string" minOccurs="0"/>	
+	       	</sequence>
+	</complexType>
+
+
+</schema>

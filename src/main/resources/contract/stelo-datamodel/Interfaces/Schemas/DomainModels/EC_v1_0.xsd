@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/ec" xmlns:tns="http://stelo.com.br/domain/ec"
+    xmlns:comum="http://stelo.com.br/domain/comum" xmlns:ec2="http://domain.stelo.com.br/ec" xmlns:produtos="http://stelo.com.br/domain/produtos"
+    xmlns:come="http://domain.stelo.com.br/comercio-eletronico" xmlns:pessoas="http://stelo.com.br/domain/pessoas" version="1.0"
+    elementFormDefault="qualified">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidades EC</documentation>
+    </annotation>
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/produtos" schemaLocation="produtos_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <import namespace="http://domain.stelo.com.br/comercio-eletronico" schemaLocation="comercio-eletronico/plataforma.xsd" />
+    <import namespace="http://domain.stelo.com.br/ec" schemaLocation="ec/permissaoCancelamento.xsd" />
+    <complexType name="EC">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="idSituacaoEC" type="long" minOccurs="0" />
+            <element name="tipoEC" type="long" minOccurs="0" />
+            <element name="idIndicacaoAntecipacao" type="long" minOccurs="0" />
+            <element name="numeroContrato" type="long" minOccurs="0" />
+            <element name="antecipacaoAtiva" type="boolean" minOccurs="0" />
+            <element name="status" type="long" minOccurs="0" />
+            <element name="descricaoAtividadePrincipal" type="string" minOccurs="0" />
+            <element name="descricaoFormaConstituicao" type="long" minOccurs="0" />
+            <!-- DEPRECATED: usar o campo mcc -->
+            <element name="merchantCode" type="string" minOccurs="0" />
+            <element name="descricaoCategoria" type="string" minOccurs="0" />
+            <element name="descricaoSubCategoria" type="string" minOccurs="0" />
+            <element name="saqueAutomatico" type="long" minOccurs="0" />
+            <element name="periodicidadeSaque" type="long" minOccurs="0" />
+            <element name="site" type="string" minOccurs="0" />
+            <element name="nomeEntidade" type="string" minOccurs="0" />
+            <element name="nomeFaturaCartao" type="string" minOccurs="0" />
+            <element name="quantidadeFuncionarios" type="long" minOccurs="0" />
+            <element name="parceiroDistribuidor" type="long" minOccurs="0" />
+            <element name="idMatriz" type="long" minOccurs="0" />
+            <element name="idGerenteRsponsavel" type="string" minOccurs="0" />
+            <element name="tipoVendedor" type="string" minOccurs="0" />
+            <element name="idCliente" type="string" minOccurs="0" />
+            <element name="idClienteSecreto" type="string" minOccurs="0" />
+            <!-- DEPRECATED: usar o campo id -->
+            <element name="idMerchant" type="long" minOccurs="0" />
+            <element name="idCnae" type="long" minOccurs="0" />
+            <element name="idTipoIntegracao" type="long" minOccurs="0" />
+            <element name="idPorteEc" type="long" minOccurs="0" />
+            <element name="confirmacaoAutomatica" type="boolean" minOccurs="0" />
+            <element name="parceiroDistribuicao" type="long" minOccurs="0" />
+            <element name="mcc" type="string" minOccurs="0" />
+            <element name="urlStatus" type="string" minOccurs="0" />
+            <element name="plataforma" type="come:Plataforma" minOccurs="0" />
+            <element name="permissaoCancelamento" type="ec2:PermissaoCancelamento" minOccurs="0" />
+            <element name="urlLoginStelo" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>redirect url utilizada no fluxo de oauth</documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="Terminal">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="terminalProprio" type="boolean" minOccurs="0" />
+            <element name="codigoAdquirente" type="string" minOccurs="0" />
+            <element name="statusTerminal" type="integer" minOccurs="0" />
+            <element name="dataInstalacao" type="date" minOccurs="0" />
+            <element name="numeroTerminal" type="long" minOccurs="0" />
+            <element name="idTecnologia" type="long" minOccurs="0" />
+            <element name="idMarca" type="long" minOccurs="0" />
+            <element name="idModelo" type="long" minOccurs="0" />
+            <element name="idProtocolo" type="long" minOccurs="0" />
+            <element name="moeda" type="comum:Moeda" minOccurs="0" />
+            <element name="valorInstalacao" type="double" minOccurs="0" />
+            <element name="idTipoConexao" type="long" minOccurs="0" />
+            <element name="controlePagamentoMinimo" type="boolean" minOccurs="0" />
+            <element name="idTipoComercializacao" type="long" minOccurs="0" />
+            <element name="valor" type="double" minOccurs="0" />
+            <element name="processaVpay" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Departamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="URL" type="anyURI" minOccurs="0" />
+            <element name="email" type="comum:enderecoEmail" minOccurs="0" />
+            <element name="mcc" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="FilialAbstrata" abstract="true">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Filial">
+        <complexContent>
+            <extension base="tns:FilialAbstrata">
+                <sequence>
+                    <element name="descricao" type="string" minOccurs="0" />
+                    <element name="documento" type="comum:Documento" minOccurs="0" />
+                    <element name="permiteAntecipacao" type="boolean" minOccurs="0" />
+                    <element name="antecipacaoAutomatica" type="boolean" minOccurs="0" />
+                    <element name="percentualAntecipacao" type="double" minOccurs="0" />
+                    <element name="periodoFuncionamento" type="tns:PeriodoFuncionamento" minOccurs="0" />
+                    <element name="fusoHorario" type="integer" minOccurs="0" />
+                    <element name="dataAbertura" type="date" minOccurs="0" />
+                    <element name="departamento" type="tns:Departamento" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="eCommerce" type="boolean" minOccurs="0" />
+                    <element name="URLeCommerce" type="anyURI" minOccurs="0" />
+                    <element name="filialFaturamento" type="tns:FilialFaturamento" minOccurs="0" />
+                    <element name="matriz" type="boolean" minOccurs="0" />
+                    <element name="enderecos" type="comum:Endereco" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="terminais" type="tns:Terminal" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="telefone" type="comum:Telefone" minOccurs="0" />
+                    <element name="status" minOccurs="0">
+                        <annotation>
+                            <documentation> 1 - ativo/ 2 - suspenso/ 3 - bloqueado/ 4 - cancelado
+                            </documentation>
+                        </annotation>
+                        <simpleType>
+                            <restriction base="long">
+                                <enumeration value="1" />
+                                <enumeration value="2" />
+                                <enumeration value="3" />
+                                <enumeration value="4" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="tipo" minOccurs="0">
+                        <annotation>
+                            <documentation>Single - filial / Master - matriz</documentation>
+                        </annotation>
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="Single" />
+                                <enumeration value="Master" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="FilialFaturamento">
+        <complexContent>
+            <extension base="tns:FilialAbstrata">
+                <sequence />
+            </extension>
+        </complexContent>
+    </complexType>
+    <simpleType name="PeriodoFuncionamento">
+        <annotation>
+            <documentation> 0-nao informado/ 1-horario comercial/ 2-24 horas
+            </documentation>
+        </annotation>
+        <restriction base="int">
+            <enumeration value="0" />
+            <enumeration value="1" />
+            <enumeration value="2" />
+        </restriction>
+    </simpleType>
+</schema>

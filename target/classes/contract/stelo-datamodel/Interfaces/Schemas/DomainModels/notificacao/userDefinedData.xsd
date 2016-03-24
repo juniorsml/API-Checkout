@@ -1,0 +1,25 @@
+<schema targetNamespace="http://domain.stelo.com.br/userDefinedData" 
+	elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://domain.stelo.com.br/userDefinedData">
+    
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade
+        </documentation>
+    </annotation>
+	
+	<complexType name="ListaUDD">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="UDD" nillable="true" type="tns:UDD"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="UDD">
+		<sequence>
+			<element name="id"	type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<element name="value" type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+    
+</schema>

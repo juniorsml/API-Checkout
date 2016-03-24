@@ -1,0 +1,30 @@
+<schema targetNamespace="http://domain.stelo.com.br/ec" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/ec" xmlns:pedidos="http://domain.stelo.com.br/pedidos">
+    <import namespace="http://domain.stelo.com.br/pedidos" schemaLocation="../pedido/limitadoresCancelamento.xsd" />
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade SubCategoria</documentation>
+    </annotation>
+    <complexType name="SubCategoria">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="produtoAtividade" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="PRODUTO" />
+                        <enumeration value="SERVICO" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="limitadoresCancelamento" type="pedidos:LimitadoresCancelamento" minOccurs="0" />
+            <!-- <element name="CNAE" type="comum:CNAE" minOccurs="0" /> -->
+            <!-- <element name="MCC" type="string" minOccurs="0" /> -->
+            <!-- <element name="idCNAECoreBanking" type="string" minOccurs="0" /> -->
+        </sequence>
+    </complexType>
+    <complexType name="ListaSubCategoria">
+        <sequence>
+            <element name="subCategoria" type="tns:SubCategoria" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

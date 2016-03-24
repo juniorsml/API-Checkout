@@ -1,0 +1,90 @@
+<schema targetNamespace="http://domain.stelo.com.br/notificacao" 
+	elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://domain.stelo.com.br/notificacao"
+    xmlns:udd="http://domain.stelo.com.br/userDefinedData">
+    
+    <import namespace="http://domain.stelo.com.br/userDefinedData" schemaLocation="userDefinedData.xsd" />
+    
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade
+        </documentation>
+    </annotation>
+    
+    <complexType name="DeviceToken">
+		<sequence>
+			<element name="id" type="xsd:long" minOccurs="0" maxOccurs="1" />
+			<element name="idStelo" type="xsd:long" minOccurs="0" maxOccurs="1" />
+			<element name="token" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<element name="sistemaOperacional" type="tns:SistemaOperacional" minOccurs="0" maxOccurs="1" />
+			<element name="status" minOccurs="0" maxOccurs="1" >
+				<simpleType>
+                   <restriction base="string">
+                       <enumeration value="ATIVO"/>
+                       <enumeration value="INATIVO"  />
+                   </restriction>
+                </simpleType>
+            </element>    
+		</sequence>
+	</complexType>
+	
+	<complexType name="ConfiguracaoNotificacao">
+		<sequence>
+			<element name="idStelo" type="xsd:long" minOccurs="0" maxOccurs="1" />
+			<element name="aplicativos"	 type="tns:Aplicativos" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="Notificacao">
+		<sequence>
+			<element name="deviceToken" 		 type="tns:DeviceToken" minOccurs="0" maxOccurs="1" />
+			<element name="statusEnvio"     	 type="xsd:string"   	minOccurs="0" maxOccurs="1" />
+			<element name="codigoAplicacao"      type="xsd:string" 	 	minOccurs="0" maxOccurs="1" />
+			<element name="tipoNotificacao" 	 type="tns:TipoNotificacao" minOccurs="0" maxOccurs="1" />
+			<element name="mensagem" 			 type="xsd:string"   	minOccurs="0" maxOccurs="1" />
+			<element name="descricaoMotivoFalha" type="xsd:string"   	minOccurs="0" maxOccurs="1" />
+			<element name="UDDs" 				 type="udd:ListaUDD" 	minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="TipoNotificacao">
+		<sequence>
+			<element name="id" type="xsd:long" minOccurs="0" maxOccurs="1" />
+			<element name="descricao" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<element name="habilitado" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="TiposNotificacao">
+		<sequence>
+			<element name="tipoNotificacao" type="tns:TipoNotificacao" maxOccurs="unbounded" minOccurs="0" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="Aplicativos">
+		<sequence>
+			<element name="aplicativo" type="tns:Aplicativo" maxOccurs="unbounded" minOccurs="0" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="Aplicativo">
+		<sequence>
+			<element name="codigoAplicacao" 	 type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<element name="tiposNotificacao"	 type="tns:TiposNotificacao" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="SistemaOperacional">
+		<sequence>
+			<element name="nome" minOccurs="0" maxOccurs="1" >
+				<simpleType>
+                   <restriction base="string">
+                       <enumeration value="ANDROID"/>
+                       <enumeration value="IOS"  />
+                   </restriction>
+                </simpleType>
+			</element>
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "orderData": {
+      "id": "http://jsonschema.net/orderData",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shippingBehavior": {
+          "id": "http://jsonschema.net/orderData/shippingBehavior",
+          "enum" : ["default","fast","express","extensive","storePickup","digital","service"]
+        },
+        "secureCode": {
+          "id": "http://jsonschema.net/orderData/secureCode",
+          "type": "string"
+        },
+        "orderId": {
+          "id": "http://jsonschema.net/orderData/orderId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shippingBehavior",
+        "secureCode",
+        "orderId"
+      ]
+    },
+    "paymentData": {
+      "id": "http://jsonschema.net/paymentData",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paymentType": {
+          "id": "http://jsonschema.net/paymentData/paymentType",
+          "enum" : ["credit","bankSlip"]
+        },
+        "amount": {
+          "id": "http://jsonschema.net/paymentData/amount",
+          "type": "string"
+        },
+        "freight": {
+          "id": "http://jsonschema.net/paymentData/freight",
+          "type": "string"
+        },
+        "cardData": {
+          "id": "http://jsonschema.net/paymentData/cardData",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "token": {
+              "id": "http://jsonschema.net/paymentData/cardData/token",
+              "type": "string"
+            }
+          }
+        },
+        "installment": {
+          "id": "http://jsonschema.net/paymentData/installment",
+          "type": "string"
+        },
+        "cartData": {
+          "id": "http://jsonschema.net/paymentData/cartData",
+          "type": "array",
+          "additionalProperties": false,
+          "minItems":1,
+          "items": {
+            "id": "http://jsonschema.net/paymentData/cartData/0",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "productName": {
+                "id": "http://jsonschema.net/paymentData/cartData/0/productName",
+                "type": "string"
+              },
+              "productPrice": {
+                "id": "http://jsonschema.net/paymentData/cartData/0/productPrice",
+                "type": "integer"
+              },
+              "productQuantity": {
+                "id": "http://jsonschema.net/paymentData/cartData/0/productQuantity",
+                "type": "integer"
+              }
+            },
+            "required" : [
+              "productName",
+              "productPrice",
+              "productQuantity"
+            ]
+          }
+        }
+      },
+      "required" : [
+        "paymentType",
+        "amount",
+        "freight",
+        "cardData",
+        "installment",
+        "cartData"
+      ]
+    },
+    "customerData": {
+      "id": "http://jsonschema.net/customerData",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerIdentity": {
+          "id": "http://jsonschema.net/customerData/customerIdentity",
+          "type": "string"
+        },
+        "customerName": {
+          "id": "http://jsonschema.net/customerData/customerName",
+          "type": "string"
+        },
+        "customerEmail": {
+          "id": "http://jsonschema.net/customerData/customerEmail",
+          "type": "string"
+        },
+        "billingAddress": {
+          "id": "http://jsonschema.net/customerData/billingAddress",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "street": {
+              "id": "http://jsonschema.net/customerData/billingAddress/street",
+              "type": "string"
+            },
+            "number": {
+              "id": "http://jsonschema.net/customerData/billingAddress/number",
+              "type": "string"
+            },
+            "neighborhood": {
+              "id": "http://jsonschema.net/customerData/billingAddress/neighborhood",
+              "type": "string"
+            },
+            "zipCode": {
+              "id": "http://jsonschema.net/customerData/billingAddress/zipCode",
+              "type": "string"
+            },
+            "city": {
+              "id": "http://jsonschema.net/customerData/billingAddress/city",
+              "type": "string"
+            },
+            "state": {
+              "id": "http://jsonschema.net/customerData/billingAddress/state",
+              "type": "string"
+            }
+          },
+          "required" : [
+            "street",
+            "number",
+            "neighborhood",
+            "zipCode",
+            "city",
+            "state"
+          ]
+        },
+        "shippingAddress": {
+          "id": "http://jsonschema.net/customerData/shippingAddress",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "street": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/street",
+              "type": "string"
+            },
+            "number": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/number",
+              "type": "string"
+            },
+            "neighborhood": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/neighborhood",
+              "type": "string"
+            },
+            "zipCode": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/zipCode",
+              "type": "string"
+            },
+            "city": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/city",
+              "type": "string"
+            },
+            "state": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/state",
+              "type": "string"
+            },
+            "country": {
+              "id": "http://jsonschema.net/customerData/shippingAddress/country",
+              "type": "string"
+            }
+          },
+          "required" : [
+            "street",
+            "number",
+            "neighborhood",
+            "zipCode",
+            "city",
+            "state",
+            "country"
+          ]
+        },
+        "phoneData": {
+          "id": "http://jsonschema.net/customerData/phoneData",
+          "type": "array",
+          "additionalProperties": false,
+          "minItems":1,
+          "items": [
+            {
+              "id": "http://jsonschema.net/customerData/phoneData/0",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "id": "http://jsonschema.net/customerData/phoneData/0/type",
+                  "type": "string"
+                },
+                "areaCode": {
+                  "id": "http://jsonschema.net/customerData/phoneData/0/areaCode",
+                  "type": "string"
+                },
+                "number": {
+                  "id": "http://jsonschema.net/customerData/phoneData/0/number",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "areaCode",
+                "number"
+              ]
+            }
+          ]
+        }
+      },
+      "required" : [
+        "customerIdentity",
+        "customerName",
+        "customerEmail",
+        "phoneData"
+      ]
+    }
+  },
+  "required": [
+    "orderData",
+    "paymentData",
+    "customerData"
+  ]
+}

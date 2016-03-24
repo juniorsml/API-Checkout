@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://stelo.com.br/domain/destinatario" 
+		elementFormDefault="qualified" 
+		xmlns="http://www.w3.org/2001/XMLSchema" 
+		xmlns:tns="http://stelo.com.br/domain/destinatario"
+		xmlns:pessoas="http://stelo.com.br/domain/pessoas" version="1.0">
+
+	<import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+
+	<complexType name="Destinatario">
+	        <sequence>
+	        	<choice>
+	        		<element name="pessoaFisica" type="pessoas:PessoaFisica" minOccurs="0" />
+	        		<element name="pessoaJuridica" type="pessoas:PessoaJuridica" minOccurs="0" />
+	        	</choice>
+	       	</sequence>
+	</complexType>
+		
+		
+		
+</schema>

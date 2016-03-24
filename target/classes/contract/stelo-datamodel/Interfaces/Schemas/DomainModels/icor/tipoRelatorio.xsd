@@ -1,0 +1,18 @@
+<schema targetNamespace="http://domain.stelo.com.br/icor" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/icor">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade TipoRelatorio
+        </documentation>
+    </annotation>
+    <complexType name="TipoRelatorio">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaTipoRelatorio">
+        <sequence>
+            <element name="tipoRelatorio" type="tns:TipoRelatorio" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

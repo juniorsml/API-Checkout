@@ -1,0 +1,28 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "checkoutRequestSUB-POST"
+        },
+        "inboundProperties": {
+            "canal": {
+                "connectorName": "Web_Service_Teste",
+                "typeId": "cabecalho"
+            }
+        },
+        "outboundProperties": {
+            "canal": {
+                "connectorName": "Web_Service_Teste",
+                "typeId": "cabecalho"
+            }
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Web_Service_Consumer",
+            "typeId": "checkout"
+        }
+    },
+    "id": "db14ca26-a876-4ea9-b735-541b2e49ec70",
+    "version": "5.2.0.0"
+}

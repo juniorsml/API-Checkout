@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.events.stelo.com.br/notificacao/nasp"
+    xmlns:tns="http://www.events.stelo.com.br/notificacao/nasp" elementFormDefault="qualified">
+    <complexType name="Pedido">
+        <sequence>
+            <element name="codigo" type="long" minOccurs="0" />
+            <element name="codigoEC" type="string" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="frete" type="decimal" minOccurs="0" />
+            <element name="itens" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="item" type="tns:Item" maxOccurs="unbounded" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="enderecoEntrega" type="tns:Endereco" minOccurs="0" />
+            <element name="origem" type="string" minOccurs="0" />
+            <element name="desconto" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Item">
+        <sequence>
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="quantidade" type="integer" minOccurs="0" />
+            <element name="idOferta" type="string" minOccurs="0" />
+            <element name="idVariacao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Endereco">
+        <sequence>
+            <element name="logradouro" type="string" minOccurs="0" />
+            <element name="numero" type="string" minOccurs="0" />
+            <element name="bairro" type="string" minOccurs="0" />
+            <element name="cidade" type="string" minOccurs="0" />
+            <element name="estado" type="string" minOccurs="0" />
+            <element name="pais" type="string" minOccurs="0" />
+            <element name="cep" type="string" minOccurs="0" />
+            <element name="complemento" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Vendedor">
+        <sequence>
+            <element name="idStelo" type="long" minOccurs="0" />
+            <element name="nomeFantasia" type="string" minOccurs="0" />
+            <element name="site" type="string" minOccurs="0" />
+            <element name="email" type="string" minOccurs="0" />
+            <element name="telefone" type="string" minOccurs="0" />
+            <element name="urlCallback" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Comprador">
+        <sequence>
+            <element name="idStelo" type="long" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="apelido" type="string" minOccurs="0" />
+            <element name="email" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Pagamento">
+        <sequence>
+            <element name="codigoTipoPagamento" type="integer" minOccurs="0" />
+            <element name="quantidadeParcelas" type="integer" minOccurs="0" />
+            <element name="urlBoleto" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="NASP">
+        <sequence>
+            <element name="pedido" type="tns:Pedido" minOccurs="0" />
+            <element name="vendedor" type="tns:Vendedor" minOccurs="0" />
+            <element name="pagamento" type="tns:Pagamento" minOccurs="0" />
+            <element name="comprador" type="tns:Comprador" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <element name="nasp" type="tns:NASP" />
+</schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/parcelas" xmlns:tns="http://stelo.com.br/domain/parcelas"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="Parcelamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="idTipo" type="long" minOccurs="0" />
+            <element name="tipo" type="string" minOccurs="0" />
+            <element name="quantidadeParcelas" type="int" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Parcela">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="valorAntecipacao" type="decimal" minOccurs="0" />
+            <element name="quantidadeDiasRegime" type="long" minOccurs="0" />
+            <element name="numeroParcela" type="string" minOccurs="0" />
+            <element name="valorPercentual" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

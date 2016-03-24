@@ -1,0 +1,443 @@
+<metadata__cache__entry>
+  <version>5.2.0.0</version>
+  <connectorName>Web_Service_Teste</connectorName>
+  <metadataIo class="tree-map">
+    <entry>
+      <string>checkout</string>
+      <map>
+        <entry>
+          <string>__default__</string>
+          <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+            <input class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
+                <connectorName>Web_Service_Teste</connectorName>
+                <typeId>cabecalho</typeId>
+                <category>DEFAULT</category>
+              </payload>
+              <properties>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields>
+                      <org.mule.common.metadata.DefaultMetaDataField>
+                        <name>soap.request_header</name>
+                        <model class="org.mule.common.metadata.DefaultXmlMetaDataModel">
+                          <dataType>XML</dataType>
+                          <metaDataModelPropertiesManager>
+                            <properties>
+                              <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                <typeQName>
+                                  <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                  <localPart>Cabecalho</localPart>
+                                  <prefix></prefix>
+                                </typeQName>
+                              </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                            </properties>
+                          </metaDataModelPropertiesManager>
+                          <fields>
+                            <org.mule.common.metadata.DefaultMetaDataField>
+                              <name>ns0:usuario</name>
+                              <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                <dataType>STRING</dataType>
+                                <metaDataModelPropertiesManager>
+                                  <properties>
+                                    <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                      <typeQName>
+                                        <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                                        <localPart>string</localPart>
+                                        <prefix></prefix>
+                                      </typeQName>
+                                    </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                  </properties>
+                                </metaDataModelPropertiesManager>
+                              </model>
+                              <accessType>READ_WRITE</accessType>
+                              <metaDataFieldPropertyManager>
+                                <properties>
+                                  <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                    <name>
+                                      <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                      <localPart>usuario</localPart>
+                                      <prefix>ns0</prefix>
+                                    </name>
+                                  </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                </properties>
+                              </metaDataFieldPropertyManager>
+                            </org.mule.common.metadata.DefaultMetaDataField>
+                            <org.mule.common.metadata.DefaultMetaDataField>
+                              <name>ns0:canal</name>
+                              <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                <dataType>STRING</dataType>
+                                <metaDataModelPropertiesManager>
+                                  <properties>
+                                    <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                      <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                                    </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                  </properties>
+                                </metaDataModelPropertiesManager>
+                              </model>
+                              <accessType>READ_WRITE</accessType>
+                              <metaDataFieldPropertyManager>
+                                <properties>
+                                  <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                    <name>
+                                      <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                      <localPart>canal</localPart>
+                                      <prefix>ns0</prefix>
+                                    </name>
+                                  </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                </properties>
+                              </metaDataFieldPropertyManager>
+                            </org.mule.common.metadata.DefaultMetaDataField>
+                            <org.mule.common.metadata.DefaultMetaDataField>
+                              <name>ns0:aplicacao</name>
+                              <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                <dataType>STRING</dataType>
+                                <metaDataModelPropertiesManager>
+                                  <properties>
+                                    <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                      <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                                    </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                  </properties>
+                                </metaDataModelPropertiesManager>
+                              </model>
+                              <accessType>READ_WRITE</accessType>
+                              <metaDataFieldPropertyManager>
+                                <properties>
+                                  <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                    <name>
+                                      <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                      <localPart>aplicacao</localPart>
+                                      <prefix>ns0</prefix>
+                                    </name>
+                                  </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                </properties>
+                              </metaDataFieldPropertyManager>
+                            </org.mule.common.metadata.DefaultMetaDataField>
+                            <org.mule.common.metadata.DefaultMetaDataField>
+                              <name>ns0:ip</name>
+                              <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                <dataType>STRING</dataType>
+                                <metaDataModelPropertiesManager>
+                                  <properties>
+                                    <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                      <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                                    </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                  </properties>
+                                </metaDataModelPropertiesManager>
+                              </model>
+                              <accessType>READ_WRITE</accessType>
+                              <metaDataFieldPropertyManager>
+                                <properties>
+                                  <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                    <name>
+                                      <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                      <localPart>ip</localPart>
+                                      <prefix>ns0</prefix>
+                                    </name>
+                                  </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                </properties>
+                              </metaDataFieldPropertyManager>
+                            </org.mule.common.metadata.DefaultMetaDataField>
+                            <org.mule.common.metadata.DefaultMetaDataField>
+                              <name>ns0:hostname</name>
+                              <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                <dataType>STRING</dataType>
+                                <metaDataModelPropertiesManager>
+                                  <properties>
+                                    <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                      <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                                    </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                                  </properties>
+                                </metaDataModelPropertiesManager>
+                              </model>
+                              <accessType>READ_WRITE</accessType>
+                              <metaDataFieldPropertyManager>
+                                <properties>
+                                  <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                    <name>
+                                      <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                                      <localPart>hostname</localPart>
+                                      <prefix>ns0</prefix>
+                                    </name>
+                                  </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                </properties>
+                              </metaDataFieldPropertyManager>
+                            </org.mule.common.metadata.DefaultMetaDataField>
+                          </fields>
+                          <rootElement>
+                            <namespaceURI>http://domain.stelo.com.br/comum</namespaceURI>
+                            <localPart>cabecalho</localPart>
+                            <prefix>ns0</prefix>
+                          </rootElement>
+                          <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
+                            <schemas>
+                              <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:WL5G3N0=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:WL5G3N1=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot; xmlns:WL5G3N2=&quot;http://domain.stelo.com.br/comum&quot; xmlns:WL5G3N3=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:cartoes=&quot;http://stelo.com.br/domain/cartoes&quot; xmlns:com=&quot;http://stelo.com.br/domain/comum&quot; xmlns:comprador=&quot;http://stelo.com.br/domain/comprador&quot; xmlns:comum=&quot;http://domain.stelo.com.br/comum&quot; xmlns:ec=&quot;http://stelo.com.br/domain/ec&quot; xmlns:excecoes=&quot;http://stelo.com.br/domain/comum/excecoes&quot; xmlns:pagamentos=&quot;http://stelo.com.br/domain/pagamentos&quot; xmlns:pedidos=&quot;http://stelo.com.br/domain/pedidos&quot; xmlns:pessoas=&quot;http://stelo.com.br/domain/pessoas&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tecnicos=&quot;http://stelo.com.br/domain/comum/tecnicos&quot; xmlns:tns=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot;&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/comum/excecoes&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fexcecao_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/pedidos&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fpedidos_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/pessoas&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fpessoas_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://domain.stelo.com.br/comum&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fcomum%2Fcabecalho&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/cartoes&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fcartoes_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/comum&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fcomum_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/pagamentos&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fpagamentos_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/comum/tecnicos&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Ftecnicos_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/ec&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2FEC_v1_0&quot;/&gt;
+      &lt;xsd:import namespace=&quot;http://stelo.com.br/domain/comprador&quot; schemaLocation=&quot;http://10.210.32.43:8011/transacoes/checkouts/v2?SCHEMA%2Fstelo-datamodel%2FInterfaces%2FSchemas%2FDomainModels%2Fcomprador_v1_0&quot;/&gt;
+      &lt;xsd:element name=&quot;checkout&quot;&gt;
+        &lt;xsd:annotation&gt;
+          &lt;xsd:documentation&gt;&lt;![CDATA[
+                    Payload minimo:                       
+                      &lt;tns:checkout xmlns:com=&quot;http://stelo.com.br/domain/comum&quot; 
+                                  xmlns:ec=&quot;http://stelo.com.br/domain/ec&quot; 
+                                  xmlns:pedidos=&quot;http://stelo.com.br/domain/pedidos&quot; 
+                                  xmlns:tns=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot;&gt;
+                         &lt;tns:ec&gt;
+                            &lt;ec:id&gt;76214&lt;/ec:id&gt;
+                         &lt;/tns:ec&gt;
+                         &lt;tns:pedido&gt;
+                            &lt;pedidos:origem&gt;W&lt;/pedidos:origem&gt;
+                            &lt;pedidos:venda&gt;
+                               &lt;pedidos:codigoPedidoEstabelecimentoComercial&gt;100000153&lt;/pedidos:codigoPedidoEstabelecimentoComercial&gt;
+                               &lt;pedidos:valorTotal&gt;139.99&lt;/pedidos:valorTotal&gt;
+                               &lt;pedidos:itens&gt;
+                                  &lt;pedidos:nome&gt;ASICS® Men&apos;s GEL-Kayano® XII&lt;/pedidos:nome&gt;
+                                  &lt;pedidos:quantidade&gt;1&lt;/pedidos:quantidade&gt;
+                                  &lt;pedidos:valorTotal&gt;134.99&lt;/pedidos:valorTotal&gt;
+                                  &lt;pedidos:valorUnitario&gt;134.99&lt;/pedidos:valorUnitario&gt;
+                               &lt;/pedidos:itens&gt;
+                               &lt;pedidos:entrega&gt;
+                                  &lt;pedidos:retirarLoja&gt;true&lt;/pedidos:retirarLoja&gt;
+                               &lt;/pedidos:entrega&gt;
+                            &lt;/pedidos:venda&gt;
+                         &lt;/tns:pedido&gt;
+                      &lt;/tns:checkout&gt;
+                    ]]&gt;&lt;/xsd:documentation&gt;
+        &lt;/xsd:annotation&gt;
+        &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;ec&quot; type=&quot;ec:EC&quot;/&gt;
+            &lt;xsd:element name=&quot;pedido&quot; type=&quot;pedidos:Pedido&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;comprador&quot; type=&quot;comprador:Comprador&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;pagamento&quot; type=&quot;pagamentos:Pagamento&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;cartao&quot; type=&quot;cartoes:Cartao&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;dadosMaquina&quot; type=&quot;tecnicos:DadosMaquina&quot;/&gt;
+          &lt;/xsd:sequence&gt;
+        &lt;/xsd:complexType&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;checkoutResponse&quot;&gt;
+        &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;pedidoResponse&quot; type=&quot;pedidos:Pedido&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;urlWallet&quot; type=&quot;xsd:string&quot;&gt;
+              &lt;xsd:annotation&gt;
+                &lt;xsd:documentation&gt;url para pagamento do pedido via wallet&lt;/xsd:documentation&gt;
+              &lt;/xsd:annotation&gt;
+            &lt;/xsd:element&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;urlBoleto&quot; type=&quot;xsd:string&quot;&gt;
+              &lt;xsd:annotation&gt;
+                &lt;xsd:documentation&gt;url para renderizacao do boleto&lt;/xsd:documentation&gt;
+              &lt;/xsd:annotation&gt;
+            &lt;/xsd:element&gt;
+          &lt;/xsd:sequence&gt;
+        &lt;/xsd:complexType&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;checkoutFault&quot; type=&quot;excecoes:Excecao&quot;/&gt;
+      &lt;xsd:element name=&quot;vincularComprador&quot;&gt;
+        &lt;xsd:annotation&gt;
+          &lt;xsd:documentation&gt;&lt;![CDATA[
+                    Payload minimo:                       
+                      &lt;v2:vincularComprador xmlns:v2=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot; 
+                                            xmlns:ped=&quot;http://stelo.com.br/domain/pedidos&quot; 
+                                            xmlns:pes=&quot;http://stelo.com.br/domain/pessoas&quot;&gt;
+                         &lt;v2:pedido&gt;
+                            &lt;!--codigoPedido gerado no checkoutResponse --&gt;
+                            &lt;ped:codigoPedido&gt;2457687809&lt;/ped:codigoPedido&gt;
+                         &lt;/v2:pedido&gt;
+                         &lt;v2:comprador&gt;
+                            &lt;pes:idStelo&gt;76214&lt;/pes:idStelo&gt;
+                         &lt;/v2:comprador&gt;
+                      &lt;/v2:vincularComprador&gt;
+                    ]]&gt;&lt;/xsd:documentation&gt;
+        &lt;/xsd:annotation&gt;
+        &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;pedido&quot; type=&quot;pedidos:Pedido&quot;/&gt;
+            &lt;xsd:element name=&quot;comprador&quot; type=&quot;pessoas:Pessoa&quot;/&gt;
+          &lt;/xsd:sequence&gt;
+        &lt;/xsd:complexType&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;vincularCompradorResponse&quot;&gt;
+        &lt;xsd:complexType/&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;vincularCompradorFault&quot; type=&quot;excecoes:Excecao&quot;/&gt;
+      &lt;xsd:element name=&quot;transacionar&quot;&gt;
+        &lt;xsd:annotation&gt;
+          &lt;xsd:documentation&gt;&lt;![CDATA[
+                    Payload minimo (W):                       
+                      &lt;v2:transacionar xmlns:v2=&quot;http://services.stelo.com.br/transacoes/checkouts/v2&quot; 
+                      			   xmlns:ped=&quot;http://stelo.com.br/domain/pedidos&quot; 
+                      			   xmlns:pes=&quot;http://stelo.com.br/domain/pessoas&quot; 
+                      			   xmlns:com1=&quot;http://stelo.com.br/domain/comum&quot; 
+                      			   xmlns:pag=&quot;http://stelo.com.br/domain/pagamentos&quot; 
+                      			   xmlns:car=&quot;http://stelo.com.br/domain/cartoes&quot; 
+                      			   xmlns:tec=&quot;http://stelo.com.br/domain/comum/tecnicos&quot; &gt;
+                         &lt;v2:pedido&gt;
+                            &lt;!--codigoPedido gerado no checkoutResponse --&gt;
+                            &lt;ped:codigoPedido&gt;2457687809&lt;/ped:codigoPedido&gt;
+                            &lt;ped:venda&gt;
+                               &lt;ped:vendedor&gt;
+                                  &lt;pes:idStelo&gt;76214&lt;/pes:idStelo&gt;
+                               &lt;/ped:vendedor&gt;
+                               &lt;ped:valorTotal&gt;139.99&lt;/ped:valorTotal&gt;
+                               &lt;ped:itens&gt;
+                                  &lt;ped:nome&gt;ASICS® Men&apos;s GEL-Kayano® XII&lt;/ped:nome&gt;
+                                  &lt;ped:quantidade&gt;1&lt;/ped:quantidade&gt;
+                                  &lt;ped:valorTotal&gt;134.99&lt;/ped:valorTotal&gt;
+                                  &lt;ped:valorUnitario&gt;134.99&lt;/ped:valorUnitario&gt;
+                               &lt;/ped:itens&gt;
+                               &lt;ped:comprador&gt;
+                                  &lt;pes:idStelo&gt;76789&lt;/pes:idStelo&gt;
+                               &lt;/ped:comprador&gt;               
+                            &lt;/ped:venda&gt;
+                         &lt;/v2:pedido&gt;
+                         &lt;v2:cartao&gt;
+                            &lt;car:id&gt;888888&lt;/car:id&gt;
+                            &lt;car:usuario&gt;
+                               &lt;com1:id&gt;988&lt;/com1:id&gt;
+                            &lt;/car:usuario&gt;
+                            &lt;car:status&gt;1&lt;/car:status&gt;
+                            &lt;car:tipoCartao&gt;3&lt;/car:tipoCartao&gt;
+                            &lt;car:apelidoCartao&gt;SciensaCard&lt;/car:apelidoCartao&gt;
+                            &lt;car:tipoBandeira&gt;2&lt;/car:tipoBandeira&gt;
+                            &lt;car:enderecoCobranca&gt;
+                               &lt;com1:logradouro&gt;Rua das Hortensias&lt;/com1:logradouro&gt;
+                               &lt;com1:bairro&gt;Moema&lt;/com1:bairro&gt;
+                               &lt;com1:numero&gt;333&lt;/com1:numero&gt;
+                               &lt;com1:cidade&gt;São Paulo&lt;/com1:cidade&gt;
+                               &lt;com1:estado&gt;SP&lt;/com1:estado&gt;
+                               &lt;com1:pais&gt;Brasil&lt;/com1:pais&gt;
+                               &lt;com1:cep&gt;11730000&lt;/com1:cep&gt;
+                            &lt;/car:enderecoCobranca&gt;
+                         &lt;/v2:cartao&gt;
+                         &lt;v2:pagamento&gt;
+                            &lt;pag:codigoProprietario&gt;5&lt;/pag:codigoProprietario&gt;
+                            &lt;pag:codigoTipoPagamento&gt;1&lt;/pag:codigoTipoPagamento&gt;
+                            &lt;pag:quantidadeParcelas&gt;3&lt;/pag:quantidadeParcelas&gt;
+                            &lt;pag:valorPagamento&gt;1.051732E7&lt;/pag:valorPagamento&gt;
+                            &lt;pag:dataPagamento&gt;2010-10-29T15:09:18-02:00&lt;/pag:dataPagamento&gt;
+                         &lt;/v2:pagamento&gt;
+                         &lt;v2:dadosMaquina&gt;
+                            &lt;tec:deviceFingerPrint&gt;device fingerprint&lt;/tec:deviceFingerPrint&gt;
+                            &lt;tec:deviceFingerPrintRaw&gt;false&lt;/tec:deviceFingerPrintRaw&gt;
+                            &lt;tec:hostName&gt;sciensa.com&lt;/tec:hostName&gt;
+                            &lt;tec:enderecoIp&gt;127.0.0.1&lt;/tec:enderecoIp&gt;
+                         &lt;/v2:dadosMaquina&gt;
+                      &lt;/v2:transacionar&gt;
+                    ]]&gt;&lt;/xsd:documentation&gt;
+        &lt;/xsd:annotation&gt;
+        &lt;xsd:complexType&gt;
+          &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;pedido&quot; type=&quot;pedidos:Pedido&quot;/&gt;
+            &lt;xsd:element name=&quot;cartao&quot; type=&quot;cartoes:Cartao&quot;/&gt;
+            &lt;xsd:element name=&quot;pagamento&quot; type=&quot;pagamentos:Pagamento&quot;/&gt;
+            &lt;xsd:element name=&quot;dadosMaquina&quot; type=&quot;tecnicos:DadosMaquina&quot;/&gt;
+            &lt;xsd:element minOccurs=&quot;0&quot; name=&quot;comprador&quot; type=&quot;comprador:Comprador&quot;/&gt;
+          &lt;/xsd:sequence&gt;
+        &lt;/xsd:complexType&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;transacionarResponse&quot;&gt;
+        &lt;xsd:complexType/&gt;
+      &lt;/xsd:element&gt;
+      &lt;xsd:element name=&quot;transacionarFault&quot; type=&quot;excecoes:Excecao&quot;/&gt;
+    &lt;/xsd:schema&gt;</string>
+                            </schemas>
+                            <encoding>UTF-8</encoding>
+                          </schemas>
+                          <namespaceManager>
+                            <namespacePrefix>
+                              <entry>
+                                <string>http://domain.stelo.com.br/comum</string>
+                                <string>ns0</string>
+                              </entry>
+                            </namespacePrefix>
+                          </namespaceManager>
+                        </model>
+                        <accessType>READ_WRITE</accessType>
+                        <metaDataFieldPropertyManager>
+                          <properties/>
+                        </metaDataFieldPropertyManager>
+                      </org.mule.common.metadata.DefaultMetaDataField>
+                    </fields>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </input>
+            <output class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
+                <connectorName>Web_Service_Teste</connectorName>
+                <typeId>checkoutResponse</typeId>
+                <category>DEFAULT</category>
+              </payload>
+              <properties>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </output>
+          </org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+        </entry>
+      </map>
+    </entry>
+  </metadataIo>
+</metadata__cache__entry>

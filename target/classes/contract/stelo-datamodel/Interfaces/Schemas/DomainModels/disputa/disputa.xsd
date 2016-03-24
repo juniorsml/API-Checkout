@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/disputas" xmlns:tns="http://stelo.com.br/domain/disputas"
+    elementFormDefault="qualified" version="1.0">
+    <include schemaLocation="motivo.xsd" />
+    <include schemaLocation="item.xsd" />
+    <complexType name="Disputa">
+        <annotation>
+            <documentation>Disputa e o termo usado para definir uma transacao de compra que foi contestada pelo comprador pela nao
+                prestacao de um servico, produto nao entregue, entregue com defeito ou diferente do combinado.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="dataAbertura" type="dateTime" minOccurs="0" />
+            <element name="dataEncerramento" type="dateTime" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="tipo" type="string" minOccurs="0" />
+            <element name="motivo" type="tns:Motivo" minOccurs="0" />
+            <element name="itens" type="tns:ListaItem" minOccurs="0" />
+            <element name="possuiGarantia" type="boolean" minOccurs="0" />
+            <element name="possuiModeracao" type="boolean" minOccurs="0" />
+        </sequence>
+    </complexType>
+    
+    
+    <complexType name="ListaDisputa">
+        <sequence>
+            <element name="disputa" minOccurs="0" maxOccurs="unbounded" type="tns:Disputa" />
+        </sequence>
+    </complexType>
+</schema>

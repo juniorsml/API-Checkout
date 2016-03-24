@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.stelo.com.br/notificacao/mobile-push/v1"
+    xmlns:tns="http://services.stelo.com.br/notificacao/mobile-push/v1" elementFormDefault="qualified" xmlns:com="http://domain.stelo.com.br/comum">
+    <import namespace="http://domain.stelo.com.br/comum" schemaLocation="../../DomainModels/comum/parametro.xsd" />
+    <complexType name="MobilePush">
+        <sequence>
+            <element name="template" type="string" />
+            <element name="idStelo" type="long" />
+            <element name="parametros" type="com:ListaParametros" minOccurs="0"/>
+            <element name="tipoNotificacao" type="string" />
+            <element name="appDestino" type="string" />
+        </sequence>
+    </complexType>
+    <element name="notificar" type="tns:MobilePush" />
+</schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/ec" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/ec" xmlns:comum="http://domain.stelo.com.br/comum">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade PermissaoCancelamento
+        </documentation>
+    </annotation>
+    <complexType name="PermissaoCancelamento">
+        <annotation>
+            <documentation> Indica se o cancelamento e permitido para determinado EC e motivo
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="permitido" type="boolean" minOccurs="0" />
+            <element name="motivo" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>Lista de valores pre definidos
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="razao" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>Texto livre
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

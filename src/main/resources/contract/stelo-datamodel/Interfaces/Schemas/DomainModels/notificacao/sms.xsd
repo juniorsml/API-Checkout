@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/notificacao" xmlns:tns="http://stelo.com.br/domain/notificacao"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="SMS">
+        <sequence>
+            <element name="id" type="string" minOccurs="0" />
+            <element name="remetente" type="string" minOccurs="0" />
+            <element name="texto" type="string" minOccurs="0" />
+            <element name="agendamento" type="dateTime" minOccurs="0">
+                <annotation>
+                    <documentation>data e hora para que a plataforma de sms dispare a mensagem</documentation>
+                </annotation>
+            </element>
+            <element name="status" type="string" minOccurs="0" />
+            <element name="numeroCampanha" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

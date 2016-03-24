@@ -1,0 +1,18 @@
+<schema targetNamespace="http://domain.stelo.com.br/ec" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/ec">
+    <include schemaLocation="subCategoria.xsd"/>
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Categoria</documentation>
+    </annotation>
+    <complexType name="Categoria">
+        <sequence>
+            <element name="id" type="long" minOccurs="0"/>
+            <element name="descricao" type="string" minOccurs="0"/>
+            <element name="subCategorias" type="tns:ListaSubCategoria" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="ListaCategoria">
+        <sequence>
+            <element name="categoria" type="tns:Categoria" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+</schema>

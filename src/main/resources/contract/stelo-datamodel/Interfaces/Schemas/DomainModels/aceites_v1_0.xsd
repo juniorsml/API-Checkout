@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/aceites" xmlns:tns="http://stelo.com.br/domain/aceites"
+    xmlns:pessoas="http://stelo.com.br/domain/pessoas" xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified"
+    version="1.0">
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <complexType name="Aceite">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="tipo" type="tns:TipoAceite" minOccurs="0" />
+            <element name="versao" type="string" minOccurs="0" />
+            <element name="descricaoAceite" type="string" minOccurs="0" />
+            <element name="dataCriacao" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="AceitePessoa">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="aceite" type="tns:Aceite" minOccurs="0" />
+            <element name="pessoa" type="pessoas:Pessoa" minOccurs="0" />
+            <element name="incioVigencia" type="date" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="TipoAceite">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

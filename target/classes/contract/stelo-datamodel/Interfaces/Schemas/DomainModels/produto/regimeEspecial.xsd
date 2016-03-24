@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/produtos" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/produtos">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade RegimeEspecial
+        </documentation>
+    </annotation>
+    <complexType name="RegimeEspecial">
+        <sequence>
+            <element name="ativo" type="boolean" minOccurs="0" />
+            <element name="quantidadeDias" type="int" minOccurs="0" />
+            <element name="taxa" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

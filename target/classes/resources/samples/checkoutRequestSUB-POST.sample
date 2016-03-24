@@ -1,0 +1,57 @@
+{  
+   "orderData":{  
+     "shippingBehavior":"fast",
+      "secureCode":"978455809540",
+      "orderId":"100000005"
+   },
+   "paymentData":{  
+      "paymentType":"credit",
+      "amount":"180.00",
+      "freight":"45.00",
+      "cardData":{           
+        "token":"9dHoO0yFKLy0tKfzKRXyZMRCGF3WenKGFLzMAHdaAhryGEM1x+LSSMw9okJ87cxOsSxxRxHeEzM="
+      },
+      "installment":"3",
+      "cartData":[  
+         {  
+            "productName":"Coalesce: Functioning On Impatience T-Shirt",
+            "productPrice":15,
+            "productQuantity":9
+              }
+      ]
+   },
+   "customerData":{  
+      "customerIdentity":"65776434661",
+      "customerName":"Rodrigo Ribeiro",
+      "customerEmail":"teste@teste.com.br",
+      "billingAddress":{  
+         "street":"BILLING Rua ",
+         "number":"999",
+         "neighborhood":"Centro",
+         "zipCode":"07115000",
+         "city":"Guarulhos",
+         "state":"SP"
+          },
+      "shippingAddress":{  
+         "street":"SHIPPING Rua",
+         "number":"111",
+        "neighborhood":"Centro",
+         "zipCode":"07115000",
+         "city":"Guarulhos",
+         "state":"SP",
+         "country":"BR"
+      },
+      "phoneData":[  
+         {  
+            "type":"LANDLINE",
+            "areaCode": "11",
+            "number":"24242424"
+         },
+         {  
+            "type":"CELL",
+            "areaCode": "11",
+            "number":"998989898"
+         }
+      ]
+   }
+}

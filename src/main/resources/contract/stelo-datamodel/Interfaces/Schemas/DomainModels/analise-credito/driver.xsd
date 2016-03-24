@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/analise-credito" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/analise-credito">
+    <include schemaLocation="produto.xsd"></include>
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Driver
+        </documentation>
+    </annotation>
+    <complexType name="Driver">
+        <sequence>
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="produtos" type="tns:ListaProduto" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaDriver">
+        <sequence>
+            <element name="driver" minOccurs="0" maxOccurs="unbounded" type="tns:Driver" />
+        </sequence>
+    </complexType>
+</schema>

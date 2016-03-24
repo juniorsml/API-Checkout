@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/comercio-eletronico" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/comercio-eletronico">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Plataforma
+        </documentation>
+    </annotation>
+    <complexType name="Plataforma">
+        <annotation>
+            <documentation>Sistema sobre o qual uma loja virtual e criada.</documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaPlataforma">
+        <sequence>
+            <element name="plataforma" minOccurs="0" maxOccurs="unbounded" type="tns:Plataforma" />
+        </sequence>
+    </complexType>
+</schema>

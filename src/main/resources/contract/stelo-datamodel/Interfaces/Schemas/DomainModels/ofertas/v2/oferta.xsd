@@ -1,0 +1,135 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://domain.stelo.com.br/oferta/v2" 
+	xmlns:ec="http://stelo.com.br/domain/ec"
+	elementFormDefault="qualified"
+	targetNamespace="http://domain.stelo.com.br/oferta/v2">
+	
+	<xs:import namespace="http://stelo.com.br/domain/ec" schemaLocation="../../EC_v1_0.xsd" />
+	
+	<xs:complexType name="Oferta">
+		 
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="idCategoria" type="xs:long" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element minOccurs="0" name="descricao" type="xs:string" />
+			<xs:element minOccurs="0" name="resumo" type="xs:string" />
+			<xs:element minOccurs="0" name="dataPublicacaoInicial" type="xs:date" />
+			<xs:element minOccurs="0" name="dataPublicacaoFinal" type="xs:date" />
+			<xs:element minOccurs="0" name="dataValidadeInicial" type="xs:date" />
+			<xs:element minOccurs="0" name="dataValidadeFinal" type="xs:date" />
+			<xs:element minOccurs="0" name="urlDestino" type="xs:string" />
+			<xs:element minOccurs="0" name="urlTermo" type="xs:string" />
+			<xs:element minOccurs="0" name="quantidadeTotalDisponivelVenda" type="xs:int" />	
+			<xs:element minOccurs="0" name="quantidadeMaximaComprasPorUsuario" type="xs:int" />
+			<xs:element minOccurs="0" name="status" type="xs:string" />
+			<xs:element minOccurs="0" name="valorComissaoStelo" type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorDescontoAcumulado"	type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorDescontoEc" type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorDescontoStelo" type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorMaximoDescontoStelo" type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorProdutoComDesconto" type="xs:decimal" />
+			<xs:element minOccurs="0" name="valorProdutoOriginal" type="xs:decimal" />			
+			<xs:element minOccurs="0" name="tipoOferta" type="tns:TipoOferta" />			
+			<xs:element minOccurs="0" name="tipoDesconto" type="tns:TipoDesconto" />
+			<xs:element minOccurs="0" name="manterPublicado" type="xs:boolean" />	
+			<xs:element minOccurs="0" name="ec" type="ec:EC" maxOccurs="1" />
+			<xs:element minOccurs="0" name="regioesEntrega" type="tns:ListaRegioes" />
+            <xs:element minOccurs="0" name="imagens" type="tns:ListaImagens"/>
+            <xs:element minOccurs="0" name="variacoes" type="tns:ListaVariacoes" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TipoOferta">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="descricao" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TipoDesconto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="descricao" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegiaoEntrega">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="cepFaixaInicial" type="xs:string" />
+			<xs:element minOccurs="0" name="cepFaixaFinal" type="xs:string" />
+			<xs:element minOccurs="0" name="cepEntrega" type="xs:string" />
+			<xs:element minOccurs="0" name="prazoMaximoEntrega" type="xs:int" />
+			<xs:element minOccurs="0" name="valorFrete" type="xs:decimal" />
+			<xs:element minOccurs="0" name="tipoEntrega" type="tns:TipoEntrega" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TipoEntrega">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="descricao" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Imagem">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="descricao" type="xs:string" />
+			<xs:element minOccurs="0" name="url" type="xs:string" />
+			<xs:element minOccurs="0" name="tipoImagem" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Variacao">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="quantidadeDisponivelVenda" type="xs:int" />
+			<xs:element minOccurs="0" name="quantidadeVendasSolicitadas" type="xs:int" />
+			<xs:element minOccurs="0" name="caracteristicasVariacao" type="tns:ListaCaracteristicasVariacao" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CaracteristicaVariacao">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="descricaoCategoriaVariacao" type="xs:string" />
+			<xs:element minOccurs="0" name="descricaoSubCategoriaVariacao" type="xs:string" />
+			<xs:element minOccurs="0" name="posicaoInclusao" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SolicitacaoOferta">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="oferta" type="tns:Oferta" maxOccurs="1" />
+			<xs:element minOccurs="0" name="dataSolicitacao" type="xs:date" />
+			<xs:element minOccurs="0" name="dataResolucao" type="xs:date" />
+			<xs:element minOccurs="0" name="statusSolicitacao" type="xs:string" />
+			<xs:element minOccurs="0" name="statusAtual" type="xs:string" />
+			<xs:element minOccurs="0" name="observacoes" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ListaImagens">
+        <xs:sequence>
+           <xs:element maxOccurs="unbounded" minOccurs="0" name="imagem" nillable="true" type="tns:Imagem"/>
+        </xs:sequence>
+     </xs:complexType>
+	
+	<xs:complexType name="ListaRegioes">
+        <xs:sequence>
+           <xs:element maxOccurs="unbounded" minOccurs="0" name="regiaoEntrega" nillable="true" type="tns:RegiaoEntrega"/>
+        </xs:sequence>
+     </xs:complexType>
+     
+     <xs:complexType name="ListaVariacoes">
+        <xs:sequence>
+           <xs:element maxOccurs="unbounded" minOccurs="0" name="variacao" nillable="true" type="tns:Variacao"/>
+        </xs:sequence>
+     </xs:complexType>
+	
+	 <xs:complexType name="ListaCaracteristicasVariacao">
+        <xs:sequence>
+           <xs:element maxOccurs="unbounded" minOccurs="0" name="caracteristicaVariacao" nillable="true" type="tns:CaracteristicaVariacao"/>
+        </xs:sequence>
+     </xs:complexType>
+     
+</xs:schema>

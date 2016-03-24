@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/pedidos" xmlns:tns="http://stelo.com.br/domain/pedidos"
+    xmlns:pessoas="http://stelo.com.br/domain/pessoas" xmlns:pagamentos="http://stelo.com.br/domain/pagamentos" xmlns:comum="http://stelo.com.br/domain/comum"
+    xmlns:ofertas="http://domain.stelo.com.br/ofertas"
+    version="1.0" elementFormDefault="qualified">
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/pagamentos" schemaLocation="pagamentos_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <complexType name="Pedido">
+        <sequence>
+            <element name="codigoPedido" type="long" minOccurs="0" />
+            <element name="codigoPlataforma" type="int" minOccurs="0" />
+            <element name="origem" type="string" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="venda" type="tns:Venda" minOccurs="0" />
+            <element name="dataInclusao" type="dateTime" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Item">
+        <sequence>
+            <element name="codigo" type="int" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+            <element name="quantidade" type="int" minOccurs="0" />
+            <element name="quantidadeCancelado" type="int" minOccurs="0" />
+            <element name="quantidadeEstorno" type="int" minOccurs="0" />
+            <element name="sku" type="string" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="valorTotal" type="double" minOccurs="0" />
+            <element name="valorUnitario" type="double" minOccurs="0" />
+            <element name="idOferta" type="long" minOccurs="0" />
+            <element name="idVariacao" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Venda">
+        <sequence>
+            <element name="vendedor" type="pessoas:Pessoa" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="codigoPedidoEstabelecimentoComercial" type="string" minOccurs="0" />
+            <element name="descricaoPedidoEstabelecimentoComercial" type="string" minOccurs="0" />
+            <element name="valorTotal" type="double" minOccurs="0" />
+            <element name="itens" type="tns:Item" minOccurs="0" maxOccurs="unbounded" />
+            <element name="entrega" type="tns:Entrega" minOccurs="0" />
+            <element name="pagamento" type="pagamentos:Pagamento" minOccurs="0" />
+            <element name="comprador" type="pessoas:Pessoa" minOccurs="0" />
+            <element name="valorDesconto" type="double" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Entrega">
+        <sequence>
+            <element name="enderecoEntrega" type="comum:Endereco" minOccurs="0" />
+            <element name="previsaoEntrega" type="int" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="valorFrete" type="double" minOccurs="0" />
+            <element name="retirarLoja" type="boolean" minOccurs="0" />
+            <element name="metodoEnvio" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

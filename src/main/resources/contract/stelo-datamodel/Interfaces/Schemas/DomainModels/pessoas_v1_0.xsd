@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/pessoas" xmlns:tns="http://stelo.com.br/domain/pessoas"
+    xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified" version="1.0">
+
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+
+    <complexType name="Pessoa">
+        <sequence>
+            <element name="idStelo" type="long" minOccurs="0" />
+            <element name="idVip" minOccurs="0">
+            	<simpleType>
+            		<restriction base="string">
+            			<enumeration value="nao" />
+            			<enumeration value="vip padrao" />
+            		</restriction>
+            	</simpleType>
+            </element>
+            <!-- Caso necessario, pode ser substituido em runtime por RelacionamentoEmail -->
+            <element name="relacionamento" type="comum:Relacionamento" minOccurs="0" maxOccurs="unbounded" />
+            <element name="dataCadastroContaStelo" type="dateTime" minOccurs="0" />
+            <element name="canalOrigem" type="comum:Canal" minOccurs="0" />
+            <element name="statusCadastro" type="comum:StatusCadastro" minOccurs="0" />
+            <element name="apelido" type="string" minOccurs="0" />
+            <element name="ativo" type="boolean" minOccurs="0" />
+            <element name="cadastroContaPagamento" type="comum:CadastroExterno" minOccurs="0" />
+        </sequence>
+    </complexType>
+
+    <complexType name="PessoaFisica">
+        <complexContent>
+            <extension base="tns:Pessoa">
+                <sequence>
+                    <element name="cpf" minOccurs="0">
+                        <simpleType>
+                            <restriction base="string">
+                                <pattern value="[0-9]{11,14}" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="nomeCompleto" type="string" minOccurs="0" />
+                    <element name="dataNascimento" type="date" minOccurs="0" />
+                    <element name="nomeMae" type="string" minOccurs="0" />
+                    <element name="nomePai" type="string" minOccurs="0" />
+                    <element name="temFilhos" minOccurs="0">
+                        <annotation>
+                            <documentation>
+                                1 - NAO INFORMADO
+                                2 - SIM
+                                3 - NAO
+                            </documentation>
+                        </annotation>
+                        <simpleType>
+                            <restriction base="int">
+                                <enumeration value="1" />
+                                <enumeration value="2" />
+                                <enumeration value="3" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="nacionalidade" type="string" minOccurs="0" />
+                    <element name="estadoNascimento" type="comum:estado" minOccurs="0" />
+                    <element name="cidadeNascimento" type="string" minOccurs="0" />
+                    <element name="pessoaPoliticamenteExposta" type="boolean" minOccurs="0" />
+                    <element name="motivoPessoaPoliticamenteExposta" type="string" minOccurs="0" />
+                    <element name="genero" minOccurs="0">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="feminino" />
+                                <enumeration value="masculino" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="estadoCivil" minOccurs="0">
+                        <simpleType>
+                            <annotation>
+                                <documentation>
+                                    0 - OUTROS
+                                    1 - DESQUITADO
+                                    2 - DIVORCIADO
+                                    3 - SEPARADO
+                                    4 - SOLTEIRO
+                                    5 - CASADO
+                                    6 - VIUVO
+                                    7 - UNIAO ESTAVEL (ACRESCENTADA)
+                                </documentation>
+                            </annotation>
+                            <restriction base="int">
+                                <enumeration value="0" />
+                                <enumeration value="1" />
+                                <enumeration value="2" />
+                                <enumeration value="3" />
+                                <enumeration value="4" />
+                                <enumeration value="5" />
+                                <enumeration value="6" />
+                                <enumeration value="7" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="PessoaJuridica">
+        <complexContent>
+            <extension base="tns:Pessoa">
+                <sequence>
+                    <element name="cnpj" minOccurs="0">
+                        <simpleType>
+                            <restriction base="string">
+                                <pattern value="[0-9]{14,18}" />
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="dataConstituicao" type="date" minOccurs="0" />
+                    <element name="razaoSocial" type="string" minOccurs="0" />
+                    <element name="nomeFantasia" type="string" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+
+    </complexType>
+    
+    
+    <complexType name="CategoriaVendedor">
+    	<sequence>
+			<element name="id" type="long" minOccurs="0" />
+    		<element name="descricao" type="string" minOccurs="0" />
+    	</sequence>
+    </complexType>
+    
+    
+    <complexType name="SubcategoriaVendedor">
+    	<sequence>
+    		<element name="id" type="long" minOccurs="0" />
+    		<element name="descricao" type="string" minOccurs="0" />
+    	</sequence>
+    </complexType>
+    
+</schema>

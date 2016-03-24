@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://stelo.com.br/domain/vendedor"
+xmlns:tns="http://stelo.com.br/domain/vendedor" elementFormDefault="qualified"
+xmlns:pessoas="http://stelo.com.br/domain/pessoas"
+xmlns:comum="http://stelo.com.br/domain/comum"
+xmlns:aceites="http://stelo.com.br/domain/aceites"
+version="1.0">
+
+<import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+<import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+<import namespace="http://stelo.com.br/domain/aceites" schemaLocation="aceites_v1_0.xsd" />
+
+
+	<complexType name="Vendedor">
+        <sequence>
+        	<choice>
+        		<element name="pessoaFisica" type="pessoas:PessoaFisica" minOccurs="0" />
+        		<element name="pessoaJuridica" type="pessoas:PessoaJuridica" minOccurs="0" />
+        	</choice>
+            <element name="site" type="string" minOccurs="0"/>
+            <element name="nomeLoja" type="string" minOccurs="0"/>
+            <element name="identificacaoFaturaCartao" type="string" minOccurs="0"/>
+            <element name="categoria" type="pessoas:CategoriaVendedor" minOccurs="0" />
+            <element name="subcategoria" type="pessoas:SubcategoriaVendedor" minOccurs="0" />
+            <element name="endereco" type="comum:Endereco" minOccurs="0"/>
+         </sequence>
+    </complexType>
+   
+</schema>

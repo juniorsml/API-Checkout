@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/tecnicos" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/tecnicos">
+    <annotation>
+        <documentation>Versao 1.0 do grupo de atributos para metadados de Paginacao
+        </documentation>
+    </annotation>
+    <attributeGroup name="paginacao">
+        <annotation>
+            <documentation>Grupo de Atributos que representam a paginacao, tanto no elemento request quanto no Wrapped Vector
+                (lista) das operacoes de listar.
+            </documentation>
+        </annotation>
+        <attribute name="numeroPagina" type="int" use="required">
+            <annotation>
+                <documentation>Numero da pagina atual (solicitada ou retornada)
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="tamanhoPagina" type="int" use="required">
+            <annotation>
+                <documentation>Numero de registros da pagina atual (solicitada ou retornada)
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="totalPaginas" type="int" use="optional">
+            <annotation>
+                <documentation>Numero total de paginas da pesquisa (apenas no retorno)
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="totalRegistros" type="int" use="optional">
+            <annotation>
+                <documentation>Numero total de registros (apenas no retorno)
+                </documentation>
+            </annotation>
+        </attribute>
+    </attributeGroup>
+</schema>

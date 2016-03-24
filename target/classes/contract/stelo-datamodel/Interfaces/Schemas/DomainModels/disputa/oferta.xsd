@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/disputas" xmlns:tns="http://stelo.com.br/domain/disputas"
+    xmlns:pessoas="http://stelo.com.br/domain/pessoas" elementFormDefault="qualified" version="1.0">
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="../pessoas_v1_0.xsd" />
+    <include schemaLocation="disputa.xsd" />
+    <complexType name="Oferta">
+        <annotation>
+            <documentation>Este complex type define uma proposta de um vendedor para resolver uma disputa</documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="mensagem" type="string" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="ofertante" type="pessoas:Pessoa" minOccurs="0" />
+            <element name="disputa" type="tns:Disputa" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaOferta">
+        <sequence>
+            <element name="oferta" minOccurs="0" maxOccurs="unbounded" type="tns:Oferta" />
+        </sequence>
+    </complexType>
+</schema>

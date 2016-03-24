@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/comprador" xmlns:tns="http://stelo.com.br/domain/comprador"
+    xmlns:pessoas="http://stelo.com.br/domain/pessoas" xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified"
+    version="1.0">
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <complexType name="Comprador">
+        <sequence>
+            <choice>
+                <element name="pessoaFisica" type="pessoas:PessoaFisica" minOccurs="0" />
+                <element name="pessoaJuridica" type="pessoas:PessoaJuridica" minOccurs="0" />
+            </choice>
+            <element name="email" type="comum:Email" minOccurs="0" />
+            <element name="telefone" type="comum:Telefone" minOccurs="0" />
+            <element name="documento" type="comum:Documento" minOccurs="0" />
+            <element name="endereco" type="comum:Endereco" minOccurs="0" />
+            <element name="dataCadastro" type="date" minOccurs="0">
+                <annotation>
+                    <documentation>Data de cadastro do comprador no EC</documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

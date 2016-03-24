@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/analise-credito" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/analise-credito">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Resultado
+        </documentation>
+    </annotation>
+    <complexType name="Resultado">
+        <sequence>
+            <element name="final" type="boolean" minOccurs="0" />
+            <element name="sistema" type="string" minOccurs="0" />
+            <element name="criterio" type="string" minOccurs="0" />
+            <element name="detalhe" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaResultado">
+        <sequence>
+            <element name="resultado" minOccurs="0" maxOccurs="unbounded" type="tns:Resultado" />
+        </sequence>
+    </complexType>
+</schema>

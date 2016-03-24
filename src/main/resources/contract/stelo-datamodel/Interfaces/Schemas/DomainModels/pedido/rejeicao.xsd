@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://domain.stelo.com.br/pedidos" xmlns:tns="http://domain.stelo.com.br/pedidos"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="Rejeicao">
+        <annotation>
+            <documentation>Representa a Rejeicao de um Pedido.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="fonte">
+                <annotation>
+                    <documentation>
+                    <![CDATA[
+                    fonte           |   id
+                    STELO           |   1 
+                    SUBADQUIRENTE   |   2
+                    EC              |   3
+                    ]]>
+                    </documentation>
+                </annotation>
+                <complexType>
+                    <simpleContent>
+                        <extension base="string">
+                            <attribute name="id" type="int">
+                            </attribute>
+                        </extension>
+                    </simpleContent>
+                </complexType>
+            </element>
+            <element name="codigoMotivo" type="string" minOccurs="0" />
+            <element name="codigoSubMotivo" type="string" minOccurs="0" />
+            <element name="codigoResposta" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

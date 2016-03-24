@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/subadquirentes" xmlns:tns="http://stelo.com.br/domain/subadquirentes"
+    version="1.0" elementFormDefault="qualified">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidades subAdquirente
+        </documentation>
+    </annotation>
+    <complexType name="subAdquirente">
+        <sequence>
+            <element name="numeroIdentidadeAdquirente" type="long" minOccurs="0" />
+            <element name="valorTaxaTransacao" type="long" minOccurs="0" />
+            <element name="valorTaxaAntecipada" type="double" minOccurs="0" />
+            <element name="tipoFilial" type="long" minOccurs="0" />
+            <element name="parcelaAntecipadaFilial" type="double" minOccurs="0" />
+            <element name="idTermo" type="long" minOccurs="0" />
+            <element name="dataInstalacaoTermo" type="date" minOccurs="0" />
+            <element name="termoProprietarioEc" type="long" minOccurs="0" />
+            <element name="statusTermo" type="long" minOccurs="0" />
+            <element name="codigoDepartamento" type="long" minOccurs="0" />
+            <element name="valorLimiteMinimoTransacao" type="double" minOccurs="0" />
+            <element name="numeroGrupoBin" type="long" minOccurs="0" />
+            <element name="tipoTransacao" type="long" minOccurs="0" />
+            <element name="codigoFilialLiq" type="long" minOccurs="0" />
+            <element name="codigoMoedaPagamento" type="long" minOccurs="0" />
+            <element name="tipoFaturamento" type="long" minOccurs="0" />
+            <element name="codigoCicloFatura" type="long" minOccurs="0" />
+            <element name="statusCadastro" type="long" minOccurs="0" />
+            <element name="descricaoDepartamento" type="string" minOccurs="0" />
+            <element name="codigoAdquirente" type="long" minOccurs="0" />
+            <element name="tipoPagamento" type="long" minOccurs="0" />
+			<element name="idFilial" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

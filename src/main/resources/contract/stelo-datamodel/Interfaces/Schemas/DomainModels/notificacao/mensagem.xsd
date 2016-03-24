@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/notificacao" xmlns:tns="http://stelo.com.br/domain/notificacao"
+    elementFormDefault="qualified" version="1.0">
+    <complexType name="Mensagem">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="texto" type="string" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

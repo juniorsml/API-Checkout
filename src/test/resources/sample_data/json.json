@@ -1,0 +1,50 @@
+{
+  "customerData": {
+    "billingAddress": {
+      "city": "????",
+      "neighborhood": "????",
+      "number": "????",
+      "state": "????",
+      "street": "????",
+      "zipCode": "????"
+    },
+    "customerEmail": "????",
+    "customerIdentity": "????",
+    "customerName": "????",
+    "phoneData": [
+      {
+        
+      }
+    ],
+    "shippingAddress": {
+      "city": "????",
+      "country": "????",
+      "neighborhood": "????",
+      "number": "????",
+      "state": "????",
+      "street": "????",
+      "zipCode": "????"
+    }
+  },
+  "orderData": {
+    "orderId": "????",
+    "secureCode": "????",
+    "shippingBehavior": "????"
+  },
+  "paymentData": {
+    "amount": "????",
+    "cardData": {
+      "token": "????"
+    },
+    "cartData": [
+      {
+        "productName": "????",
+        "productPrice": 1,
+        "productQuantity": 1
+      }
+    ],
+    "freight": "????",
+    "installment": "????",
+    "paymentType": "????"
+  }
+}

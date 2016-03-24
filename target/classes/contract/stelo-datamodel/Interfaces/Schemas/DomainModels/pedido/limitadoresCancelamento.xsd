@@ -1,0 +1,12 @@
+<schema targetNamespace="http://domain.stelo.com.br/pedidos" elementFormDefault="qualified" version="1.0"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/pedidos">
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Limitadores de Cancelamento de Pedidos</documentation>
+    </annotation>
+    <complexType name="LimitadoresCancelamento">
+        <sequence>
+            <element name="percentualAviso" type="decimal" minOccurs="0" />
+            <element name="percentualBloqueio" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

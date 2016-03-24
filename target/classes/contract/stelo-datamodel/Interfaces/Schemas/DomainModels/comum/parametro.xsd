@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://domain.stelo.com.br/comum"
+	elementFormDefault="qualified" version="1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/comum">
+
+	<annotation>
+		<documentation> Versao 2.0 do modelo de entidade Parametro
+		</documentation>
+	</annotation>
+
+	<complexType name="Parametro">
+        <annotation>
+            <documentation>Representa um parametro generico contendo chave e valor.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="chave" type="string" minOccurs="0" />
+            <element name="valor" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaParametros">
+        <sequence>
+            <element name="parametro" type="tns:Parametro" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

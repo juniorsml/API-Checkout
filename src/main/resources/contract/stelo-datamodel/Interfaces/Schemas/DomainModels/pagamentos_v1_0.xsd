@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/pagamentos" xmlns:tns="http://stelo.com.br/domain/pagamentos"
+    version="1.0" elementFormDefault="qualified" xmlns:comum="http://stelo.com.br/domain/comum" xmlns:pessoas="http://stelo.com.br/domain/pessoas"
+    xmlns:contas="http://stelo.com.br/domain/contas">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/contas" schemaLocation="contas_v1_0.xsd" />
+    <complexType name="Pagamento">
+        <sequence>
+            <element name="codigoPagamento" type="int" minOccurs="0" />
+            <element name="codigoAutorizador" type="string" minOccurs="0" />
+            <element name="codigoProprietario" type="int" minOccurs="0" />
+            <element name="codigoTipoPagamento" type="long" minOccurs="0">
+                <annotation>
+                    <documentation>
+                        Tipo de Pagamento
+                        1   CARTÃO DE CRÉDITO
+                        2   BOLETO
+                        3   CARTÃO DE DÉBITO
+                        4   CONTA PAGAMENTO
+                        5   P2P
+                        6   BENEFÍCIO - ALIMENTAÇÃO
+                        7   BENEFÍCIO - REFEIÇÃO
+                        8   PAGAMENTO CELULAR                    
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="codigoTransacao" type="long" minOccurs="0">
+                <annotation>
+                    <documentation> Deprecated
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="quantidadeParcelas" type="int" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="valorCancelado" type="double" minOccurs="0" />
+            <element name="valorEstorno" type="double" minOccurs="0" />
+            <element name="valorPagamento" type="double" minOccurs="0" />
+            <element name="valorPago" type="double" minOccurs="0" />
+            <element name="moeda" type="comum:Moeda" minOccurs="0" />
+            <element name="vencimento" type="dateTime" minOccurs="0" />
+            <element name="codigoFonteRejeicao" type="int" minOccurs="0" />
+            <element name="codigoMotivoRejeicao" type="int" minOccurs="0" />
+            <element name="codigoSubMotivoRejeicao" type="int" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0" />
+            <element name="dataPagamento" type="dateTime" minOccurs="0" />
+            <element name="numeroTarget" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Boleto">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="dataEmissao" type="date" minOccurs="0" />
+            <element name="dataVencimento" type="date" minOccurs="0" />
+            <element name="seuNumero" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>numero gerado pela Stelo</documentation>
+                </annotation>
+            </element>
+            <element name="nossoNumero" type="string" minOccurs="0" />
+            <element name="usoEmpresa" type="string" minOccurs="0">
+                <annotation>
+                    <documentation>idStelo do Ec + numero do pedido</documentation>
+                </annotation>
+            </element>
+            <element name="mensagem" type="string" minOccurs="0" />
+            <element name="codigoBarras" type="string" minOccurs="0" />
+            <element name="linhaDigitavel" type="string" minOccurs="0" />
+            <element name="situacao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Lancamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="modalidade" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="Debito" />
+                        <enumeration value="Credito" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="data" type="date" minOccurs="0" />
+            <element name="complemento" type="string" minOccurs="0" />
+            <element name="identificador" type="long" minOccurs="0">
+                <annotation>
+                    <documentation>Numero que serve para identificar o lancamento</documentation>
+                </annotation>
+            </element>
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="idOperacaoExterna" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Transferencia">
+        <sequence>
+            <element name="contaDebito" type="contas:Conta" />
+            <element name="contaCredito" type="contas:Conta" />
+            <element name="lancamentoDebito" type="tns:Lancamento" />
+            <element name="lancamentoCredito" type="tns:Lancamento" />
+            <element name="data" type="date" />
+            <element name="valor" type="double" />
+        </sequence>
+    </complexType>
+    <complexType name="TipoPagamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+</schema>

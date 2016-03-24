@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/disputas" xmlns:tns="http://stelo.com.br/domain/disputas"
+    xmlns:pessoas="http://stelo.com.br/domain/pessoas" elementFormDefault="qualified" version="1.0">
+    <complexType name="Motivo">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="descricao" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ListaMotivo">
+        <sequence>
+            <element name="motivo" type="tns:Motivo" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

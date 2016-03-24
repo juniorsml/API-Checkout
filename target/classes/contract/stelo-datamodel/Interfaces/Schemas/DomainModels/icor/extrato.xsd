@@ -1,0 +1,24 @@
+<schema targetNamespace="http://domain.stelo.com.br/icor" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/icor" xmlns:comum="http://stelo.com.br/domain/comum">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="../comum_v1_0.xsd"/>
+    <include schemaLocation="tipoExtrato.xsd"/>
+    <include schemaLocation="periodo.xsd"/>
+    <include schemaLocation="periodicidade.xsd"/>
+    <include schemaLocation="van.xsd"/>
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Extrato</documentation>
+    </annotation>
+    <complexType name="Extrato">
+        <sequence>
+            <element name="tipoExtrato" type="tns:TipoExtrato" minOccurs="0"/>
+            <element name="periodo" type="tns:Periodo" minOccurs="0"/>
+            <element name="periodicidade" type="tns:Periodicidade" minOccurs="0"/>
+            <element name="van" type="tns:Van" minOccurs="0"/>
+            <element name="exibeBandeiraOriginal" type="boolean" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="ListaExtrato">
+        <sequence>
+            <element name="Extrato" type="tns:Extrato" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+</schema>

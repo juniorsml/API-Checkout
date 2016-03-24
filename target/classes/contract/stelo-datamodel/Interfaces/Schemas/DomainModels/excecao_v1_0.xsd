@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://stelo.com.br/domain/comum/excecoes"
+	xmlns:tns="http://stelo.com.br/domain/comum/excecoes"
+	elementFormDefault="qualified" version="1.0">
+
+	<element name="logExcecao" type="tns:LogExcecao" />
+	<element name="excecao" type="tns:Excecao" />
+
+	<complexType name="LogExcecao">
+		<sequence>
+			<element name="excecao" type="tns:Excecao" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Excecoes que geraram o log.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="mensagemOriginal" minOccurs="0">
+				<annotation>
+					<documentation>
+						Texto ou XML da requisicao, contendo o corpo,
+						cabecalho+corpo, metadados, etc.
+					</documentation>
+				</annotation>
+				<complexType mixed="true">
+					<sequence maxOccurs="unbounded">
+						<any namespace="##any" processContents="skip" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ambiente" minOccurs="0">
+				<annotation>
+					<documentation>
+						Dados sobre o ambiente do sistema no momento, ex:
+						variaveis, configuracoes.
+					</documentation>
+				</annotation>
+				<complexType mixed="true">
+					<sequence maxOccurs="unbounded">
+						<any namespace="##any" processContents="skip" />
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Excecao">
+		<sequence>
+			<element name="codigo" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						Referencia da excecao no sistema que a lancou.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="mensagem" type="tns:MensagemExcecao"
+				minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Mensagem explicativa da excecao que ocorreu.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="dataHora" type="dateTime" minOccurs="0">
+				<annotation>
+					<documentation>
+						Data e hora que ocorreu a excecao.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="usuario" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						Usuario de sistema que executou a acao que gerou a
+						excecao.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="origem" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						Sistema, e opcionalmente subsistema e versao, que
+						gerou a excecao.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="causa" type="tns:Excecao" minOccurs="0">
+				<annotation>
+					<documentation>
+						Excecao mais especifica que gerou a excecao.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="trace" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						Stack trace, ou dados contendo o arquivo e linha
+						onde ocorreu a excecao.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="metadados" type="tns:Dictionary" minOccurs="0">
+				<annotation>
+					<documentation>
+						Pares com chave-valor de propriedades definidas pelo
+						sistema.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="documentacao" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						Link para documentacao de ajuda.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="MensagemExcecao">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="tipo" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Pode se referir ao publico ao qual a mensagem sera
+							destinada, como tecnico, usuario final
+							ou textos complementares.
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="Dictionary">
+		<sequence>
+			<element name="item" type="tns:KeyValuePair" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="KeyValuePair">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="key" type="string" use="required" />
+			</extension>
+		</simpleContent>
+	</complexType>
+</schema>

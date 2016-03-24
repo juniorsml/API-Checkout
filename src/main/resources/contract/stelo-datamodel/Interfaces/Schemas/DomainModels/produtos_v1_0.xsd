@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/produtos" xmlns:tns="http://stelo.com.br/domain/produtos"
+    xmlns:pagamentos="http://stelo.com.br/domain/pagamentos" xmlns:proprietarios="http://stelo.com.br/domain/proprietarios"
+    xmlns:parcelas="http://stelo.com.br/domain/parcelas" xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified"
+    version="1.0">
+    <import schemaLocation="pagamentos_v1_0.xsd" namespace="http://stelo.com.br/domain/pagamentos" />
+    <import schemaLocation="proprietarios_v1_0.xsd" namespace="http://stelo.com.br/domain/proprietarios" />
+    <import schemaLocation="parcelas_v1_0.xsd" namespace="http://stelo.com.br/domain/parcelas" />
+    <import schemaLocation="comum_v1_0.xsd" namespace="http://stelo.com.br/domain/comum" />
+    <complexType name="Produto">
+        <sequence>
+            <element name="tipoPagamento" type="pagamentos:TipoPagamento" minOccurs="0" />
+            <element name="proprietario" type="proprietarios:Proprietario" minOccurs="0" />
+            <element name="valorOperacao" type="decimal" minOccurs="0">
+                <annotation>
+                    <documentation> Tarifa Operacional padrao do produto, inicialmente configurada no valor(R$ 0,49)
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="SubProduto">
+        <sequence>
+            <element name="tipoPagamento" type="pagamentos:TipoPagamento" minOccurs="0" />
+            <element name="proprietario" type="proprietarios:Proprietario" minOccurs="0" />
+            <element name="parcelamento" type="parcelas:Parcelamento" minOccurs="0" />
+            <element name="taxaOperacao" type="decimal" minOccurs="0">
+                <annotation>
+                    <documentation> Tarifa Operacional especifica do SubProduto
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="valorMinimoTransacao" type="decimal" minOccurs="0" />
+            <element name="tipoCobranca" type="tns:TipoCobranca" minOccurs="0" />
+            <element name="valorMedioAntecipacao" type="decimal" minOccurs="0" />
+            <element name="valorMDR" type="decimal" minOccurs="0" />
+            <element name="canal" type="string" minOccurs="0" />
+            <element name="listaSubProdutoMoeda" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="subProdutoMoeda" type="tns:SubProdutoMoeda" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="listaParcelas" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="parcela" type="parcelas:Parcela" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="listaPortes" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="porte" type="tns:Porte" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="quantidadeMaximaParcelas" type="int" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="SubProdutoMoeda">
+        <sequence>
+            <element name="moedaTransacao" type="comum:Moeda" minOccurs="0" />
+            <element name="moedaLiquidacao" type="comum:Moeda" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Porte">
+        <annotation>
+            <documentation>Deprecated. utilizar http://stelo.com.br/domain/comum:Porte 
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="string" minOccurs="0" />
+            <element name="tipoCobranca" type="tns:TipoCobranca" minOccurs="0" />
+            <element name="valorMDR" type="decimal" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="SubCategoria">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="Categoria">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <simpleType name="TipoCobranca">
+        <restriction base="string">
+            <enumeration value="Taxa" />
+            <enumeration value="Tarifa" />
+        </restriction>
+    </simpleType>
+    <complexType name="ListaSubProduto">
+        <sequence>
+            <element name="subProduto" type="tns:SubProduto" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

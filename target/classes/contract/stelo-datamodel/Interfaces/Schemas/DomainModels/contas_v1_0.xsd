@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/contas" xmlns:tns="http://stelo.com.br/domain/contas"
+    xmlns:comum="http://stelo.com.br/domain/comum" xmlns:pessoas="http://stelo.com.br/domain/pessoas" elementFormDefault="qualified"
+    version="1.0">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+    <import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+    <complexType name="Conta">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="numeroBanco" type="string" minOccurs="0" />
+            <element name="numeroAgencia" type="string" minOccurs="0" />
+            <element name="digitoAgencia" type="string" minOccurs="0" />
+            <element name="numeroConta" type="string" minOccurs="0" />
+            <element name="dataAbertura" type="date" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="tipoConta" type="string" minOccurs="0" />
+            <element name="idFuncaoConta" type="long" minOccurs="0" />
+            <element name="idRelacionamento" type="comum:Relacionamento" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="ContaPagamento">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="idConta" type="tns:Conta" minOccurs="0" />
+            <element name="pacoteTarifario" type="tns:PacoteTarifario" minOccurs="0" />
+            <element name="dataCadastro" type="date" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="idMotivoBloqueio" type="long" minOccurs="0" />
+            <element name="idMotivoEncerramento" type="long" minOccurs="0" />
+            <element name="numeroGrupoContabil" type="long" minOccurs="0" />
+            <element name="idTipoCadastrado" type="long" minOccurs="0" />
+            <element name="titulares" type="pessoas:Pessoa" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <complexType name="PacoteTarifario">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0" />
+            <element name="percentualCobranca" type="double" minOccurs="0" />
+            <element name="dataVencimentoIsencao" type="date" minOccurs="0" />
+            <element name="cobrada" type="boolean" minOccurs="0" />
+            <element name="cobraTarifaAniversario" type="boolean" minOccurs="0" />
+            <element name="cobraTarifaCadastro" type="boolean" minOccurs="0" />
+            <element name="dataCobranca" type="gMonthDay" minOccurs="0" />
+            <element name="periodicidade" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+    <complexType name="BloqueioSaldo">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="conta" type="tns:Conta" minOccurs="0" />
+            <element name="idMotivo" type="long" minOccurs="0" />
+            <element name="valor" type="decimal" minOccurs="0">
+                <annotation>
+                    <documentation>valor bloqueado</documentation>
+                </annotation>
+            </element>
+            <element name="sistemaOrigem" type="string" minOccurs="0" />
+            <element name="numeroProcessoJudicial" type="string" minOccurs="0" />
+            <element name="data" type="dateTime" minOccurs="0"/>
+        </sequence>
+    </complexType>
+</schema>

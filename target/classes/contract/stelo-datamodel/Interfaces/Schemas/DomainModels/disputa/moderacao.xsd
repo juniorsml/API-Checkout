@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/disputas" xmlns:tns="http://stelo.com.br/domain/disputas"
+    elementFormDefault="qualified" version="1.0">
+    <include schemaLocation="disputa.xsd" />
+    <complexType name="Moderacao">
+        <annotation>
+            <documentation>Moderacao e o termo usado para definir a intervencao da Stelo em uma disputa entre Comprador e Vendedor
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="dataCriacao" type="dateTime" minOccurs="0" />
+            <element name="status" type="string" minOccurs="0" />
+            <element name="disputa" type="tns:Disputa" minOccurs="0" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="ListaModeracao">
+        <sequence>
+            <element name="moderacao" minOccurs="0" maxOccurs="unbounded" type="tns:Moderacao" />
+        </sequence>
+    </complexType>
+    
+</schema>

@@ -1,0 +1,21 @@
+<schema targetNamespace="http://domain.stelo.com.br/icor" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://domain.stelo.com.br/icor" xmlns:comum="http://stelo.com.br/domain/comum">
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="../comum_v1_0.xsd"/>
+    <annotation>
+        <documentation> Versao 1.0 do modelo de entidade Van</documentation>
+    </annotation>
+    <complexType name="Van">
+        <annotation>
+            <documentation> Value-Added Network (VAN)
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="long" minOccurs="0"/>
+            <element name="descricao" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="ListaVan">
+        <sequence>
+            <element name="van" type="tns:Van" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+</schema>

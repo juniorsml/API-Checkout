@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://stelo.com.br/domain/responsavel" 
+	xmlns:tns="http://stelo.com.br/domain/responsavel" 
+	elementFormDefault="qualified"
+	xmlns:pessoas="http://stelo.com.br/domain/pessoas"
+	xmlns:comum="http://stelo.com.br/domain/comum"
+	xmlns:aceites="http://stelo.com.br/domain/aceites"
+    version="1.0">
+
+	<import namespace="http://stelo.com.br/domain/pessoas" schemaLocation="pessoas_v1_0.xsd" />
+	<import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+
+ 	<complexType name="Responsavel">
+        <sequence>
+            <element name="pessoa" type="pessoas:PessoaFisica" minOccurs="0" />
+            <element name="documento" type="comum:Documento" minOccurs="0"/>
+            <element name="telefone" type="comum:Telefone" maxOccurs="unbounded"/>
+            <element name="endereco" type="comum:Endereco" minOccurs="0"/>
+            <element name="email" type="comum:Email" minOccurs="0" />
+            <element name="senha" type="comum:senha" minOccurs="0"/>
+            <element name="inicioRelacionamentoLoja" type="date" minOccurs="0"/>
+            <element name="tipoResponsavel" type="long" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    
+    
+</schema>

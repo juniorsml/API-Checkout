@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    <http:listener-config name="api-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <apikit:config name="api-config" raml="api.raml" consoleEnabled="true" consolePath="console" doc:name="Router"/>
+    <ws:consumer-config name="Web_Service_Consumer" wsdlLocation="contract/1/2/3/4/CheckoutsContract.wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Teste" wsdlLocation="http://10.210.32.43:8011/transacoes/checkouts/v2?wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
+    <flow name="api-main">
+        <http:listener config-ref="api-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <apikit:router config-ref="api-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="api-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="post:/checkout/sub:application/json:api-config">
+        <set-property doc:name="soap.usuario" propertyName="soap.usuario" value="&lt;comum:usuario&gt;&lt;xsl:value-of select=&quot;1&quot;/&gt;&lt;/comum:usuario&gt;"/>
+        <set-property doc:name="soap.canal" propertyName="soap.canal" value="&lt;comum:canal&gt;API_STELO&lt;/comum:canal&gt;"/>
+        <dw:transform-message metadata:id="db14ca26-a876-4ea9-b735-541b2e49ec70" doc:name="Transform Message">
+            <dw:input-payload doc:sample="json_1.json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://services.stelo.com.br/transacoes/checkouts/v2
+%namespace ns9 http://stelo.com.br/domain/cartoes
+%namespace ns6 http://stelo.com.br/domain/comum
+%namespace ns8 http://stelo.com.br/domain/comprador
+%namespace ns5 http://stelo.com.br/domain/pessoas
+%namespace ns4 http://stelo.com.br/domain/pedidos
+%namespace ns10 http://stelo.com.br/domain/comum/tecnicos
+%namespace ns7 http://stelo.com.br/domain/pagamentos
+---
+{
+	ns0#checkout: {
+		ns0#pedido: {
+			ns4#venda: {
+				ns4#codigoPedidoEstabelecimentoComercial: payload.orderData.orderId,
+				ns4#valorTotal: payload.paymentData.amount as :number,
+				(payload.paymentData.cartData map ((cartDatum , indexOfCartDatum) -> {
+					ns4#itens: {
+						ns4#nome: cartDatum.productName,
+						ns4#quantidade: cartDatum.productQuantity,
+						ns4#valorTotal: cartDatum.productQuantity * cartDatum.productPrice,
+						ns4#valorUnitario: cartDatum.productPrice
+					}
+				})),
+				ns4#entrega: {
+					ns4#enderecoEntrega: {
+						ns6#logradouro: payload.customerData.shippingAddress.street,
+						ns6#bairro: payload.customerData.shippingAddress.neighborhood,
+						ns6#numero: payload.customerData.shippingAddress.number,
+						ns6#cidade: payload.customerData.shippingAddress.city,
+						ns6#estado: payload.customerData.shippingAddress.state,
+						ns6#pais: payload.customerData.shippingAddress.country,
+						ns6#cep: payload.customerData.shippingAddress.zipCode
+					},
+					ns4#valorFrete: payload.paymentData.freight as :number,
+					ns4#metodoEnvio: payload.orderData.shippingBehavior
+				}
+			}
+		},
+		ns0#comprador: {
+			ns8#pessoaFisica: {
+				ns5#cpf: payload.customerData.customerIdentity,
+				ns5#nomeCompleto: payload.customerData.customerName
+			},
+			ns8#email: {
+				ns6#endereco: payload.customerData.customerEmail
+			},
+			
+			(payload.customerData.phoneData map ((phoneData , indexOfphoneData) -> {
+					ns8#telefone: {
+						ns4#tipoTelefone: phoneData.type,
+						ns4#ddd: phoneData.areaCode,
+						ns4#numero: phoneData.number 
+					}
+				}))
+		},
+		ns0#pagamento: {
+			ns7#codigoTipoPagamento: payload.paymentData.paymentType,
+			ns7#quantidadeParcelas: payload.paymentData.installment as :number
+		},
+		ns0#cartao: {
+			ns9#idTemporario: payload.paymentData.cardData.token,
+			ns9#enderecoCobranca: {
+				ns6#logradouro: payload.customerData.billingAddress.street,
+				ns6#bairro: payload.customerData.billingAddress.neighborhood,
+				ns6#numero: payload.customerData.billingAddress.number,
+				ns6#cidade: payload.customerData.billingAddress.city,
+				ns6#estado: payload.customerData.billingAddress.state,
+				ns6#cep: payload.customerData.billingAddress.zipCode
+			}
+		},
+		ns0#dadosMaquina: {
+			ns10#deviceFingerPrint: payload.orderData.secureCode
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_Teste" operation="checkout" doc:name="Web Service Consumer"/>
+        <mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="post:/checkout/wallet:api-config">
+        <set-payload value="#[NullPayload.getInstance()]" doc:name="Set Payload"/>
+    </flow>
+    <apikit:mapping-exception-strategy name="api-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

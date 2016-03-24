@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://stelo.com.br/domain/proprietarios" xmlns:tns="http://stelo.com.br/domain/proprietarios"
+    xmlns:comum="http://stelo.com.br/domain/comum" elementFormDefault="qualified" version="1.0">
+
+    <import namespace="http://stelo.com.br/domain/comum" schemaLocation="comum_v1_0.xsd" />
+
+    <complexType name="Proprietario">
+        <sequence>
+            <element name="id" type="long" minOccurs="0" />
+            <element name="nome" type="string" minOccurs="0" />
+        </sequence>
+    </complexType>
+
+</schema>
