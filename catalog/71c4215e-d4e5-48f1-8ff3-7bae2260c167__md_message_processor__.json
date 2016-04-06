@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "checkoutRequestSUB-POST"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Web_Service_Teste",
+            "typeId": "cabecalho"
+        }
+    },
+    "id": "71c4215e-d4e5-48f1-8ff3-7bae2260c167",
+    "version": "5.2.0.0"
+}

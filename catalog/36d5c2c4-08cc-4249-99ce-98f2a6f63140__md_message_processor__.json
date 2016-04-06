@@ -1,0 +1,14 @@
+{
+    "inputMessageMetadata": {
+        "flowVariables": {
+            "phoneDataList": {}
+        }
+    },
+    "outputMessageMetadata": {
+        "flowVariables": {
+            "isPhoneDataValid": {}
+        }
+    },
+    "id": "36d5c2c4-08cc-4249-99ce-98f2a6f63140",
+    "version": "5.2.0.0"
+}

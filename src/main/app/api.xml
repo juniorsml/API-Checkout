@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
-http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
 <mulexml:namespace-manager includeConfigNamespaces="true">
     <mulexml:namespace prefix="ns11" uri="http://domain.stelo.com.br/comum"/>
   </mulexml:namespace-manager>
     <http:listener-config name="api-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <apikit:config name="api-config" raml="api.raml" consoleEnabled="true" consolePath="console" doc:name="Router"/>
-    <ws:consumer-config name="Web_Service_Consumer" wsdlLocation="contract/1/2/3/4/CheckoutsContract.wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Checkout" wsdlLocation="http://10.210.32.43:8011/transacoes/checkouts/v2?wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="Web_Service_Teste" wsdlLocation="http://10.210.32.43:8011/transacoes/checkouts/v2?wsdl" service="CheckoutsContract" port="CheckoutsContractSOAP" serviceAddress="http://10.210.32.43:8011/transacoes/checkouts/v2" doc:name="Web Service Consumer"/>
     <flow name="api-main">
         <http:listener config-ref="api-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
         <apikit:router config-ref="api-config" doc:name="APIkit Router"/>
-        <exception-strategy ref="api-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+        <exception-strategy ref="SteloExceptionStrategy" doc:name="Reference Exception Strategy"/>
     </flow>
     <flow name="post:/checkout/sub:application/json:api-config">
+        <enricher source="#[payload.customerData.phoneData]" target="#[flowVars['phoneDataList']]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        </enricher>
+        <flow-ref name="ValidateExisteCellPhone" metadata:id="36d5c2c4-08cc-4249-99ce-98f2a6f63140" doc:name="ValidateExisteCellPhone"/>
+        <flow-ref name="ValidateStorePickup" doc:name="ValidateStorePickup"/>
+        <logger message="isValideShippingBehavior #[flowVars.isValideShippingBehavior]" level="INFO" doc:name="Logger"/>
+        <validation:is-true expression="#[flowVars.isPhoneDataValid]"
+ 				 exceptionClass="br.com.sciensa.exceptions.APIDataRequiredException"
+  										message="Obrigat&#243;rio telefone do tipo &quot;CELL&quot;" doc:name="Contens Cell Phone Validation"/>
+        <validation:is-true expression="#[flowVars.isValideShippingBehavior]" message="Quando o ShippingBehavior for do tipo &quot;storePickup&quot;, shippingAddress &#233; obrigat&#243;rio" exceptionClass="br.com.sciensa.exceptions.APIDataRequiredException" doc:name="ShippingBehavior Validation"/>
+        <dw:transform-message metadata:id="71c4215e-d4e5-48f1-8ff3-7bae2260c167" doc:name="Transform Message">
+            <dw:input-payload doc:sample="json_2.json"/>
+            <dw:set-property propertyName="soap.cabecalho"><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://domain.stelo.com.br/comum
+---
+{
+	ns0#cabecalho: {
+		ns0#usuario: 111111,
+		ns0#canal: "API_STELO"
+	}
+}]]></dw:set-property>
+        </dw:transform-message>
     <!-- 
     	
      -->
-        <set-property propertyName="soap.usuario" value="&lt;ns11:usuario xmlns:ns11=&quot;http://domain.stelo.com.br/comum&quot;&gt;1&lt;/ns11:usuario&gt;" doc:name="soap.usuario" mimeType="text/xml"/>
-        <set-property propertyName="soap.canal" value="&lt;comum:canal xmlns:comum=&quot;http://domain.stelo.com.br/comum&quot;&gt;API_STELO&lt;/comum:canal&gt;" doc:name="soap.canal" mimeType="text/xml"/>
-        <logger message="outbound #[message.outboundProperties.'soap.usuario'] &amp;&amp;  #[message.outboundProperties.'soap.canal'] " level="INFO" doc:name="Logger"/>
         
         <dw:transform-message metadata:id="db14ca26-a876-4ea9-b735-541b2e49ec70" doc:name="Transform Message">
             <dw:input-payload doc:sample="json_1.json"/>
@@ -39,13 +64,18 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 %namespace ns8 http://stelo.com.br/domain/comprador
 %namespace ns5 http://stelo.com.br/domain/pessoas
 %namespace ns4 http://stelo.com.br/domain/pedidos
-%namespace ns10 http://stelo.com.br/domain/comum/tecnicos
+%namespace ns10	 http://stelo.com.br/domain/comum/tecnicos
 %namespace ns7 http://stelo.com.br/domain/pagamentos
 %namespace ns11 http://domain.stelo.com.br/comum
+%namespace ns1 http://stelo.com.br/domain/ec
 ---
 {
 	ns0#checkout: {
+		ns0#ec: {
+			ns1#id: 11111
+		},
 		ns0#pedido: {
+			ns4#origem: "S",
 			ns4#venda: {
 				ns4#codigoPedidoEstabelecimentoComercial: payload.orderData.orderId,
 				ns4#valorTotal: payload.paymentData.amount as :number,
@@ -80,17 +110,16 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			ns8#email: {
 				ns6#endereco: payload.customerData.customerEmail
 			},
-			(payload.customerData.phoneData map ((phoneData , indexOfphoneData) -> {
-				ns8#telefone: {
-					ns4#tipoTelefone: phoneData.type,
-					ns4#ddd: phoneData.areaCode,
-					ns4#numero: phoneData.number
-				}
-			}))
+			ns8#telefone: {
+				ns6#numero: payload.customerData.phoneData[0].number,
+				ns6#ddd: payload.customerData.phoneData[0].areaCode,
+				ns6#tipoTelefone: 2
+			}
 		},
 		ns0#pagamento: {
-			ns7#codigoTipoPagamento: payload.paymentData.paymentType,
-			ns7#quantidadeParcelas: payload.paymentData.installment as :number
+			ns7#codigoTipoPagamento: 2,
+			ns7#quantidadeParcelas: payload.paymentData.installment as :number,
+			ns7#valorPagamento: payload.paymentData.amount as :number
 		},
 		ns0#cartao: {
 			ns9#idTemporario: payload.paymentData.cardData.token,
@@ -109,38 +138,125 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 	}
 }]]></dw:set-payload>
         </dw:transform-message>
-        <ws:consumer config-ref="Web_Service_Teste" operation="checkout" doc:name="Web Service Consumer"/>
-        <mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+          <ws:consumer config-ref="Web_Service_Checkout" operation="checkout" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="a40319c2-cf46-4813-b185-577c09180c85" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+%namespace ns0 http://services.stelo.com.br/transacoes/checkouts/v2
+%namespace ns1 http://stelo.com.br/domain/pedidos
+---
+{
+	orderId: payload.ns0#checkoutResponse.ns0#pedidoResponse.ns1#codigoPedido as :string
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <exception-strategy ref="SteloExceptionStrategy" doc:name="Reference Exception Strategy"/>
     </flow>
-    <flow name="post:/checkout/wallet:api-config">
-        <set-payload value="#[NullPayload.getInstance()]" doc:name="Set Payload"/>
-    </flow>
-    <apikit:mapping-exception-strategy name="api-apiKitGlobalExceptionMapping">
-        <apikit:mapping statusCode="404">
-            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+    <sub-flow name="ValidateExisteCellPhone">
+        <set-variable variableName="isPhoneDataValid" value="false" doc:name="isPhoneDataValid"/>
+        <foreach collection="#[flowVars.phoneDataList]" doc:name="For Each">
+            <expression-component doc:name="Expression"><![CDATA[#[payload.type.equalsIgnoreCase("CELL")? flowVars.isPhoneDataValid = true]]]></expression-component>
+        </foreach>
+    </sub-flow>
+    <sub-flow name="ValidateStorePickup">
+        <set-variable variableName="isValideShippingBehavior" value="false" doc:name="isValideShippingBehavior"/>
+        <choice tracking:enable-default-events="true" doc:name="Choice">
+            <when expression="json:orderData/shippingBehavior = storePickup">
+                <set-variable variableName="shippingAdress" value="#[json:customerData/shippingAddress]" doc:name="shippingAdress"/>
+                <expression-component doc:name="Expression"><![CDATA[#[(flowVars.shippingAdress != empty?flowVars.isValideShippingBehavior = true)]]]></expression-component>
+            </when>
+            <otherwise>
+                <expression-component doc:name="Expression"><![CDATA[#[flowVars.isValideShippingBehavior = true]]]></expression-component>
+            </otherwise>
+        </choice>
+    </sub-flow>
+    <choice-exception-strategy name="SteloExceptionStrategy">
+    <catch-exception-strategy when="#[exception.causedBy(br.com.sciensa.exceptions.APIDataRequiredException)]" doc:name="br.com.sciensa.exceptions.APIDataRequiredException">
             <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
-            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
-        </apikit:mapping>
-        <apikit:mapping statusCode="405">
-            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="http.status" value="500" doc:name="http.status.500"/>
+            <set-payload value="{ &quot;code&quot;: 500, &quot;message&quot;: &quot;RequiredAPIData&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.ws.consumer.SoapFaultException)]" doc:name="org.mule.module.ws.consumer.SoapFaultException">
             <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
-            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
-        </apikit:mapping>
-        <apikit:mapping statusCode="415">
-            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="http.status" value="500" doc:name="http.status.500"/>
+            <set-payload value="{ &quot;code&quot;: 500, &quot;message&quot;: &quot;Erro n&#227;o especificado&quot;, &quot;description&quot;:  #[exception.toString().split(&quot;:&quot;)[1].toString()]}" doc:name="Erro n&#227;o especificado"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.apikit.exception.BadRequestException)]" doc:name="org.mule.module.apikit.exception.BadRequestException">
+            <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+             <enricher source="#[payload.customerData.phoneData]" target="#[flowVars['phoneDataList']]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        </enricher>
+        <flow-ref name="ValidateExisteCellPhone" metadata:id="36d5c2c4-08cc-4249-99ce-98f2a6f63140" doc:name="ValidateExisteCellPhone"/>
+        <flow-ref name="ValidateStorePickup" doc:name="ValidateStorePickup"/>
+        <logger message="isValideShippingBehavior #[flowVars.isValideShippingBehavior] &amp;&amp;  isPhoneDataValid #[flowVars.isPhoneDataValid]" level="INFO" doc:name="Logger"/>
             <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
-            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
-        </apikit:mapping>
-        <apikit:mapping statusCode="406">
-            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="http.status" value="400" doc:name="http.status.400"/>
+      		<scripting:component doc:name="Groovy">
+				<scripting:script engine="Groovy"><![CDATA[def description = new StringBuilder()
+if(exception.cause != null){
+	description.append(exception.cause)  
+}
+if(flowVars.isValideShippingBehavior != true){
+	description.append(" Quando o ShippingBehavior for do tipo storePickup, shippingAddress é obrigatório")
+}
+if(flowVars.isPhoneDataValid != true ){
+	description.append(" Obrigatório telefone do tipo CELL")
+}
+
+def jsonBuilder = new groovy.json.JsonBuilder()
+jsonBuilder.error(
+	code: 400 ,
+    message : 'Bad request' ,
+    description:  description
+    )
+return jsonBuilder.toPrettyString();]]></scripting:script>
+			</scripting:component>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy == null]" doc:name="Null cause">
             <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
-            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
-        </apikit:mapping>
-        <apikit:mapping statusCode="400">
-            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="http.status" value="500" doc:name="http.status.404"/>
+            <set-payload value="{ &quot;code&quot;: 500, &quot;message&quot;: &quot;Internal Server Error&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.apikit.exception.NotFoundException)]" doc:name="org.mule.module.apikit.exception.NotFoundException">
             <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
-            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
-        </apikit:mapping>
-    </apikit:mapping-exception-strategy>
+            <set-property propertyName="http.status" value="404" doc:name="http.status.404"/>
+            <set-payload value="{ &quot;code&quot;: 404, &quot;message&quot;: &quot;Resource not found&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.apikit.exception.MethodNotAllowedException)]" doc:name="org.mule.module.apikit.exception.MethodNotAllowedException">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="405" doc:name="http.status.405"/>
+            <set-payload value="{ &quot;code&quot;: 405, &quot;message&quot;: &quot;Method not allowed&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.apikit.exception.NotAcceptableException)]" doc:name="org.mule.module.apikit.exception.NotAcceptableException">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="406" doc:name="http.status.406"/>
+            <set-payload value="{ &quot;code&quot;: 406, &quot;message&quot;: &quot;Not acceptable&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        
+        <catch-exception-strategy when="#[exception.causedBy(com.mulesoft.weave.mule.exception.WeaveExecutionException)]" doc:name="com.mulesoft.weave.mule.exception.WeaveExecutionException">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="400" doc:name="http.status.400"/>
+            <set-payload value="{ &quot;code&quot;: 400, &quot;message&quot;: &quot;Bad request&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[xpath3('/detail/*[1]/*[1][namespace-uri() = &quot;http://stelo.com.br/domain/comum/excecoes&quot;]', exception.detail, 'BOOLEAN')]" doc:name="Erro de Neg&#243;cio">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="500" doc:name="http.status.500"/>
+            <set-payload value="{ &quot;code&quot;: #[&quot;\&quot;&quot;+xpath3('/detail/*[1]/exc:codigo', exception.detail, 'STRING')+&quot;\&quot;&quot;], &quot;message&quot;: #[&quot;\&quot;&quot;+xpath3('/detail/*[1]/exc:mensagem', exception.detail, 'STRING')+&quot;\&quot;&quot;], &quot;description&quot;: #[&quot;\&quot;&quot;+xpath3('/detail/*[1]/exc:causa', exception.detail, 'STRING')+&quot;\&quot;&quot;]}" doc:name="Erro de Neg&#243;cio"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[xpath3('/detail/*[1][namespace-uri() = &quot;http://www.bea.com/wli/sb/context&quot;]', exception.detail, 'BOOLEAN')]" doc:name="Erro de Valida&#231;&#227;o">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="400" doc:name="http.status.400"/>
+            <set-payload value="{ &quot;code&quot;: #[&quot;\&quot;&quot;+xpath3('/detail//con:errorCode[1]', exception.detail, 'STRING')+&quot;\&quot;&quot;], &quot;message&quot;: &quot;Bad Request&quot; , &quot;description&quot;: #[&quot;\&quot;&quot;+xpath3('/detail//con1:message[1]', exception.detail, 'STRING')+&quot;\&quot;&quot;]}" doc:name="Erro de Valida&#231;&#227;o"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy when="#[exception.causedBy(org.mule.module.apikit.exception.UnsupportedMediaTypeException)]" doc:name="org.mule.module.apikit.exception.UnsupportedMediaTypeException">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-property propertyName="http.status" value="415" doc:name="http.status.415"/>
+            <set-payload value="{ &quot;code&quot;: 415, &quot;message&quot;: &quot;Unsupported media type&quot;, &quot;description&quot;: #[exception.cause != null ? &quot;\&quot;&quot; + exception.cause + &quot;\&quot;&quot; : &quot;&quot;] }" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        <catch-exception-strategy doc:name="Otherwise">
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Content-Type"/>
+            <set-property propertyName="http.status" value="500" doc:name="http.status.500"/>
+            <set-payload value="{ &quot;code&quot;: 500, &quot;message&quot;: &quot;Server error&quot; &quot;description&quot;: &quot;TESTE&quot;}" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+        
+    </choice-exception-strategy>
 </mule>

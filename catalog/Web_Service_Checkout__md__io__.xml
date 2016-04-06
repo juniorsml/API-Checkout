@@ -1,6 +1,6 @@
 <metadata__cache__entry>
   <version>5.2.0.0</version>
-  <connectorName>Web_Service_Teste</connectorName>
+  <connectorName>Web_Service_Checkout</connectorName>
   <metadataIo class="tree-map">
     <entry>
       <string>checkout</string>
@@ -10,7 +10,7 @@
           <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
             <input class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>Web_Service_Teste</connectorName>
+                <connectorName>Web_Service_Checkout</connectorName>
                 <typeId>cabecalho</typeId>
                 <category>DEFAULT</category>
               </payload>
@@ -398,7 +398,7 @@
             </input>
             <output class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>Web_Service_Teste</connectorName>
+                <connectorName>Web_Service_Checkout</connectorName>
                 <typeId>checkoutResponse</typeId>
                 <category>DEFAULT</category>
               </payload>
